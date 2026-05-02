@@ -4,20 +4,14 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import { prisma } from "@/lib/prisma"
 
-
-
 export async function POST(req: Request) {
   try {
     const body = await req.json()
     const { email, password } = body
 
-
-
     const user = await prisma.user.findUnique({
-      where: { email }
+      where: { email },
     })
-
-
 
     if (!user) {
       return NextResponse.json(
@@ -50,16 +44,15 @@ export async function POST(req: Request) {
         id: user.id,
         email: user.email,
         name: user.name,
-        role: user.role
-      }
+        role: user.role,
+      },
     })
-
   } catch (error) {
-  console.error("LOGIN ERROR:", error) // 👈 terminal me dikhega
+    console.error("LOGIN ERROR:", error) // 👈 terminal me dikhega
 
-  return NextResponse.json(
-    { error: "Server error", details: String(error) },
-    { status: 500 }
-  )
-}
+    return NextResponse.json(
+      { error: "Server error", details: String(error) },
+      { status: 500 }
+    )
+  }
 }

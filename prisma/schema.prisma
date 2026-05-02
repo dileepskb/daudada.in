@@ -39,6 +39,12 @@ enum PropertyStatus {
   RENTED
 }
 
+enum PropertyType {
+  Residential
+  Agricultural
+  Commercial
+}
+
 // =====================
 // USER & ROLE
 // =====================
@@ -116,6 +122,8 @@ model Property {
 
   price    Float
   location String
+
+  propertyType String
 
   status PropertyStatus @default(AVAILABLE)
 

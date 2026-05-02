@@ -50,7 +50,7 @@ const data = {
   ],
   navMain: [
     {
-      title: "Students",
+      title: "Property",
       url: "#",
       icon: (
         <TerminalSquareIcon
@@ -59,12 +59,12 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "Student",
-          url: "/dashboard/students",
+          title: "All Property",
+          url: "/dashboard/property",
         },
         {
-          title: "Certificate",
-          url: "/dashboard/certificate",
+          title: "Add Property",
+          url: "/dashboard/property/add",
         },
         {
           title: "Videos",

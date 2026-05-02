@@ -9,7 +9,8 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
+import {  useEffect, useState } from "react"
+import { property } from "@/types/property"
 import axios from "axios"
 import { ButtonGroup } from "@/components/ui/button-group"
 import { useRouter } from "next/navigation"
@@ -21,33 +22,30 @@ import {
 import { FaRegEdit } from "react-icons/fa"
 import { FaEye } from "react-icons/fa"
 import { MdDelete } from "react-icons/md"
-export default function Page() {
-  const [students, setStudents] = useState<any[]>([])
+export default function Property() {
+  const [properties, setProperties] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
 
   
   const router = useRouter()
-
-// 🔥 fetch function
-  const fetchStudents = async () => {
+useEffect(() => {
+  const fetchData = async () => {
     try {
       setIsLoading(true)
 
-      const res = await axios.get("/api/marksheet/")
-      setStudents(res.data)
+      const res = await axios.post("/api/property")
+      setProperties(res.data)
       setError("")
     } catch (err) {
-      setError("Failed to fetch student details")
+      setError("Failed to fetch data")
     } finally {
       setIsLoading(false)
     }
   }
 
-  // 🔥 load on mount
-  useEffect(() => {
-    fetchStudents()
-  }, [])
+  fetchData()
+}, [])
 
   // 🔥 delete function
   const handleDelete = async (id: number) => {
@@ -61,7 +59,7 @@ export default function Page() {
 
       if (res.ok) {
         // ⚡ instant UI update (best UX)
-        setStudents((prev) => prev.filter((s) => s.id !== id))
+        setProperties((prev) => prev.filter((s:property) => s.id !== id))
       } else {
         alert("Delete failed")
       }
@@ -80,7 +78,7 @@ export default function Page() {
     <div>
       <div className="border p-3">
        <ButtonGroup>
-               <Button onClick={() => router.push("/dashboard/certificate/add/")}>Add Marksheet</Button>
+               <Button onClick={() => router.push("/dashboard/property/add/")}>Add Property</Button>
                <Button>Search</Button>
             </ButtonGroup>
       </div>
@@ -89,17 +87,17 @@ export default function Page() {
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">Name</TableHead>
-            <TableHead>Roll Number</TableHead>
-            <TableHead>course</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
+            <TableHead>Property Type</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="text-right">Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {students?.map((student, index) => (
+          {properties?.map((property:property, index) => (
             <TableRow key={index}>
-              <TableCell className="font-medium">{student.title}</TableCell>
-              <TableCell>{student.roll}</TableCell>
-              <TableCell>{student.course}</TableCell>
+              <TableCell className="font-medium">{property.title}</TableCell>
+              <TableCell>{property.propertyType}</TableCell>
+              <TableCell>{property.status}</TableCell>
               <TableCell className="text-right">
                 <Tooltip>
                   <TooltipTrigger>
@@ -125,7 +123,7 @@ export default function Page() {
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Button onClick={() => handleDelete(student.id)} className="border bg-gray-200 text-black">
+                    <Button onClick={() => handleDelete(property.id)} className="border bg-gray-200 text-black">
                       <MdDelete />
                     </Button>
                   </TooltipTrigger>
