@@ -7,27 +7,15 @@ async function main() {
       name: "Alice",
       email: "alice@prisma.io",
       password:"12345",
-      role:"Admin",
-      posts: {
-        create: {
-          title: "Hello World",
-          content: "This is my first post!",
-          published: true,
-        },
-      },
+      role:"ADMIN",
+      
     },
-    include: {
-      posts: true,
-    },
+  
   });
   console.log("Created user:", user);
 
   // Fetch all users with their posts
-  const allUsers = await prisma.user.findMany({
-    include: {
-      posts: true,
-    },
-  });
+  const allUsers = await prisma.user.findMany({});
   console.log("All users:", JSON.stringify(allUsers, null, 2));
 }
 
