@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Controller, useForm } from "react-hook-form"
+import { Controller, useForm, useFieldArray } from "react-hook-form"
 import { toast } from "sonner"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
@@ -22,8 +22,15 @@ import {
 import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import { property } from "@/types/property"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Checkbox } from "@/components/ui/checkbox"
+
+
+const AMENITIES = [
+  { id: 1, name: "Parking" },
+  { id: 2, name: "Swimming Pool" },
+  { id: 3, name: "Garden" },
+]
 
 const formSchema = z.object({
   title: z.string(),
@@ -31,6 +38,13 @@ const formSchema = z.object({
   price: z.number(),
   location: z.string(),
   propertyType: z.string(),
+  amenities: z.array(z.number()).default([]),
+  specifications: z.array(
+    z.object({
+      key: z.string(),
+      value: z.string(),
+    })
+  ).default([]),
 })
 
 
@@ -38,6 +52,7 @@ const formSchema = z.object({
 export default function AddProperty() {
   const [uploading, setUploading] = useState(false)
   const router = useRouter()
+ 
 
   const form = useForm<z.infer<typeof formSchema>>({
     defaultValues: {
@@ -46,10 +61,19 @@ export default function AddProperty() {
       price: 0,
       location: "",
       propertyType: "",
+      amenities: [],
+      specifications: [{ key: "", value: "" }],
     },
   })
 
-  async function onSubmit(data: property) {
+   const { control, register } = form
+
+const { fields, append, remove } = useFieldArray({
+  control,
+  name: "specifications",
+})
+
+  async function onSubmit(data: z.infer<typeof formSchema>) {
     setUploading(true)
     try {
       const res = await fetch("/api/property/add", {
@@ -71,7 +95,8 @@ export default function AddProperty() {
         position: "bottom-right",
       })
       // router.push("/dashboard/students/")
-    } catch (error: any) {
+    } catch (err: unknown) {
+      const error = err as Error;
       // ❌ Error toast
       setUploading(false)
       toast("Error", {
@@ -98,7 +123,7 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title">title</FieldLabel>
+                  <FieldLabel htmlFor="form-rhf-demo-title">Title</FieldLabel>
                   <Input
                     {...field}
                     id="form-rhf-demo-title"
@@ -118,7 +143,7 @@ export default function AddProperty() {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-demo-title">
-                    description
+                    Description
                   </FieldLabel>
                   <Input
                     {...field}
@@ -138,13 +163,15 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title">price</FieldLabel>
+                  <FieldLabel htmlFor="form-rhf-demo-title">Price</FieldLabel>
                   <Input
                     {...field}
                     id="form-rhf-demo-title"
                     aria-invalid={fieldState.invalid}
                     placeholder="price"
                     autoComplete="off"
+                    type="number"
+                    onChange={(e) => field.onChange(Number(e.target.value))}
                   />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
@@ -202,6 +229,71 @@ export default function AddProperty() {
     </Field>
   )}
 />
+<Controller
+  name="amenities"
+  control={form.control}
+  defaultValue={[]}
+  render={({ field }) => (
+    <div className="space-y-2">
+      <label className="text-sm font-medium">Amenities</label>
+
+      {AMENITIES.map((item) => (
+        <div key={item.id} className="flex items-center space-x-2">
+          <Checkbox
+            checked={field.value?.includes(item.id)}
+            onCheckedChange={(checked) => {
+              if (checked) {
+                field.onChange([...field.value, item.id])
+              } else {
+                field.onChange(
+                  field.value.filter((id: number) => id !== item.id)
+                )
+              }
+            }}
+          />
+          <span>{item.name}</span>
+        </div>
+      ))}
+    </div>
+  )}
+/>
+<div className="space-y-4">
+  <label className="text-sm font-medium">Specifications</label>
+
+  {fields.map((field, index) => (
+    <div key={field.id} className="flex gap-2">
+
+      {/* Key */}
+      <Input
+        placeholder="Key (Area, Facing)"
+        {...register(`specifications.${index}.key`)}
+      />
+
+      {/* Value */}
+      <Input
+        placeholder="Value (1 Acre, East)"
+        {...register(`specifications.${index}.value`)}
+      />
+
+      {/* Remove */}
+      <Button
+        type="button"
+        variant="destructive"
+        onClick={() => remove(index)}
+      >
+        X
+      </Button>
+    </div>
+  ))}
+
+  {/* Add More */}
+  <Button
+    type="button"
+    onClick={() => append({ key: "", value: "" })}
+  >
+    + Add Specification
+  </Button>
+</div>
             
           </FieldGroup>
         </form>

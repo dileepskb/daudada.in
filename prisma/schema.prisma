@@ -130,9 +130,50 @@ model Property {
   createdById Int
   createdBy   User @relation("CreatedProperties", fields: [createdById], references: [id])
 
-  images PropertyImage[]
+  images          PropertyImage[]
+  specification   Specification[]
+  propertyAmenity PropertyAmenity[]
 
   createdAt DateTime @default(now())
+}
+
+// =====================
+// PROPERTY SPECIFICATION
+// =====================
+model Specification {
+  id    Int    @id @default(autoincrement())
+  key   String // "Area", "PricePerSqFt"
+  value String // "1 Acre", "₹115"
+
+  propertyId Int
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+}
+
+// =====================
+// AMENITIES MASTER
+// =====================
+
+model Amenity {
+  id   Int    @id @default(autoincrement())
+  name String @unique // Parking, Pool, Garden
+
+  properties PropertyAmenity[]
+}
+
+// =====================
+// PROPERTY ↔ AMENITIES (Many-to-Many)
+// =====================
+
+model PropertyAmenity {
+  id Int @id @default(autoincrement())
+
+  propertyId Int
+  amenityId  Int
+
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  amenity  Amenity  @relation(fields: [amenityId], references: [id])
+
+  @@unique([propertyId, amenityId])
 }
 
 // =====================

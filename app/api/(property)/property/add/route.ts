@@ -11,27 +11,42 @@ export async function POST(req: Request) {
       price,
       location,
       propertyType,
-      status,
+      specifications,
+      amenities,
     } = body
 
     const property = await prisma.property.create({
       data: {
         title,
         description,
-        price:Number(price),
+        price,
         location,
         propertyType,
-        status,
-        createdById: 1, // ⚠️ replace with auth user
+
+        createdById: 1, // ✅ correct field
+
+        specification: {
+          create: specifications,
+        },
+
+        propertyAmenity: {
+          create: amenities.map((id: number) => ({
+            amenity: {
+              connectOrCreate: {
+                where: { id }, // ⚠️ works only if id known
+                create: {
+                  name: `Amenity-${id}`,
+                },
+              },
+            },
+          })),
+        },
       },
     })
 
     return NextResponse.json(property)
   } catch (error) {
     console.error(error)
-    return NextResponse.json(
-      { error: "Something went wrong" },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: "Something went wrong" }, { status: 500 })
   }
 }

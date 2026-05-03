@@ -82,7 +82,7 @@ useEffect(() => {
                <Button>Search</Button>
             </ButtonGroup>
       </div>
-      <Table>
+      <Table className="border">
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
           <TableRow>
