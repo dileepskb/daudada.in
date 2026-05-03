@@ -13,59 +13,195 @@ datasource db {
   provider = "postgresql"
 }
 
+// =====================
+// ENUMS
+// =====================
+
+enum Role {
+  ADMIN
+  DEPARTMENT
+  PROJECT_MANAGER
+  TEAM_MEMBER
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  NEGOTIATION
+  WON
+  LOST
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  SOLD
+  RENTED
+}
+
+enum PropertyType {
+  Residential
+  Agricultural
+  Commercial
+}
+
+// =====================
+// USER & ROLE
+// =====================
+
 model User {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
-  name     String?
-  role     String
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
   password String
-  posts    Post[]
+  role     Role
+
+  departmentId Int?
+  department   Department? @relation(fields: [departmentId], references: [id])
+
+  createdLeads  Lead[] @relation("CreatedBy")
+  assignedLeads Lead[] @relation("AssignedTo")
+
+  properties Property[] @relation("CreatedProperties")
+
+  createdAt  DateTime   @default(now())
+  activities Activity[]
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
-}
+// =====================
+// DEPARTMENT
+// =====================
 
-model Student {
-  id          Int     @id @default(autoincrement())
-  name        String
-  roll        String  @unique
-  course      String?
-  so          String? // father name
-  session     String?
-  issue       String?
-  birth       String?
-  during      String?
-  endDate     String?
-  pass        String?
-  image       String? // base64 or URL
-  student     String?
-  studycentre String?
+model Department {
+  id   Int    @id @default(autoincrement())
+  name String
 
-  marksheet Marksheet[]
+  users User[]
+  leads Lead[]
 
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
-model Marksheet {
+// =====================
+// LEADS
+// =====================
+
+model Lead {
   id    Int     @id @default(autoincrement())
-  title String?
-  roll  String  @unique
+  name  String
+  phone String
+  email String?
 
-  com        Int?
-  ms         Int?
-  accounting Int?
-  dtp        Int?
-  it         Int?
+  status LeadStatus @default(NEW)
+  source String? // facebook, website etc
 
-  studentId Int
-  student   Student @relation(fields: [studentId], references: [id])
+  departmentId Int?
+  department   Department? @relation(fields: [departmentId], references: [id])
+
+  createdById Int
+  createdBy   User @relation("CreatedBy", fields: [createdById], references: [id])
+
+  assignedToId Int?
+  assignedTo   User? @relation("AssignedTo", fields: [assignedToId], references: [id])
+
+  notes String?
+
+  activities Activity[]
+
+  createdAt DateTime @default(now())
+}
+
+// =====================
+// PROPERTIES
+// =====================
+
+model Property {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String?
+
+  price    Float
+  location String
+
+  propertyType String
+
+  status PropertyStatus @default(AVAILABLE)
+
+  createdById Int
+  createdBy   User @relation("CreatedProperties", fields: [createdById], references: [id])
+
+  images          PropertyImage[]
+  specification   Specification[]
+  propertyAmenity PropertyAmenity[]
+
+  createdAt DateTime @default(now())
+}
+
+// =====================
+// PROPERTY SPECIFICATION
+// =====================
+model Specification {
+  id    Int    @id @default(autoincrement())
+  key   String // "Area", "PricePerSqFt"
+  value String // "1 Acre", "₹115"
+
+  propertyId Int
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+}
+
+// =====================
+// AMENITIES MASTER
+// =====================
+
+model Amenity {
+  id   Int    @id @default(autoincrement())
+  name String @unique // Parking, Pool, Garden
+
+  properties PropertyAmenity[]
+}
+
+// =====================
+// PROPERTY ↔ AMENITIES (Many-to-Many)
+// =====================
+
+model PropertyAmenity {
+  id Int @id @default(autoincrement())
+
+  propertyId Int
+  amenityId  Int
+
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  amenity  Amenity  @relation(fields: [amenityId], references: [id])
+
+  @@unique([propertyId, amenityId])
+}
+
+// =====================
+// PROPERTY IMAGES
+// =====================
+
+model PropertyImage {
+  id  Int    @id @default(autoincrement())
+  url String
+
+  propertyId Int
+  property   Property @relation(fields: [propertyId], references: [id])
+}
+
+// =====================
+// ACTIVITIES (Lead Tracking)
+// =====================
+
+model Activity {
+  id   Int     @id @default(autoincrement())
+  type String // call, meeting, follow-up
+  note String?
+
+  leadId Int
+  lead   Lead @relation(fields: [leadId], references: [id])
+
+  createdById Int
+  createdBy   User @relation(fields: [createdById], references: [id])
 
   createdAt DateTime @default(now())
 }
