@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 export default function Hero(){
     return(
         <main className="main-content">
    <div className="home-page">
       <section className="hero-section">
-         <video className="hero-video" autoPlay={true} loop={true} >
+         <video className="hero-video" autoPlay={true} loop={true} muted>
             <source src="https://customer-assets.emergentagent.com/job_verified-brij-plots/artifacts/03rwxo4k_videoplayback%20%281%29.mp4" type="video/mp4" />
          </video>
          <div className="hero-overlay"></div>
@@ -17,7 +19,7 @@ export default function Hero(){
             </div>
             <h1 className="hero-title">Brij Ki Dharti Par<br /><span className="highlight">Surakshit Nivesh</span></h1>
             <p className="hero-subtitle">Where Faith Meets Legal Certainty</p>
-            <p className="hero-description">Expert property consultancy in Goverdhan, Variava, Mathura &amp; Vrindavan.<br />30-year title verification • Physical possession guarantee • Complete legal safety</p>
+            <p className="hero-description">Expert property consultancy in Jatipura, Goverdhan, Barsana, Vrindavan &amp; Mathura.<br />30-year title verification • Physical possession guarantee • Complete legal safety</p>
             <div className="hero-buttons">
                <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8">View Properties</button>
                <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-accent hover:text-accent-foreground h-10 rounded-md px-8">
@@ -66,7 +68,7 @@ export default function Hero(){
                            <path d="m9 12 2 2 4-4"></path>
                         </svg>
                      </div>
-                     <h3 className="usp-title">Legal Verification</h3>
+                     <h3 className="usp-title"><Link href="/legal-verification">Legal Verification</Link></h3>
                      <p className="usp-description">Complete 30-year title search by expert lawyers. We verify Mutation (Dakhil-Kharij) and provide Clean Signal report before token payment.</p>
                      <ul className="usp-features">
                         <li>Chain of Documents Check</li>
@@ -85,7 +87,7 @@ export default function Hero(){
                            <path d="m16 18 2 2 4-4"></path>
                         </svg>
                      </div>
-                     <h3 className="usp-title">Physical Possession</h3>
+                     <h3 className="usp-title"><Link href="/physical-possession">Physical Possession</Link></h3>
                      <p className="usp-description">On-site measurement and boundary verification. We ensure ground reality matches paper records and facilitate immediate possession.</p>
                      <ul className="usp-features">
                         <li>Physical Land Measurement</li>
@@ -104,7 +106,7 @@ export default function Hero(){
                            <circle cx="7.5" cy="15.5" r="5.5"></circle>
                         </svg>
                      </div>
-                     <h3 className="usp-title">Complete Support</h3>
+                     <h3 className="usp-title"><Link href="/complete-support">Complete Support</Link></h3>
                      <p className="usp-description">From direct landowner negotiations to final registry. We handle MVDA compliance and post-sale Dakhil-Kharij assistance.</p>
                      <ul className="usp-features">
                         <li>Best Market Price</li>
@@ -115,7 +117,7 @@ export default function Hero(){
                   </div>
                </div>
             </div>
-            <div className="cta-center"><button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8">Learn Our Complete Process</button></div>
+            <div className="cta-center"><Link href={"#"} className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8">Learn Our Complete Process</Link></div>
          </div>
       </section>
       <section className="featured-section">
@@ -795,7 +797,7 @@ export default function Hero(){
                </svg>
                <h2 className="cta-title">Ready to Invest in the Holy Land?</h2>
                <p className="cta-description">Let our experts guide you to a safe and profitable property investment in Brij region</p>
-               <div className="cta-buttons"><button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8">Get Free Consultation</button><button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-accent hover:text-accent-foreground h-10 rounded-md px-8">Browse Properties</button></div>
+               <div className="cta-buttons"><button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8">Get Free Consultation</button><Link href={'/properties'} className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-accent hover:text-accent-foreground h-10 rounded-md px-8">Browse Properties</Link></div>
             </div>
          </div>
       </section>

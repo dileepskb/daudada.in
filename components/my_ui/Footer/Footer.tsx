@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image"
 
 export default function Footer(){
     return(
@@ -7,10 +8,7 @@ export default function Footer(){
       <div className="footer-grid">
          <div className="footer-col">
             <div className="footer-logo">
-               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-mountain" aria-hidden="true">
-                  <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
-               </svg>
-               <div className="logo-text"><span className="brand-name">Dau Dada</span><span className="tagline">Real Estate Consultants</span></div>
+               <Link href={'/'}><Image src="/image/Profile_Image2-02-1.png" width="150" height="70" alt="Dau Dada Property" /></Link>
             </div>
             <p className="footer-desc">Your trusted partner in the holy land. We ensure 100% legal safety and verified possession for every property transaction.</p>
             <div className="social-links">
@@ -48,8 +46,8 @@ export default function Footer(){
          <div className="footer-col">
             <h3 className="footer-title">Our Services</h3>
             <ul className="footer-links">
-               <li><Link href="#legal">Legal Verification</Link></li>
-               <li><Link href="#physical">Physical Audit</Link></li>
+               <li><Link href="/legal-verification">Legal Verification</Link></li>
+               <li><Link href="/physical-possession">Physical Audit</Link></li>
                <li><Link href="#registry">Registry Support</Link></li>
                <li><Link href="#mutation">Dakhil-Kharij</Link></li>
                <li><Link href="#possession">Possession Transfer</Link></li>
@@ -82,8 +80,8 @@ export default function Footer(){
          </div>
       </div>
       <div className="footer-bottom">
-         <p>© 2024 Dau Dada Real Estate Consultants. All rights reserved.</p>
-         <div className="footer-bottom-links"><a href="#privacy">Privacy Policy</a><a href="#terms">Terms of Service</a></div>
+         <p>© 2026 Dau Dada Real Estate Consultants. All rights reserved.</p>
+         <div className="footer-bottom-links"><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-and-conditions">Terms of Service</Link><Link href="/cookie-policy">Cookie Policy</Link></div>
       </div>
    </div>
 </footer>

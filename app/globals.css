@@ -501,12 +501,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.top-bar {
-  background: linear-gradient(135deg, var(--terracotta-600), var(--terracotta-500));
-  color: white;
-  padding: 8px 0;
-  font-size: 14px;
-}
+
 
 .contact-info {
   display: flex;
@@ -514,18 +509,6 @@
   flex-wrap: wrap;
 }
 
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: white;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.contact-link:hover {
-  opacity: 0.85;
-}
 
 .main-nav {
   padding: 16px 0;
@@ -3547,23 +3530,7 @@
   line-height: 1.5;
 }
 
-.contact-link {
-  display: inline-block;
-  background: #d32f2f;
-  color: white;
-  padding: 10px 24px;
-  font-family: 'Merriweather', serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background 0.2s;
-}
 
-.contact-link:hover {
-  background: #b71c1c;
-}
 
 /* E-Book Download Box */
 .ebook-download-box {

@@ -244,6 +244,16 @@ export default function Contact() {
                   <h2 className="area-title">Our Service Area</h2>
                   <p className="area-intro">We specialize exclusively in the Brij region, providing deep local knowledge and extensive networks in:</p>
                   <div className="locations-grid">
+                      <div className="location-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-map-pin" aria-hidden="true">
+                           <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                           <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <div>
+                           <strong>Jatipura</strong>
+                           <p>Residential plots near Parikrama Marg</p>
+                        </div>
+                     </div>
                      <div className="location-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-map-pin" aria-hidden="true">
                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
@@ -260,7 +270,7 @@ export default function Contact() {
                            <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                         <div>
-                           <strong>Variava</strong>
+                           <strong>Barsana</strong>
                            <p>Agricultural and large plot investments</p>
                         </div>
                      </div>
