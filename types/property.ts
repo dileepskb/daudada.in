@@ -7,3 +7,14 @@ export type property = {
   propertyType: string
   status:string
 }
+
+export type testimonial = {
+    id:number
+  name: string
+  role:string
+  content: string
+  star: number
+  location: string
+  image?:string
+  createAt:string
+}

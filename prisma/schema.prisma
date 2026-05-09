@@ -205,3 +205,21 @@ model Activity {
 
   createdAt DateTime @default(now())
 }
+
+// =====================
+// Testimonial
+// =====================
+model Testimonial {
+  id        Int      @id @default(autoincrement())
+
+  content   String   // testimonial text
+  name      String   // Rajesh Sharma
+  role      String?  // Engineer
+  location  String?  // Delhi
+  star      Int
+  image     String?
+
+  isActive  Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+}

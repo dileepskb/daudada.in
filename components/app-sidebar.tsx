@@ -81,6 +81,25 @@ const data = {
         // },
       ],
     },
+    {
+      title: "Testimonial",
+      url: "#",
+      icon: (
+        <TerminalSquareIcon
+        />
+      ),
+      isActive: true,
+      items: [
+        {
+          title: "All Testimonial",
+          url: "/dashboard/testimonial",
+        },
+        {
+          title: "Add Testimonial",
+          url: "/dashboard/testimonial/add",
+        },
+      ],
+    },
     // {
     //   title: "Models",
     //   url: "#",
