@@ -14,7 +14,7 @@ export default function News() {
          </div>
          <div className="masthead-bottom">
             <div className="date-info">
-               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-calendar" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-calendar" aria-hidden="true">
                   <path d="M8 2v4"></path>
                   <path d="M16 2v4"></path>
                   <rect width="18" height="18" x="3" y="4" rx="2"></rect>
@@ -29,14 +29,14 @@ export default function News() {
          <div className="container">
             <button className="category-tab active"><span>All</span></button>
             <button className="category-tab ">
-               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-trending-up" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trending-up" aria-hidden="true">
                   <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
                   <polyline points="16 7 22 7 22 13"></polyline>
                </svg>
                <span>Market Watch</span>
             </button>
             <button className="category-tab ">
-               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-scale" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-scale" aria-hidden="true">
                   <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
                   <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
                   <path d="M7 21h10"></path>
@@ -46,7 +46,7 @@ export default function News() {
                <span>Legal Bulletin</span>
             </button>
             <button className="category-tab ">
-               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-circle-alert" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-alert" aria-hidden="true">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="12" x2="12" y1="8" y2="12"></line>
                   <line x1="12" x2="12.01" y1="16" y2="16"></line>
@@ -54,7 +54,7 @@ export default function News() {
                <span>Local Development</span>
             </button>
             <button className="category-tab ">
-               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-lightbulb" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-lightbulb" aria-hidden="true">
                   <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
                   <path d="M9 18h6"></path>
                   <path d="M10 22h4"></path>
@@ -97,7 +97,7 @@ export default function News() {
                   </div>
                   <div className="alert-box">
                      <div className="alert-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-circle-alert" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-alert" aria-hidden="true">
                            <circle cx="12" cy="12" r="10"></circle>
                            <line x1="12" x2="12" y1="8" y2="12"></line>
                            <line x1="12" x2="12.01" y1="16" y2="16"></line>
@@ -128,7 +128,7 @@ export default function News() {
                            <div className="story-image-small"><img alt="Circle Rates Increase by 12% in Mathura District" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" /></div>
                            <div className="story-content-small">
                               <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground story-tag">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-trending-up" aria-hidden="true">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trending-up" aria-hidden="true">
                                     <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
                                     <polyline points="16 7 22 7 22 13"></polyline>
                                  </svg>
@@ -145,7 +145,7 @@ export default function News() {
                            <div className="story-image-small"><img alt="5 Essential Checks Before Buying Agricultural Land" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800" /></div>
                            <div className="story-content-small">
                               <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground story-tag">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-lightbulb" aria-hidden="true">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-lightbulb" aria-hidden="true">
                                     <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
                                     <path d="M9 18h6"></path>
                                     <path d="M10 22h4"></path>
@@ -163,7 +163,7 @@ export default function News() {
                            <div className="story-image-small"><img alt="Vrindavan Temple Corridor Phase 2 Approved" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800" /></div>
                            <div className="story-content-small">
                               <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground story-tag">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-circle-alert" aria-hidden="true">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-alert" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <line x1="12" x2="12" y1="8" y2="12"></line>
                                     <line x1="12" x2="12.01" y1="16" y2="16"></line>
@@ -181,7 +181,7 @@ export default function News() {
                            <div className="story-image-small"><img alt="Dakhil-Kharij Process Now Online in Mathura" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800" /></div>
                            <div className="story-content-small">
                               <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground story-tag">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-scale" aria-hidden="true">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-scale" aria-hidden="true">
                                     <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
                                     <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
                                     <path d="M7 21h10"></path>
@@ -201,7 +201,7 @@ export default function News() {
                            <div className="story-image-small"><img alt="Investment Returns: Goverdhan vs Vrindavan Comparison" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" /></div>
                            <div className="story-content-small">
                               <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground story-tag">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-trending-up" aria-hidden="true">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trending-up" aria-hidden="true">
                                     <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
                                     <polyline points="16 7 22 7 22 13"></polyline>
                                  </svg>
@@ -218,7 +218,7 @@ export default function News() {
                            <div className="story-image-small"><img alt="Metro Extension to Mathura: Timeline Updated" src="https://images.unsplash.com/photo-1533562906091-fdfdffc3e3c4?w=800" /></div>
                            <div className="story-content-small">
                               <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground story-tag">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-circle-alert" aria-hidden="true">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-alert" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <line x1="12" x2="12" y1="8" y2="12"></line>
                                     <line x1="12" x2="12.01" y1="16" y2="16"></line>
@@ -310,7 +310,7 @@ export default function News() {
                         <li>✓ Step-by-step buying process</li>
                      </ul>
                      <button className="ebook-download-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                            <polyline points="7 10 12 15 17 10"></polyline>
                            <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -343,7 +343,7 @@ export default function News() {
                         </div>
                      </div>
                      <a href="/properties" className="classified-cta-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                            <path d="M12 5v14M5 12h14"></path>
                         </svg>
                         LIST YOUR PROPERTY NOW
@@ -374,7 +374,7 @@ export default function News() {
                         </div>
                      </div>
                      <a href="/properties" className="classified-cta-btn classified-cta-btn-buy">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                         BROWSE VERIFIED PLOTS
@@ -398,14 +398,14 @@ export default function News() {
                <p className="banner-subtext">Dau Dada Property Group ke saath har deal 100% safe aur verified!</p>
                <div className="banner-actions">
                   <a href="/properties" className="banner-btn banner-btn-sell">
-                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                         <polyline points="9 22 9 12 15 12 15 22"></polyline>
                      </svg>
                      SELL YOUR PROPERTY
                   </a>
                   <a href="/properties" className="banner-btn banner-btn-buy">
-                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                      </svg>
                      BROWSE VERIFIED PLOTS
