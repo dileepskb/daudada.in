@@ -1,422 +1,336 @@
-import Link from "next/link";
-import HomeCounter from "../HomeCounter/HomeCounter";
-import ClientSay from "../ClientSay/ClientSay";
+// import Link from "next/link";
+// import HomeCounter from "../HomeCounter/HomeCounter";
+// import ClientSay from "../ClientSay/ClientSay";
 
 export default function Hero(){
     return(
-        <main className="main-content">
-   <div className="home-page">
-      <section className="hero-section">
-         <video className="hero-video" autoPlay={true} loop={true} muted>
-            <source src="https://customer-assets.emergentagent.com/job_verified-brij-plots/artifacts/03rwxo4k_videoplayback%20%281%29.mp4" type="video/mp4" />
-         </video>
-         <div className="hero-overlay"></div>
-         <div className="container hero-content">
-            <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80 hero-badge">
-               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check" aria-hidden="true">
+        <main className="flex-1">
+   <div data-testid="home-page">
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
+         <div className="absolute inset-0">
+            <video data-testid="hero-video" autoPlay loop playsInline preload="auto" muted className="w-full h-full object-cover bg-brand-ink">
+               <source src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/jsv86xr4_Goverdhan%20Today.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-brand-ivory"></div>
+         </div>
+         <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-24 w-full">
+            <div className="max-w-3xl text-white fade-up">
+               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur text-xs uppercase tracking-[0.2em] mb-6"><span className="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>Jai Shri Giriraj Ji</div>
+               <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[0.95] tracking-tight mb-6">Explore the Brij: Find Your <em className="text-brand-gold not-italic font-normal">Sacred Space</em></h1>
+               <p className="text-lg md:text-xl font-light opacity-90 mb-8 max-w-2xl leading-relaxed">Premium real estate consultancy for the sacred Brij region. Every plot we represent comes with a 30-year title search and MVDA compliance — verified by our in-house lawyer.</p>
+            </div>
+            <form data-testid="hero-search-form" className="mt-10 bg-white rounded-2xl shadow-soft border border-brand-cream p-5 md:p-7 max-w-5xl">
+               <div dir="ltr" data-orientation="horizontal" className="mb-5">
+                  <div role="tablist" aria-orientation="horizontal" className="inline-flex items-center justify-center text-muted-foreground bg-brand-cream rounded-full p-1 h-auto" tabIndex={0} data-orientation="horizontal" style={{ outline: 'none'}}><button type="button" role="tab" aria-selected="true" aria-controls="radix-_r_0_-content-buy" data-state="active" id="radix-_r_0_-trigger-buy" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-6 py-2 text-sm" data-testid="hero-buy-tab" tabIndex={-1} data-orientation="horizontal" data-radix-collection-item="">Buy</button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_r_0_-content-rent" data-state="inactive" id="radix-_r_0_-trigger-rent" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-6 py-2 text-sm" data-testid="hero-rent-tab" tabIndex={-1} data-orientation="horizontal" data-radix-collection-item="">Rent</button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_r_0_-content-sell" data-state="inactive" id="radix-_r_0_-trigger-sell" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-6 py-2 text-sm" data-testid="hero-sell-tab" tabindex="-1" data-orientation="horizontal" data-radix-collection-item="">Sell</button></div>
+               </div>
+               <div className="grid md:grid-cols-12 gap-3">
+                  <div className="md:col-span-3">
+                     <button type="button" role="combobox" aria-controls="radix-_r_4_" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" className="flex w-full items-center justify-between whitespace-nowrap border bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&amp;&gt;span]:line-clamp-1 h-12 rounded-xl border-brand-cream" data-testid="hero-location-select">
+                        <span style={{ pointerEvents: 'none'}}>All Brij Locations</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true">
+                           <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                     </button>
+                     <select aria-hidden="true" tabIndex={-1} style={{ position: 'absolute', border: '0px', width: '1px', height: '1px', padding: '0px', margin: '-1px', overflow: 'hidden', clip: 'rect(0px, 0px, 0px, 0px)', whiteSpace: 'nowrap', overflowWrap: 'normal'}}>
+                        <option value="all">All Brij Locations</option>
+                        <option value="Govardhan">Govardhan</option>
+                        <option value="Vrindavan">Vrindavan</option>
+                        <option value="Mathura">Mathura</option>
+                        <option value="Barsana">Barsana</option>
+                        <option value="Jatipura">Jatipura</option>
+                     </select>
+                  </div>
+                  <div className="md:col-span-4">
+                     <div className="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-search absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-ink-soft" aria-hidden="true">
+                           <path d="m21 21-4.34-4.34"></path>
+                           <circle cx="11" cy="11" r="8"></circle>
+                        </svg>
+                        <input className="flex w-full border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm h-12 rounded-xl pl-9 border-brand-cream" data-testid="hero-locality-input" placeholder="Locality (Parikrama Marg, Chhatikara…)" value="" />
+                     </div>
+                  </div>
+                  <div className="md:col-span-3">
+                     <button type="button" role="combobox" aria-controls="radix-_r_5_" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" className="flex w-full items-center justify-between whitespace-nowrap border bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&amp;&gt;span]:line-clamp-1 h-12 rounded-xl border-brand-cream" data-testid="hero-type-select">
+                        <span style={{ pointerEvents: 'none'}}>All Types</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true">
+                           <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                     </button>
+                     <select aria-hidden="true" tabIndex={-1} style={{ position: 'absolute', border: '0px', width: '1px', height: '1px', padding: '0px', margin: '-1px', overflow: 'hidden', clip: 'rect(0px, 0px, 0px, 0px)', whiteSpace: 'nowrap', overflowWrap: 'normal'}}>
+                        <option value="all">All Types</option>
+                        <option value="plot">Plot</option>
+                        <option value="residential">Residential</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="farmhouse">Farmhouse</option>
+                     </select>
+                  </div>
+                  <div className="md:col-span-2"><button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow px-4 py-2 w-full h-12 rounded-xl bg-brand-red text-white hover:bg-brand-red-dark shadow-brand" data-testid="hero-search-btn" type="submit">Search</button></div>
+               </div>
+            </form>
+         </div>
+      </section>
+      <section className="bg-brand-ivory py-10 border-b border-brand-cream" data-testid="quick-nav">
+         <div className="max-w-7xl mx-auto px-6 md:px-10">
+            <p className="text-center text-xs uppercase tracking-[0.25em] text-brand-red mb-6">Jump to your sacred location</p>
+            <div className="flex justify-center flex-wrap gap-6 md:gap-10">
+               <a data-testid="quick-nav-Mathura" className="group flex flex-col items-center gap-3" href="/properties?loc=Mathura" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Mathura" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+                  <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Mathura</span>
+               </a>
+               <a data-testid="quick-nav-Govardhan" className="group flex flex-col items-center gap-3" href="/properties?loc=Govardhan" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Govardhan" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+                  <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Govardhan</span>
+               </a>
+               <a data-testid="quick-nav-Vrindavan" className="group flex flex-col items-center gap-3" href="/properties?loc=Vrindavan" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Vrindavan" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1567604130959-7ea7ab2a7e4f?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+                  <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Vrindavan</span>
+               </a>
+               <a data-testid="quick-nav-Barsana" className="group flex flex-col items-center gap-3" href="/properties?loc=Barsana" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Barsana" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+                  <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Barsana</span>
+               </a>
+               <a data-testid="quick-nav-Jatipura" className="group flex flex-col items-center gap-3" href="/properties?loc=Jatipura" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Jatipura" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+                  <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Jatipura</span>
+               </a>
+               <a data-testid="quick-nav-view-all" className="group flex flex-col items-center gap-3" href="/properties" data-discover="true">
+                  <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-emerald-600 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center group-hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(5,150,105,0.5)]">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-trees w-10 h-10 text-white" aria-hidden="true">
+                        <path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"></path>
+                        <path d="M7 16v6"></path>
+                        <path d="M13 19v3"></path>
+                        <path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"></path>
+                     </svg>
+                     <span className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-white border-2 border-emerald-600 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-arrow-right w-3.5 h-3.5 text-emerald-700" aria-hidden="true">
+                           <path d="M5 12h14"></path>
+                           <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                     </span>
+                  </div>
+                  <span className="font-display text-xl font-medium text-emerald-700 group-hover:text-emerald-800 transition-colors text-center leading-tight">View All<br /><span className="text-sm">Locations</span></span>
+               </a>
+            </div>
+         </div>
+      </section>
+      <section className="bg-brand-ink text-white py-8" data-testid="trust-strip">
+         <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-3 gap-6 text-sm">
+            <div className="flex items-center gap-3">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-shield-check text-brand-gold" aria-hidden="true">
                   <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
                   <path d="m9 12 2 2 4-4"></path>
                </svg>
-               100% Legal &amp; Verified Properties
+               30-Year Title Search on every property
             </div>
-            <h1 className="hero-title">Brij Ki Dharti Par<br /><span className="highlight">Surakshit Nivesh</span></h1>
-            <p className="hero-subtitle">Where Faith Meets Legal Certainty</p>
-            <p className="hero-description">Expert property consultancy in Jatipura, Goverdhan, Barsana, Vrindavan &amp; Mathura.<br />30-year title verification • Physical possession guarantee • Complete legal safety</p>
-            <div className="hero-buttons">
-               <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8">View Properties</button>
-               <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-accent hover:text-accent-foreground h-10 rounded-md px-8">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone" aria-hidden="true">
-                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                  </svg>
-                  Contact Us
-               </button>
-            </div>
-         </div>
-      </section>
-     <HomeCounter />
-     {/* usp-section */}
-     {/* <div className="usp-section">1</div> */}
-      <section className="bg-orange-50 py-10">
-         <div className="container">
-            <div className="section-header">
-               <h2 className="section-title">Why Choose Dau Dada?</h2>
-               <p className="section-subtitle">We don&apos;t just find land; we deliver verified ownership with complete peace of mind</p>
-            </div>
-            <div className="usp-grid">
-               <div className="rounded-xl border bg-card text-card-foreground shadow usp-card">
-                  <div className="p-6 pt-0 usp-content">
-                     <div className="usp-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check" aria-hidden="true">
-                           <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                     </div>
-                     <h3 className="usp-title"><Link href="/legal-verification">Legal Verification</Link></h3>
-                     <p className="usp-description">Complete 30-year title search by expert lawyers. We verify Mutation (Dakhil-Kharij) and provide Clean Signal report before token payment.</p>
-                     <ul className="usp-features">
-                        <li>Chain of Documents Check</li>
-                        <li>Mutation Status Verified</li>
-                        <li>Encumbrance Certificate</li>
-                        <li>Legal Opinion Report</li>
-                     </ul>
-                  </div>
-               </div>
-               <div className="rounded-xl border bg-card text-card-foreground shadow usp-card">
-                  <div className="p-6 pt-0 usp-content">
-                     <div className="usp-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin-check" aria-hidden="true">
-                           <path d="M19.43 12.935c.357-.967.57-1.955.57-2.935a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 1.202 0 32.197 32.197 0 0 0 .813-.728"></path>
-                           <circle cx="12" cy="10" r="3"></circle>
-                           <path d="m16 18 2 2 4-4"></path>
-                        </svg>
-                     </div>
-                     <h3 className="usp-title"><Link href="/physical-possession">Physical Possession</Link></h3>
-                     <p className="usp-description">On-site measurement and boundary verification. We ensure ground reality matches paper records and facilitate immediate possession.</p>
-                     <ul className="usp-features">
-                        <li>Physical Land Measurement</li>
-                        <li>Boundary Security Check</li>
-                        <li>Neighbor Verification</li>
-                        <li>Fencing Support</li>
-                     </ul>
-                  </div>
-               </div>
-               <div className="rounded-xl border bg-card text-card-foreground shadow usp-card">
-                  <div className="p-6 pt-0 usp-content">
-                     <div className="usp-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-key" aria-hidden="true">
-                           <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
-                           <path d="m21 2-9.6 9.6"></path>
-                           <circle cx="7.5" cy="15.5" r="5.5"></circle>
-                        </svg>
-                     </div>
-                     <h3 className="usp-title"><Link href="/complete-support">Complete Support</Link></h3>
-                     <p className="usp-description">From direct landowner negotiations to final registry. We handle MVDA compliance and post-sale Dakhil-Kharij assistance.</p>
-                     <ul className="usp-features">
-                        <li>Best Market Price</li>
-                        <li>MVDA Zoning Check</li>
-                        <li>Registry Documentation</li>
-                        <li>Mutation Assistance</li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-            <div className="cta-center"><Link href={"#"} className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8">Learn Our Complete Process</Link></div>
-         </div>
-      </section>
-      <section className="featured-section">
-         <div className="container">
-            <div className="section-header">
-               <h2 className="section-title">Featured Properties</h2>
-               <p className="section-subtitle">Handpicked verified properties in the holy Brij region</p>
-            </div>
-            <div className="properties-grid">
-               <div className="rounded-xl border bg-card text-card-foreground shadow property-card">
-                  <div className="property-image">
-                     <img alt="Premium Residential Plot in Goverdhan" src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxhZ3JpY3VsdHVyYWwlMjBsYW5kfGVufDB8fHx8MTc3NTMyMDMyM3ww&amp;ixlib=rb-4.1.0&amp;q=85" />
-                     <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80 verified-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check" aria-hidden="true">
-                           <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                        Verified
-                     </div>
-                  </div>
-                  <div className="p-6 pt-0 property-content">
-                     <div className="property-header">
-                        <h3 className="property-title">Premium Residential Plot in Goverdhan</h3>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">Residential</div>
-                     </div>
-                     <div className="property-location">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin-check" aria-hidden="true">
-                           <path d="M19.43 12.935c.357-.967.57-1.955.57-2.935a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 1.202 0 32.197 32.197 0 0 0 .813-.728"></path>
-                           <circle cx="12" cy="10" r="3"></circle>
-                           <path d="m16 18 2 2 4-4"></path>
-                        </svg>
-                        Goverdhan
-                     </div>
-                     <div className="property-details">
-                        <div className="detail-item"><span className="detail-label">Area</span><span className="detail-value">2500 sq ft</span></div>
-                        <div className="detail-item"><span className="detail-label">Price</span><span className="detail-value">₹25,00,000</span></div>
-                     </div>
-                     <div className="safety-scores">
-                        <div className="score-item"><span>Legal Score</span><strong>10/10</strong></div>
-                        <div className="score-item"><span>Possession</span><strong>10/10</strong></div>
-                        <div className="score-item"><span>Resale Value</span><strong>High</strong></div>
-                     </div>
-                     <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full">View Details</button>
-                  </div>
-               </div>
-               <div className="rounded-xl border bg-card text-card-foreground shadow property-card">
-                  <div className="property-image">
-                     <img alt="Agricultural Land in Variava" src="https://images.unsplash.com/photo-1621928372414-30e144d51d49?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwyfHxhZ3JpY3VsdHVyYWwlMjBsYW5kfGVufDB8fHx8MTc3NTMyMDMyM3ww&amp;ixlib=rb-4.1.0&amp;q=85" />
-                     <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80 verified-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check" aria-hidden="true">
-                           <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                        Verified
-                     </div>
-                  </div>
-                  <div className="p-6 pt-0 property-content">
-                     <div className="property-header">
-                        <h3 className="property-title">Agricultural Land in Variava</h3>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">Agricultural</div>
-                     </div>
-                     <div className="property-location">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin-check" aria-hidden="true">
-                           <path d="M19.43 12.935c.357-.967.57-1.955.57-2.935a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 1.202 0 32.197 32.197 0 0 0 .813-.728"></path>
-                           <circle cx="12" cy="10" r="3"></circle>
-                           <path d="m16 18 2 2 4-4"></path>
-                        </svg>
-                        Variava
-                     </div>
-                     <div className="property-details">
-                        <div className="detail-item"><span className="detail-label">Area</span><span className="detail-value">1 Acre</span></div>
-                        <div className="detail-item"><span className="detail-label">Price</span><span className="detail-value">₹50,00,000</span></div>
-                     </div>
-                     <div className="safety-scores">
-                        <div className="score-item"><span>Legal Score</span><strong>10/10</strong></div>
-                        <div className="score-item"><span>Possession</span><strong>10/10</strong></div>
-                        <div className="score-item"><span>Resale Value</span><strong>Very High</strong></div>
-                     </div>
-                     <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full">View Details</button>
-                  </div>
-               </div>
-               <div className="rounded-xl border bg-card text-card-foreground shadow property-card">
-                  <div className="property-image">
-                     <img alt="Commercial Plot Near Mathura Highway" src="https://images.pexels.com/photos/11782285/pexels-photo-11782285.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940" />
-                     <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80 verified-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check" aria-hidden="true">
-                           <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                        Verified
-                     </div>
-                  </div>
-                  <div className="p-6 pt-0 property-content">
-                     <div className="property-header">
-                        <h3 className="property-title">Commercial Plot Near Mathura Highway</h3>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">Commercial</div>
-                     </div>
-                     <div className="property-location">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin-check" aria-hidden="true">
-                           <path d="M19.43 12.935c.357-.967.57-1.955.57-2.935a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 1.202 0 32.197 32.197 0 0 0 .813-.728"></path>
-                           <circle cx="12" cy="10" r="3"></circle>
-                           <path d="m16 18 2 2 4-4"></path>
-                        </svg>
-                        Mathura
-                     </div>
-                     <div className="property-details">
-                        <div className="detail-item"><span className="detail-label">Area</span><span className="detail-value">3000 sq ft</span></div>
-                        <div className="detail-item"><span className="detail-label">Price</span><span className="detail-value">₹45,00,000</span></div>
-                     </div>
-                     <div className="safety-scores">
-                        <div className="score-item"><span>Legal Score</span><strong>10/10</strong></div>
-                        <div className="score-item"><span>Possession</span><strong>10/10</strong></div>
-                        <div className="score-item"><span>Resale Value</span><strong>Very High</strong></div>
-                     </div>
-                     <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full">View Details</button>
-                  </div>
-               </div>
-            </div>
-            <div className="cta-center"><button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-accent hover:text-accent-foreground h-10 rounded-md px-8">View All Properties</button></div>
-         </div>
-      </section>
-      <section className="why-verification-matters">
-         <div className="container">
-            <div className="section-header">
-               <h2 className="section-title">Why Our Verification Process Matters</h2>
-               <p className="section-subtitle">Brij ki pavitra bhoomi par nivesh ek aashirvaad hai, koi bojh nahi</p>
-            </div>
-            <div className="matters-grid-home">
-               <div className="rounded-xl border bg-card text-card-foreground shadow matter-card">
-                  <div className="p-6 pt-0 matter-content">
-                     <div className="matter-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check" aria-hidden="true">
-                           <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                     </div>
-                     <h3 className="matter-title">Prevent Future Disputes</h3>
-                     <p className="matter-text">30-year chain verification ensures no hidden claims or legal issues surface after purchase. Puraane cases ka koi khatra nahi.</p>
-                  </div>
-               </div>
-               <div className="rounded-xl border bg-card text-card-foreground shadow matter-card">
-                  <div className="p-6 pt-0 matter-content">
-                     <div className="matter-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin-check" aria-hidden="true">
-                           <path d="M19.43 12.935c.357-.967.57-1.955.57-2.935a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 1.202 0 32.197 32.197 0 0 0 .813-.728"></path>
-                           <circle cx="12" cy="10" r="3"></circle>
-                           <path d="m16 18 2 2 4-4"></path>
-                        </svg>
-                     </div>
-                     <h3 className="matter-title">Confirm Ground Reality</h3>
-                     <p className="matter-text">Physical measurement prevents discrepancies between papers and actual land area. Zameen aur kagaz dono match karna zaroori hai.</p>
-                  </div>
-               </div>
-               <div className="rounded-xl border bg-card text-card-foreground shadow matter-card">
-                  <div className="p-6 pt-0 matter-content">
-                     <div className="matter-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-key" aria-hidden="true">
-                           <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
-                           <path d="m21 2-9.6 9.6"></path>
-                           <circle cx="7.5" cy="15.5" r="5.5"></circle>
-                        </svg>
-                     </div>
-                     <h3 className="matter-title">Secure Your Investment</h3>
-                     <p className="matter-text">Complete documentation and mutation ensure your ownership is legally recorded. Sarkari record mein aapka naam hona chahiye.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section className="comparison-section-home">
-         <div className="container">
-            <h2 className="section-title">Traditional Broker vs Dau Dada</h2>
-            <p className="section-subtitle">देखें हम कैसे अलग हैं</p>
-            <div className="comparison-table">
-               <div className="comparison-column traditional">
-                  <div className="column-header">
-                     <h3>Traditional Broker</h3>
-                  </div>
-                  <ul className="comparison-features">
-                     <li className="negative">Basic paper verification only</li>
-                     <li className="negative">No physical measurement</li>
-                     <li className="negative">Limited legal support</li>
-                     <li className="negative">You handle mutation alone</li>
-                     <li className="negative">Commission-driven approach</li>
-                     <li className="negative">No post-sale support</li>
-                  </ul>
-               </div>
-               <div className="comparison-column premium">
-                  <div className="column-header premium-header">
-                     <h3>Dau Dada Consultants</h3>
-                     <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80 premium-badge">Recommended</div>
-                  </div>
-                  <ul className="comparison-features">
-                     <li className="positive">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check" aria-hidden="true">
-                           <circle cx="12" cy="12" r="10"></circle>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                        30-year legal chain verification
-                     </li>
-                     <li className="positive">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check" aria-hidden="true">
-                           <circle cx="12" cy="12" r="10"></circle>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                        Physical ground measurement
-                     </li>
-                     <li className="positive">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check" aria-hidden="true">
-                           <circle cx="12" cy="12" r="10"></circle>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                        Expert lawyer on team
-                     </li>
-                     <li className="positive">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check" aria-hidden="true">
-                           <circle cx="12" cy="12" r="10"></circle>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                        Complete Dakhil-Kharij support
-                     </li>
-                     <li className="positive">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check" aria-hidden="true">
-                           <circle cx="12" cy="12" r="10"></circle>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                        Safety-first approach
-                     </li>
-                     <li className="positive">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check" aria-hidden="true">
-                           <circle cx="12" cy="12" r="10"></circle>
-                           <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                        Lifetime guidance &amp; support
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </section>
-      <ClientSay />
-      <section className="team-section">
-         <div className="container">
-            <div className="section-header">
-               <h2 className="section-title">Meet Our Expert Team</h2>
-               <p className="section-subtitle">Dedicated professionals ensuring your property investment is safe and secure</p>
-            </div>
-            <div className="team-grid">
-               <div className="rounded-xl border bg-card text-card-foreground shadow team-card">
-                  <div className="p-6 pt-0 team-content">
-                     <div className="team-image"><span className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full team-avatar"><img className="aspect-square h-full w-full" alt="Amit Sharma" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" /></span></div>
-                     <h3 className="team-name">Amit Sharma</h3>
-                     <p className="team-role">Founder &amp; Chief Consultant</p>
-                     <p className="team-description">15+ years of experience in Brij region real estate</p>
-                     <div className="team-expertise">
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Property Law</div>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Land Verification</div>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">MVDA Compliance</div>
-                     </div>
-                  </div>
-               </div>
-               <div className="rounded-xl border bg-card text-card-foreground shadow team-card">
-                  <div className="p-6 pt-0 team-content">
-                     <div className="team-image"><span className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full team-avatar"><img className="aspect-square h-full w-full" alt="Priya Verma" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" /></span></div>
-                     <h3 className="team-name">Priya Verma</h3>
-                     <p className="team-role">Legal Advisor</p>
-                     <p className="team-description">Expert in property documentation and title verification</p>
-                     <div className="team-expertise">
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Title Search</div>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Legal Documentation</div>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Registry Support</div>
-                     </div>
-                  </div>
-               </div>
-               <div className="rounded-xl border bg-card text-card-foreground shadow team-card">
-                  <div className="p-6 pt-0 team-content">
-                     <div className="team-image"><span className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full team-avatar"><img className="aspect-square h-full w-full" alt="Rajesh Kumar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" /></span></div>
-                     <h3 className="team-name">Rajesh Kumar</h3>
-                     <p className="team-role">Field Operations Head</p>
-                     <p className="team-description">Specialist in physical land verification and surveys</p>
-                     <div className="team-expertise">
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Land Measurement</div>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Boundary Verification</div>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Site Inspection</div>
-                     </div>
-                  </div>
-               </div>
-               <div className="rounded-xl border bg-card text-card-foreground shadow team-card">
-                  <div className="p-6 pt-0 team-content">
-                     <div className="team-image"><span className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full team-avatar"><img className="aspect-square h-full w-full" alt="Sunita Devi" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400" /></span></div>
-                     <h3 className="team-name">Sunita Devi</h3>
-                     <p className="team-role">Client Relations Manager</p>
-                     <p className="team-description">Dedicated to ensuring smooth client experience</p>
-                     <div className="team-expertise">
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Customer Support</div>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Follow-up</div>
-                        <div className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 expertise-badge">Documentation Coordination</div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section className="cta-section">
-         <div className="container">
-            <div className="cta-content">
-               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trending-up cta-icon" aria-hidden="true">
-                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                  <polyline points="16 7 22 7 22 13"></polyline>
+            <div className="flex items-center gap-3">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-scroll-text text-brand-gold" aria-hidden="true">
+                  <path d="M15 12h-5"></path>
+                  <path d="M15 8h-5"></path>
+                  <path d="M19 17V5a2 2 0 0 0-2-2H4"></path>
+                  <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"></path>
                </svg>
-               <h2 className="cta-title">Ready to Invest in the Holy Land?</h2>
-               <p className="cta-description">Let our experts guide you to a safe and profitable property investment in Brij region</p>
-               <div className="cta-buttons"><button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8">Get Free Consultation</button><Link href={'/properties'} className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-accent hover:text-accent-foreground h-10 rounded-md px-8">Browse Properties</Link></div>
+               Lawyer-verified legal opinion included
+            </div>
+            <div className="flex items-center gap-3">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-map-pinned text-brand-gold" aria-hidden="true">
+                  <path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"></path>
+                  <circle cx="12" cy="8" r="2"></circle>
+                  <path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"></path>
+               </svg>
+               MVDA master plan cross-checked
             </div>
          </div>
       </section>
+      <section className="max-w-7xl mx-auto px-6 md:px-10 py-24" data-testid="tabbed-featured">
+         <div className="text-center mb-10">
+            <div className="text-xs uppercase tracking-[0.25em] text-brand-red mb-2">Featured Properties</div>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-brand-ink">Browse by sacred location</h2>
+         </div>
+         <div dir="ltr" data-orientation="horizontal" className="mb-10">
+            <div role="tablist" aria-orientation="horizontal" className="items-center text-muted-foreground bg-brand-cream rounded-full p-1 h-auto mx-auto flex w-max flex-wrap justify-center" tabIndex={0} data-orientation="horizontal" style={{ outline: 'none'}}><button type="button" role="tab" aria-selected="true" aria-controls="radix-_r_6_-content-Govardhan" data-state="active" id="radix-_r_6_-trigger-Govardhan" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm" data-testid="tab-loc-Govardhan" tabIndex={-1} data-orientation="horizontal" data-radix-collection-item="">Govardhan</button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_r_6_-content-Mathura" data-state="inactive" id="radix-_r_6_-trigger-Mathura" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm" data-testid="tab-loc-Mathura" tabIndex={-1} data-orientation="horizontal" data-radix-collection-item="">Mathura</button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_r_6_-content-Vrindavan" data-state="inactive" id="radix-_r_6_-trigger-Vrindavan" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm" data-testid="tab-loc-Vrindavan" tabIndex={-1} data-orientation="horizontal" data-radix-collection-item="">Vrindavan</button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_r_6_-content-Barsana" data-state="inactive" id="radix-_r_6_-trigger-Barsana" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm" data-testid="tab-loc-Barsana" tabIndex={-1} data-orientation="horizontal" data-radix-collection-item="">Barsana</button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_r_6_-content-Jatipura" data-state="inactive" id="radix-_r_6_-trigger-Jatipura" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm" data-testid="tab-loc-Jatipura" tabIndex={-1} data-orientation="horizontal" data-radix-collection-item="">Jatipura</button></div>
+         </div>
+         <p className="text-center text-brand-ink-soft py-10" data-testid="tabbed-empty">No featured listings yet for Govardhan.</p>
+         <div className="text-center mt-10">
+            <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow h-9 rounded-full bg-brand-ink text-white hover:bg-black px-8 py-6" data-testid="tab-view-all-btn">
+               View All in Govardhan 
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-arrow-right ml-2 w-4 h-4" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+               </svg>
+            </button>
+         </div>
+      </section>
+      <section className="max-w-7xl mx-auto px-6 md:px-10 py-24" data-testid="home-services">
+         <div className="text-center mb-16">
+            <div className="text-xs uppercase tracking-[0.25em] text-brand-red mb-2">Why Dau Dada</div>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-brand-ink max-w-3xl mx-auto">Three pillars that protect every <em className="text-brand-red not-italic">rupee</em> you invest</h2>
+         </div>
+         <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl p-8 border border-brand-cream hover:border-brand-gold/40 transition-all" data-testid="service-pillar-0">
+               <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center mb-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-scale w-6 h-6 text-brand-red" aria-hidden="true">
+                     <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                     <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                     <path d="M7 21h10"></path>
+                     <path d="M12 3v18"></path>
+                     <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
+                  </svg>
+               </div>
+               <h3 className="font-display text-2xl font-medium text-brand-ink mb-3">Legal Support Wing</h3>
+               <p className="text-brand-ink-soft font-light leading-relaxed">30-year title search, legal opinion, registry assistance — handled by our in-house lawyer.</p>
+            </div>
+            <div className="bg-white rounded-2xl p-8 border border-brand-cream hover:border-brand-gold/40 transition-all" data-testid="service-pillar-1">
+               <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center mb-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-eye w-6 h-6 text-brand-red" aria-hidden="true">
+                     <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+                     <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+               </div>
+               <h3 className="font-display text-2xl font-medium text-brand-ink mb-3">Ground Verification</h3>
+               <p className="text-brand-ink-soft font-light leading-relaxed">Physical site visit, boundary measurement, and confirmation with neighbours.</p>
+            </div>
+            <div className="bg-white rounded-2xl p-8 border border-brand-cream hover:border-brand-gold/40 transition-all" data-testid="service-pillar-2">
+               <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center mb-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-file-search w-6 h-6 text-brand-red" aria-hidden="true">
+                     <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                     <path d="M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"></path>
+                     <path d="m9 18-1.5-1.5"></path>
+                     <circle cx="5" cy="14" r="3"></circle>
+                  </svg>
+               </div>
+               <h3 className="font-display text-2xl font-medium text-brand-ink mb-3">MVDA Compliance</h3>
+               <p className="text-brand-ink-soft font-light leading-relaxed">Cross-checked with the latest Mathura Vrindavan Development Authority master plan.</p>
+            </div>
+         </div>
+      </section>
+      <section className="bg-brand-cream py-20 md:py-24" data-testid="testimonials-section">
+         <div className="max-w-7xl mx-auto px-6 md:px-10">
+            <div className="text-center mb-14">
+               <div className="text-xs uppercase tracking-[0.25em] text-brand-red mb-2">Testimonials</div>
+               <h2 className="font-display text-4xl md:text-5xl font-medium text-brand-ink mb-3">What our buyers say</h2>
+               <p className="text-brand-ink-soft font-light max-w-2xl mx-auto">Real stories from devotees, NRIs and Brij investors</p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+               <article data-testid="testimonial-card-0" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                  <div className="aspect-[4/5] overflow-hidden relative">
+                     <img alt="Amit Dashana" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/zqfoh7zb_WhatsApp%20Image%202026-05-04%20at%2020.48.27.jpeg" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
+                        <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                        <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                     </svg>
+                     <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="font-display text-xl font-medium leading-tight">Amit Dashana</div>
+                        <div className="text-[11px] tracking-wide opacity-90">Sub-Editor, Times of India</div>
+                        <div className="text-[10px] uppercase tracking-[0.2em] text-brand-gold mt-0.5">Haridwar</div>
+                     </div>
+                  </div>
+                  <div className="p-5 flex-1 flex">
+                     <p className="text-sm text-brand-ink-soft font-light leading-relaxed italic">&quot;Buying near the Parikrama Marg felt sacred and risk-free. Adv. Nitin&apos;s 30-year title search gave my family complete peace of mind.&quot;</p>
+                  </div>
+               </article>
+               <article data-testid="testimonial-card-1" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                  <div className="aspect-[4/5] overflow-hidden relative">
+                     <img alt="Aman Birla" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/h6fehy4w_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%281%29.jpeg" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
+                        <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                        <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                     </svg>
+                     <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="font-display text-xl font-medium leading-tight">Aman Birla</div>
+                        <div className="text-[11px] tracking-wide opacity-90">Co-Founder, Beyond Road Tour</div>
+                        <div className="text-[10px] uppercase tracking-[0.2em] text-brand-gold mt-0.5">Delhi</div>
+                     </div>
+                  </div>
+                  <div className="p-5 flex-1 flex">
+                     <p className="text-sm text-brand-ink-soft font-light leading-relaxed italic">&quot;Dau Dada doesn&apos;t sell — they consult. They walked me through MVDA zoning and exit liquidity before I committed. Rare honesty.&quot;</p>
+                  </div>
+               </article>
+               <article data-testid="testimonial-card-2" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                  <div className="aspect-[4/5] overflow-hidden relative">
+                     <img alt="Sudhanshu Sharma" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/kuo45hnu_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%283%29.jpeg" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
+                        <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                        <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                     </svg>
+                     <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="font-display text-xl font-medium leading-tight">Sudhanshu Sharma</div>
+                        <div className="text-[11px] tracking-wide opacity-90">Business Owner</div>
+                        <div className="text-[10px] uppercase tracking-[0.2em] text-brand-gold mt-0.5">Delhi</div>
+                     </div>
+                  </div>
+                  <div className="p-5 flex-1 flex">
+                     <p className="text-sm text-brand-ink-soft font-light leading-relaxed italic">&quot;From farm well to mutation papers — Ravi ji&apos;s local network closed my farmhouse deal in 18 days. Smooth, transparent, devotional.&quot;</p>
+                  </div>
+               </article>
+               <article data-testid="testimonial-card-3" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                  <div className="aspect-[4/5] overflow-hidden relative">
+                     <img alt="Rajkumar" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/0jqejqg0_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%282%29.jpeg" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
+                        <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                        <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                     </svg>
+                     <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="font-display text-xl font-medium leading-tight">Rajkumar</div>
+                        <div className="text-[11px] tracking-wide opacity-90">Business Manager</div>
+                        <div className="text-[10px] uppercase tracking-[0.2em] text-brand-gold mt-0.5">Mumbai</div>
+                     </div>
+                  </div>
+                  <div className="p-5 flex-1 flex">
+                     <p className="text-sm text-brand-ink-soft font-light leading-relaxed italic">&quot;I&apos;m based in Mumbai but trusted Dau Dada for a Vrindavan plot. End-to-end registry handled remotely. Faith-meets-legal — for real.&quot;</p>
+                  </div>
+               </article>
+            </div>
+            <div className="text-center mt-12"><a href="/reviews" data-discover="true"><button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow h-9 rounded-full bg-brand-ink text-white hover:bg-black px-8 py-6" data-testid="testimonials-watch-btn">Watch Video Reviews</button></a></div>
+         </div>
+      </section>
+      <section className="max-w-7xl mx-auto px-6 md:px-10 pb-24" data-testid="home-cta">
+         <div className="bg-brand-ink rounded-3xl p-10 md:p-16 text-white relative overflow-hidden">
+            <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-brand-red/30 blur-3xl"></div>
+            <div className="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-brand-gold/20 blur-3xl"></div>
+            <div className="relative grid md:grid-cols-2 gap-10 items-center">
+               <div>
+                  <h2 className="font-display text-4xl md:text-5xl font-medium mb-5">Have land in Brij to sell?</h2>
+                  <p className="font-light opacity-80 leading-relaxed mb-8">We bring serious, verified buyers — and our legal wing handles paperwork end to end. List your property with us and let your land find the right hands.</p>
+                  <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow h-9 rounded-full bg-brand-red text-white hover:bg-brand-red-dark px-8 py-6 text-base shadow-brand" data-testid="home-cta-list-btn">
+                     List Your Property 
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-arrow-right ml-2 w-4 h-4" aria-hidden="true">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                     </svg>
+                  </button>
+               </div>
+               <div className="hidden md:block"><img alt="legal trust" className="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?auto=format&amp;fit=crop&amp;w=900&amp;q=80" /></div>
+            </div>
+         </div>
+      </section>
+      <section
+  className="bg-brand-cream/60 border-y border-brand-cream"
+  data-testid="seo-block"
+>
+  <div className="max-w-5xl mx-auto px-6 md:px-10 py-14 text-center">
+    <h2 className="font-display text-3xl md:text-4xl font-medium text-brand-ink mb-5">
+      Real Estate Across the Brij Bhoomi
+    </h2>
+    <p className="text-brand-ink-soft font-light leading-relaxed text-lg">
+      Find your dream home in the heart of the{" "}
+      <strong className="text-brand-ink">Brij Bhoomi</strong>. We specialize in
+      verified residential and commercial properties across{" "}
+      <strong className="text-brand-ink">
+        Mathura, Vrindavan, Govardhan and Barsana
+      </strong>
+      . Whether you are looking for a plot near the{" "}
+      <strong className="text-brand-ink">Parikrama Marg</strong> or a luxury
+      apartment in <strong className="text-brand-ink">Govind Nagar</strong>, our
+      listings provide the best real estate opportunities in the{" "}
+      <strong className="text-brand-ink">Jatipura</strong> and{" "}
+      <strong className="text-brand-ink">Goverdhan</strong> regions.
+    </p>
+  </div>
+</section>
    </div>
 </main>
     )

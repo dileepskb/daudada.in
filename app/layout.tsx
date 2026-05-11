@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google"
+// import { Inter } from "next/font/google"
 import { Toaster } from "@/components/ui/sonner"
 
 import "./globals.css"
@@ -6,10 +6,10 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-})
+// const inter = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-inter",
+// })
 
 
 export default function RootLayout({
@@ -23,7 +23,9 @@ export default function RootLayout({
       suppressHydrationWarning
       
     >
-      <body className={cn(inter.variable, "font-sans")}>
+      <body 
+      // className={cn(inter.variable, "font-sans")}
+      >
         <ThemeProvider>
           <TooltipProvider>
            

@@ -12,114 +12,44 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export default function Header() {
+  
   return (
-    <header className="header-wrapper">
-      <div className="border-b py-2">
-        <div className="container">
-          <div className="flex justify-between">
-            <div className="flex gap-5">
-              <a
-                href="tel:+919876543210"
-                className="contact-link flex items-center gap-1"
-              >
-                <div className="text-yellow-600">
-                  <IoCallOutline size={18} />
-                </div>
-                <span className="text-sm leading-none">+91-9876543210</span>
-              </a>
-              <a
-                href="mailto:info@brijbhoomi.com"
-                className="contact-link flex items-center gap-1"
-              >
-                <div className="text-yellow-600">
-                  <IoMailOpenOutline size={18} />
-                </div>
-                <span className="text-sm leading-none">info@baudada.in</span>
-              </a>
-            </div>
-            <div><Link
-                className="bg-yellow-600 rounded text-white font-bold text-sm py-1 px-2"
-                href="/contact"
-                data-discover="true"
-              >
-                Property Listing
-              </Link></div>
-          </div>
-        </div>
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-brand-ivory/85 border-b border-brand-cream" data-testid="site-header">
+   <div className="max-w-7xl mx-auto px-5 md:px-10 py-3 md:py-4 flex items-center justify-between gap-3">
+      <Link className="flex items-center gap-3 md:gap-4 flex-shrink-0" data-testid="logo-link" href="/" data-discover="true">
+         <div className="h-14 w-14 md:h-20 md:w-20 rounded-2xl overflow-hidden ring-1 ring-brand-red/15 shadow-soft bg-brand-red flex-shrink-0">
+         <img alt="Dau Dada Properties" className="h-full w-full object-cover" loading="eager" decoding="async" src="https://customer-assets.emergentagent.com/job_6764da25-50bd-4908-8adb-2df0bd95bfde/artifacts/oi8qahgx_Dau%20Dada%20Profile%20Image.jpg" style={{ imageRendering: 'auto'}} />
+         </div>
+         <div className="hidden sm:block leading-tight">
+            <div className="font-display text-2xl md:text-3xl font-semibold text-brand-ink">Dau Dada</div>
+            <div className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-brand-red font-semibold">Properties</div>
+         </div>
+      </Link>
+      <nav className="hidden lg:flex items-center gap-8">
+        <Link data-testid="nav-home" aria-current="page" className="text-sm font-medium tracking-wide transition-colors text-brand-red" href="/" data-discover="true">Home</Link>
+        <Link data-testid="nav-properties" className="text-sm font-medium tracking-wide transition-colors text-brand-ink hover:text-brand-red" href="/properties" data-discover="true">Properties</Link>
+        <Link data-testid="nav-services" className="text-sm font-medium tracking-wide transition-colors text-brand-ink hover:text-brand-red" href="/services" data-discover="true">Services</Link>
+        <Link data-testid="nav-about-team" className="text-sm font-medium tracking-wide transition-colors text-brand-ink hover:text-brand-red" href="/about" data-discover="true">About Team</Link>
+        <Link data-testid="nav-blog" className="text-sm font-medium tracking-wide transition-colors text-brand-ink hover:text-brand-red" href="/blog" data-discover="true">Blog</Link>
+        <Link data-testid="nav-reviews" className="text-sm font-medium tracking-wide transition-colors text-brand-ink hover:text-brand-red" href="/reviews" data-discover="true">Reviews</Link>
+        </nav>
+      <div className="hidden md:flex items-center gap-3">
+         <Link href={'/list-your-property'} className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border shadow-sm h-9 px-4 py-2 rounded-full border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-white" data-testid="header-list-property-btn">List Your Property</Link>
+         <Link href={'/signin'} className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow h-9 px-4 py-2 rounded-full bg-brand-red text-white hover:bg-brand-red-dark shadow-brand" data-testid="header-login-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-phone w-4 h-4 mr-2" aria-hidden="true">
+               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Login
+         </Link>
       </div>
-      <nav className="flex py-1">
-        <div className="container mx-auto">
-          <div className="flex justify-between">
-            <div>
-              <Image
-                src="/images/Profile_Image2-02-1.png"
-                alt="Dau Dada Property"
-                width={150}
-                height={70}
-              />
-            </div>
-            <div className="nav-links flex justify-center gap-6">
-              {/* <Link className="nav-link" href="/" data-discover="true">
-              Home
-            </Link> */}
-              <Link
-                className="nav-link"
-                href="/properties"
-                data-discover="true"
-              >
-                Properties
-              </Link>
-              <div className="nav-dropdown">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <div className="flex cursor-pointer items-center nav-link">
-                      <span>Services</span> <IoIosArrowDown />{" "}
-                    </div>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="z-[999] w-60" align="start">
-                    <DropdownMenuGroup>
-                      {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
-                      <DropdownMenuItem className="py-2">
-                         Legal & Compliance
-                      </DropdownMenuItem>
-                      <DropdownMenuItem className="py-2">
-                       Free Consultation
-                      </DropdownMenuItem>
-                      <DropdownMenuItem className="py-2">
-                        30-Year Title Search
-                      </DropdownMenuItem>
-                      <DropdownMenuItem className="py-2">
-                         Documentation & Mutation
-                      </DropdownMenuItem>
-                    </DropdownMenuGroup>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-                {/* <Link
-                className="nav-link dropdown-trigger"
-                href="/services"
-                data-discover="true"
-              >
-                Services
-                <IoIosArrowDown />
-              </Link> */}
-              </div>
-              <Link className="nav-link" href="/about" data-discover="true">
-                About Us
-              </Link>
-              <Link className="nav-link" href="/news" data-discover="true">
-                News
-              </Link>
-              <Link
-                className="nav-link"
-                href="/contact"
-                data-discover="true"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
+      <button className="lg:hidden p-2 ml-2 flex-shrink-0" data-testid="mobile-menu-btn" aria-label="menu">
+         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-menu w-6 h-6" aria-hidden="true">
+            <path d="M4 12h16"></path>
+            <path d="M4 18h16"></path>
+            <path d="M4 6h16"></path>
+         </svg>
+      </button>
+   </div>
+</header>
   )
 }
