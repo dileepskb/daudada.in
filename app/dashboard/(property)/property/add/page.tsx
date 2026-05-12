@@ -66,6 +66,7 @@ const formSchema = z.object({
   description: z.string(),
   price: z.number(),
   location: z.string(),
+  address: z.string(),
   propertyType: z.string(),
   propertyCategory: z.array(z.string()),
   amenities: z.array(z.number()).default([]),
@@ -92,6 +93,7 @@ export default function AddProperty() {
       description: "",
       price: undefined,
       location: "",
+      address: '',
       propertyType: "",
       propertyCategory: [],
       amenities: [],
@@ -228,6 +230,30 @@ export default function AddProperty() {
                     {...field}
                     value={field.value || ""}
                     onChange={(e) => field.onChange(Number(e.target.value))}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Controller
+              name="address"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel
+                    htmlFor="form-rhf-demo-title"
+                    className="font-bold"
+                  >
+                    Address
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    id="form-rhf-demo-title"
+                    aria-invalid={fieldState.invalid}
+                    placeholder="Address"
+                    autoComplete="off"
                   />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />

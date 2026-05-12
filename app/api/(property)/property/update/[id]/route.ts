@@ -12,6 +12,7 @@ export async function PUT(
     title,
     description,
     price,
+    address,
     location,
     propertyType,
     specifications,
@@ -28,6 +29,7 @@ export async function PUT(
       title,
       description,
       price,
+      address,
       location,
       propertyType,
 

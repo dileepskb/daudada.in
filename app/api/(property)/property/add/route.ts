@@ -9,6 +9,7 @@ export async function POST(req: Request) {
       title,
       description,
       price,
+      address,
       location,
       propertyType,
       specifications,
@@ -21,6 +22,7 @@ export async function POST(req: Request) {
         title,
         description,
         price,
+        address,
         location,
         propertyType,
 
