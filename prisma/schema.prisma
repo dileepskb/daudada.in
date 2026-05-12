@@ -123,6 +123,7 @@ model Property {
   price    Float
   address String?
   location String
+  city String?
 
   propertyType String
   propertyCategory PropertyCategory[]
@@ -217,7 +218,7 @@ model PropertyImage {
   url String
 
   propertyId Int
-  property   Property @relation(fields: [propertyId], references: [id])
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
 }
 
 // =====================

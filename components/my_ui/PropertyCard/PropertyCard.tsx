@@ -6,6 +6,9 @@ type Props = {
 
 export default function PropertyCard({property}:Props){
     console.log(property)
+    const Image = property?.images[0]
+     console.log(Image)
+     const { url } = Image;
     return(
         <div
   
@@ -32,7 +35,7 @@ export default function PropertyCard({property}:Props){
         x-component="img"
         x-id="PropertyCard_24_8"
         x-dynamic="false"
-        src="https://images.unsplash.com/photo-1542621334-a254cf47733d?auto=format&fit=crop&w=1400&q=80"
+        src={`${url}`}
       />
       <div
         className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-medium text-brand-red"
@@ -151,7 +154,7 @@ export default function PropertyCard({property}:Props){
               x-source-editable="false"
               style={{ display: "contents" }}
             >
-              Near Luk Luk Dau Ji Temple
+              {property?.address}
             </span>
             ,{" "}
             <span
@@ -199,7 +202,10 @@ export default function PropertyCard({property}:Props){
           x-source-type="computed"
           x-source-editable="false"
         >
-          <span
+          {property?.specification?.map((item, index) => {
+            return(
+<span
+key={index}
             className="flex items-center gap-1"
             x-file-name="PropertyCard"
             x-line-number={43}
@@ -236,8 +242,10 @@ export default function PropertyCard({property}:Props){
               <line x1={21} x2={14} y1={3} y2={10} />
               <line x1={3} x2={10} y1={21} y2={14} />
             </svg>
-            30000 sqft
+            {item.value}
           </span>
+          )})}
+          
         </div>
       </a>
       <div
@@ -288,7 +296,7 @@ export default function PropertyCard({property}:Props){
         <a
           data-testid="card-visit-6a9ac87f-a1ee-400d-9cdd-ec39d91df642"
           className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-brand-ink text-brand-ink text-xs font-semibold py-2.5 hover:bg-brand-ink hover:text-white transition-colors"
-          href="/properties/6a9ac87f-a1ee-400d-9cdd-ec39d91df642"
+          href={`${'/properties/'}/${property.propertyType}/${property.city}/${property.address}/${property.title}`}
           data-discover="true"
         >
           Get Quote · Visit

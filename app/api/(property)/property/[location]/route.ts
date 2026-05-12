@@ -15,6 +15,11 @@ export async function POST(
             location:location
         },
         take: 3,
+        include:{
+          images:true,
+          specification:true,
+          propertyAmenity:true          
+        }
     });
 
     return Response.json(property);

@@ -14,6 +14,7 @@ export async function PUT(
     price,
     address,
     location,
+    city,
     propertyType,
     specifications,
     amenities,
@@ -31,8 +32,8 @@ export async function PUT(
       price,
       address,
       location,
+      city,
       propertyType,
-
       propertyCategory: {
         deleteMany: {},
         create: propertyCategory.map((item: string) => ({

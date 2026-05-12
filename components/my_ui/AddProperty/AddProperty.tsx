@@ -65,8 +65,9 @@ const formSchema = z.object({
   title: z.string(),
   description: z.string(),
   price: z.number(),
-  location: z.string(),
   address: z.string(),
+  location: z.string(),
+  city: z.string(),
   propertyType: z.string(),
   propertyCategory: z.array(z.string()),
   amenities: z.array(z.number()).default([]),
@@ -92,8 +93,9 @@ export default function AddProperty() {
       title: "",
       description: "",
       price: undefined,
+      address: "",
       location: "",
-      address: '',
+      city: "",
       propertyType: "",
       propertyCategory: [],
       amenities: [],
@@ -261,7 +263,7 @@ export default function AddProperty() {
                 </Field>
               )}
             />
-            <Controller
+            {/* <Controller
               name="location"
               control={form.control}
               render={({ field, fieldState }) => (
@@ -279,6 +281,57 @@ export default function AddProperty() {
                     placeholder="location"
                     autoComplete="off"
                   />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            /> */}
+            <Controller
+              name="location"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel className="font-bold">City</FieldLabel>
+
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger aria-invalid={fieldState.invalid}>
+                      <SelectValue placeholder="Select Location" />
+                    </SelectTrigger>
+
+                    <SelectContent>
+                      <SelectItem value="Govardhan">Govardhan</SelectItem>
+                      <SelectItem value="Jatipura">Jatipura</SelectItem>
+                      <SelectItem value="Govardhan">Vrindavan</SelectItem>
+                      <SelectItem value="Govardhan">Barsana</SelectItem>
+                      <SelectItem value="Govardhan">Mathura</SelectItem>
+                      <SelectItem value="Ring Road">Ring Road</SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Controller
+              name="city"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel className="font-bold">City</FieldLabel>
+
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger aria-invalid={fieldState.invalid}>
+                      <SelectValue placeholder="Select City" />
+                    </SelectTrigger>
+
+                    <SelectContent>
+                      <SelectItem value="Mathura">Mathura</SelectItem>
+                    </SelectContent>
+                  </Select>
+
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -321,6 +374,16 @@ export default function AddProperty() {
                   "1BHK",
                   "2BHK",
                   "3BHK",
+                  "4BHK",
+                  "5BHK",
+                  "6BHK",
+                  "Bathrooms 1",
+                  "Bathrooms 2",
+                  "Bathrooms 3",
+                  "Bathrooms 4",
+                  "Bathrooms 5",
+                  "Bathrooms 6",
+                  "House",
                   "Villa",
                   "Plot",
                   "Shop",

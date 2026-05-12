@@ -1,4 +1,45 @@
-export default function PropertyDetails(){
+"use client"
+
+import { useEffect, useState } from "react"
+import { useParams } from "next/navigation"
+import axios from "axios"
+import { Specification } from "@/types/property"
+export default  function PropertyDetails(){
+const params = useParams()
+
+  const name = decodeURIComponent(
+    params.name as string
+  )
+
+
+
+  const [property, setProperty] = useState<any>(null)
+
+  useEffect(() => {
+
+    const getProperty = async () => {
+
+      try {
+
+        const res = await axios.get(
+          `/api/property/getbyname/${name}`
+        )
+
+        setProperty(res.data)
+
+      } catch (error) {
+
+        console.log(error)
+      }
+    }
+
+    getProperty()
+
+  }, [name])
+
+
+console.log(property)
+
     return(
         <main
   className="flex-1"
@@ -176,7 +217,7 @@ export default function PropertyDetails(){
             x-source-editable="false"
             style={{ display: "contents" }}
           >
-            Near Surbhi Kund
+            {property?.address}
           </span>
           ,{" "}
           <span
@@ -194,7 +235,7 @@ export default function PropertyDetails(){
             x-source-editable="false"
             style={{ display: "contents" }}
           >
-            Govardhan
+            {property?.location}
           </span>
         </div>
         <h1
@@ -210,7 +251,7 @@ export default function PropertyDetails(){
           x-source-path="title"
           x-source-editable="false"
         >
-          20,000 Sq. Ft. Plot Near Surbhi Kund
+          {property?.title}
         </h1>
         <div
           className="flex flex-wrap items-center gap-4 mb-8"
@@ -299,7 +340,10 @@ export default function PropertyDetails(){
           x-source-type="computed"
           x-source-editable="false"
         >
-          <div
+          {property?.specification?.map((items:Specification, index:number) => {
+            return(
+<div
+key={index}
             className="bg-white rounded-xl border border-brand-cream p-4 flex items-center gap-3"
             x-file-name="PropertyDetail"
             x-line-number={80}
@@ -349,7 +393,7 @@ export default function PropertyDetails(){
                 x-id="PropertyDetail_82_19"
                 x-dynamic="false"
               >
-                Area
+                {items.key}
               </div>
               <div
                 className="font-medium"
@@ -364,10 +408,12 @@ export default function PropertyDetails(){
                 x-source-path="area_value"
                 x-source-editable="false"
               >
-                20000 sqft
+               {items.value}
               </div>
             </div>
           </div>
+          )})}
+          
         </div>
         <h2
           className="font-display text-3xl font-medium text-brand-ink mb-3"
@@ -392,12 +438,9 @@ export default function PropertyDetails(){
           x-source-var="p"
           x-source-path="description"
           x-source-editable="false"
+          dangerouslySetInnerHTML={{__html:property?.description}}
         >
-          An excellent 20,000 sq. ft. parcel of land located near the holy
-          Surbhi Kund in Govardhan. The site enjoys good connectivity and
-          peaceful, devotional surroundings — ideal for a private residence,
-          ashram, or boutique guesthouse. Title verified through our 30-year
-          search and cross-checked with the latest MVDA master plan.
+        
         </p>
         <h2
           className="font-display text-3xl font-medium text-brand-ink mb-4"
@@ -421,7 +464,11 @@ export default function PropertyDetails(){
           x-source-type="computed"
           x-source-editable="false"
         >
-          <span
+          {property?.propertyAmenity?.map((items:unknown, index:number) => {
+            console.log(items)
+            return(
+<span
+key={index}
             className="px-4 py-2 rounded-full bg-brand-cream text-brand-ink text-sm"
             x-file-name="PropertyDetail"
             x-line-number={106}
@@ -435,72 +482,12 @@ export default function PropertyDetails(){
             x-array-var="p"
             x-array-item-param="a"
           >
-            Near Surbhi Kund
+            {items.amenity.name}
           </span>
-          <span
-            className="px-4 py-2 rounded-full bg-brand-cream text-brand-ink text-sm"
-            x-file-name="PropertyDetail"
-            x-line-number={106}
-            x-column={18}
-            x-component="span"
-            x-id="PropertyDetail_106_18"
-            x-dynamic="true"
-            x-source-type="static-imported"
-            x-source-var="p"
-            x-source-editable="false"
-            x-array-var="p"
-            x-array-item-param="a"
-          >
-            Peaceful surroundings
-          </span>
-          <span
-            className="px-4 py-2 rounded-full bg-brand-cream text-brand-ink text-sm"
-            x-file-name="PropertyDetail"
-            x-line-number={106}
-            x-column={18}
-            x-component="span"
-            x-id="PropertyDetail_106_18"
-            x-dynamic="true"
-            x-source-type="static-imported"
-            x-source-var="p"
-            x-source-editable="false"
-            x-array-var="p"
-            x-array-item-param="a"
-          >
-            Good connectivity
-          </span>
-          <span
-            className="px-4 py-2 rounded-full bg-brand-cream text-brand-ink text-sm"
-            x-file-name="PropertyDetail"
-            x-line-number={106}
-            x-column={18}
-            x-component="span"
-            x-id="PropertyDetail_106_18"
-            x-dynamic="true"
-            x-source-type="static-imported"
-            x-source-var="p"
-            x-source-editable="false"
-            x-array-var="p"
-            x-array-item-param="a"
-          >
-            Clear title
-          </span>
-          <span
-            className="px-4 py-2 rounded-full bg-brand-cream text-brand-ink text-sm"
-            x-file-name="PropertyDetail"
-            x-line-number={106}
-            x-column={18}
-            x-component="span"
-            x-id="PropertyDetail_106_18"
-            x-dynamic="true"
-            x-source-type="static-imported"
-            x-source-var="p"
-            x-source-editable="false"
-            x-array-var="p"
-            x-array-item-param="a"
-          >
-            MVDA cross-checked
-          </span>
+            )
+          })}
+          
+          
         </div>
         <div
           className="bg-brand-ink text-white rounded-2xl p-8"

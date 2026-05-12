@@ -11,6 +11,7 @@ export async function POST(req: Request) {
       price,
       address,
       location,
+      city,
       propertyType,
       specifications,
       amenities,
@@ -24,6 +25,7 @@ export async function POST(req: Request) {
         price,
         address,
         location,
+        city,
         propertyType,
 
         createdById: 1, // ✅ correct field
