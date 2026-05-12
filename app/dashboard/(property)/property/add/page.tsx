@@ -22,14 +22,41 @@ import {
 import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-
 
 const AMENITIES = [
   { id: 1, name: "Parking" },
   { id: 2, name: "Swimming Pool" },
   { id: 3, name: "Garden" },
+  { id: 4, name: "Gym" },
+  { id: 5, name: "Lift" },
+  { id: 6, name: "Security" },
+  { id: 7, name: "CCTV Surveillance" },
+  { id: 8, name: "Power Backup" },
+  { id: 9, name: "Club House" },
+  { id: 10, name: "Children Play Area" },
+  { id: 11, name: "WiFi" },
+  { id: 12, name: "Air Conditioning" },
+  { id: 13, name: "Balcony" },
+  { id: 14, name: "Terrace" },
+  { id: 15, name: "Modular Kitchen" },
+  { id: 16, name: "Furnished" },
+  { id: 17, name: "Pet Friendly" },
+  { id: 18, name: "Fire Safety" },
+  { id: 19, name: "Water Supply" },
+  { id: 20, name: "Rain Water Harvesting" },
+  { id: 21, name: "Visitor Parking" },
+  { id: 22, name: "Intercom" },
+  { id: 23, name: "Solar Panels" },
+  { id: 24, name: "Community Hall" },
+  { id: 25, name: "Jogging Track" },
 ]
 
 const formSchema = z.object({
@@ -38,21 +65,21 @@ const formSchema = z.object({
   price: z.number(),
   location: z.string(),
   propertyType: z.string(),
+  propertyCategory: z.array(z.string()),
   amenities: z.array(z.number()).default([]),
-  specifications: z.array(
-    z.object({
-      key: z.string(),
-      value: z.string(),
-    })
-  ).default([]),
+  specifications: z
+    .array(
+      z.object({
+        key: z.string(),
+        value: z.string(),
+      })
+    )
+    .default([]),
 })
-
-
 
 export default function AddProperty() {
   const [uploading, setUploading] = useState(false)
   const router = useRouter()
- 
 
   const form = useForm<z.infer<typeof formSchema>>({
     defaultValues: {
@@ -61,17 +88,18 @@ export default function AddProperty() {
       price: 0,
       location: "",
       propertyType: "",
+      propertyCategory:[],
       amenities: [],
       specifications: [{ key: "", value: "" }],
     },
   })
 
-   const { control, register } = form
+  const { control, register } = form
 
-const { fields, append, remove } = useFieldArray({
-  control,
-  name: "specifications",
-})
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "specifications",
+  })
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
     setUploading(true)
@@ -96,7 +124,7 @@ const { fields, append, remove } = useFieldArray({
       })
       // router.push("/dashboard/students/")
     } catch (err: unknown) {
-      const error = err as Error;
+      const error = err as Error
       // ❌ Error toast
       setUploading(false)
       toast("Error", {
@@ -200,101 +228,156 @@ const { fields, append, remove } = useFieldArray({
                 </Field>
               )}
             />
-            
+
             <Controller
-  name="propertyType"
-  control={form.control}
-  render={({ field, fieldState }) => (
-    <Field data-invalid={fieldState.invalid}>
-      <FieldLabel>Property Type</FieldLabel>
+              name="propertyType"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel>Property Type</FieldLabel>
 
-      <Select
-        value={field.value}
-        onValueChange={field.onChange}
-      >
-        <SelectTrigger aria-invalid={fieldState.invalid}>
-          <SelectValue placeholder="Select property type" />
-        </SelectTrigger>
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger aria-invalid={fieldState.invalid}>
+                      <SelectValue placeholder="Select property type" />
+                    </SelectTrigger>
 
-        <SelectContent>
-          <SelectItem value="Residential">Residential</SelectItem>
-          <SelectItem value="Agricultural">Agricultural</SelectItem>
-          <SelectItem value="Commercial">Commercial</SelectItem>
-        </SelectContent>
-      </Select>
+                    <SelectContent>
+                      <SelectItem value="Residential">Residential</SelectItem>
+                      <SelectItem value="Agricultural">Agricultural</SelectItem>
+                      <SelectItem value="Commercial">Commercial</SelectItem>
+                    </SelectContent>
+                  </Select>
 
-      {fieldState.invalid && (
-        <FieldError errors={[fieldState.error]} />
-      )}
-    </Field>
-  )}
-/>
-<Controller
-  name="amenities"
-  control={form.control}
-  defaultValue={[]}
-  render={({ field }) => (
-    <div className="space-y-2">
-      <label className="text-sm font-medium">Amenities</label>
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Controller
+              name="propertyCategory"
+              control={form.control}
+              defaultValue={[]}
+              render={({ field, fieldState }) => {
+                const options = [
+                  "Flat",
+                  "1BHK",
+                  "2BHK",
+                  "3BHK",
+                  "Villa",
+                  "Shop",
+                  "Office Space",
+                  "Commercial Space",
+                ]
 
-      {AMENITIES.map((item) => (
-        <div key={item.id} className="flex items-center space-x-2">
-          <Checkbox
-            checked={field.value?.includes(item.id)}
-            onCheckedChange={(checked) => {
-              if (checked) {
-                field.onChange([...field.value, item.id])
-              } else {
-                field.onChange(
-                  field.value.filter((id: number) => id !== item.id)
+                const toggleValue = (value: string) => {
+                  const currentValues = (field.value || []) as string[]
+
+                  if (currentValues.includes(value)) {
+                    field.onChange(
+                      currentValues.filter((item) => item !== value)
+                    )
+                  } else {
+                    field.onChange([...currentValues, value])
+                  }
+                }
+
+                return (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel>Property Category</FieldLabel>
+
+                    <div className="flex flex-wrap gap-2">
+                      {options.map((item) => {
+                        const active = field.value.includes(item)
+
+                        return (
+                          <button
+                            type="button"
+                            key={item}
+                            onClick={() => toggleValue(item)}
+                            className={`rounded-md border px-3 py-2 text-sm transition ${
+                              active
+                                ? "border-black bg-black text-white"
+                                : "border-gray-300 bg-white text-black"
+                            } `}
+                          >
+                            {item}
+                          </button>
+                        )
+                      })}
+                    </div>
+
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
                 )
-              }
-            }}
-          />
-          <span>{item.name}</span>
-        </div>
-      ))}
-    </div>
-  )}
-/>
-<div className="space-y-4">
-  <label className="text-sm font-medium">Specifications</label>
+              }}
+            />
+            <Controller
+              name="amenities"
+              control={form.control}
+              defaultValue={[]}
+              render={({ field }) => (
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Amenities</label>
 
-  {fields.map((field, index) => (
-    <div key={field.id} className="flex gap-2">
+                  {AMENITIES.map((item) => (
+                    <div key={item.id} className="flex items-center space-x-2">
+                      <Checkbox
+                        checked={field.value?.includes(item.id)}
+                        onCheckedChange={(checked) => {
+                          if (checked) {
+                            field.onChange([...field.value, item.id])
+                          } else {
+                            field.onChange(
+                              field.value.filter((id: number) => id !== item.id)
+                            )
+                          }
+                        }}
+                      />
+                      <span>{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            />
+            <div className="space-y-4">
+              <label className="text-sm font-medium">Specifications</label>
 
-      {/* Key */}
-      <Input
-        placeholder="Key (Area, Facing)"
-        {...register(`specifications.${index}.key`)}
-      />
+              {fields.map((field, index) => (
+                <div key={field.id} className="flex gap-2">
+                  {/* Key */}
+                  <Input
+                    placeholder="Key (Area, Facing)"
+                    {...register(`specifications.${index}.key`)}
+                  />
 
-      {/* Value */}
-      <Input
-        placeholder="Value (1 Acre, East)"
-        {...register(`specifications.${index}.value`)}
-      />
+                  {/* Value */}
+                  <Input
+                    placeholder="Value (1 Acre, East)"
+                    {...register(`specifications.${index}.value`)}
+                  />
 
-      {/* Remove */}
-      <Button
-        type="button"
-        variant="destructive"
-        onClick={() => remove(index)}
-      >
-        X
-      </Button>
-    </div>
-  ))}
+                  {/* Remove */}
+                  <Button
+                    type="button"
+                    variant="destructive"
+                    onClick={() => remove(index)}
+                  >
+                    X
+                  </Button>
+                </div>
+              ))}
 
-  {/* Add More */}
-  <Button
-    type="button"
-    onClick={() => append({ key: "", value: "" })}
-  >
-    + Add Specification
-  </Button>
-</div>
-            
+              {/* Add More */}
+              <Button
+                type="button"
+                onClick={() => append({ key: "", value: "" })}
+              >
+                + Add Specification
+              </Button>
+            </div>
           </FieldGroup>
         </form>
       </CardContent>

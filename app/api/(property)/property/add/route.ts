@@ -13,6 +13,7 @@ export async function POST(req: Request) {
       propertyType,
       specifications,
       amenities,
+      propertyCategory,
     } = body
 
     const property = await prisma.property.create({
@@ -24,7 +25,11 @@ export async function POST(req: Request) {
         propertyType,
 
         createdById: 1, // ✅ correct field
-
+        propertyCategory: {
+          create: propertyCategory.map((item: string) => ({
+            name: item,
+          })),
+        },
         specification: {
           create: specifications,
         },
@@ -32,12 +37,7 @@ export async function POST(req: Request) {
         propertyAmenity: {
           create: amenities.map((id: number) => ({
             amenity: {
-              connectOrCreate: {
-                where: { id }, // ⚠️ works only if id known
-                create: {
-                  name: `Amenity-${id}`,
-                },
-              },
+              connect: { id },
             },
           })),
         },
