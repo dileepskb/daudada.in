@@ -13,3 +13,15 @@ export async function POST(req: Request) {
     )
   }
 }
+export async function GET(req: Request) {
+  try {
+    const property = await prisma.property.findMany({})
+    return NextResponse.json(property)
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 500 }
+    )
+  }
+}

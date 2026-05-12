@@ -249,6 +249,16 @@ export function SimpleEditor({ content, onChange }: Props) {
     }
   }, [isMobile, mobileView])
 
+  useEffect(() => {
+
+  if (!editor) return
+
+  if (content !== editor.getHTML()) {
+    editor.commands.setContent(content || "")
+  }
+
+}, [content, editor])
+
   return (
     <div className="simple-editor-wrapper">
       <EditorContext.Provider value={{ editor }}>

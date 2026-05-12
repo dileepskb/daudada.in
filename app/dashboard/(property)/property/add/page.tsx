@@ -20,8 +20,8 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
 import {
   Select,
   SelectContent,
@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import MyEditor from "@/components/my_ui/MyEditor/MyEditor"
+import axios from "axios"
 
 const AMENITIES = [
   { id: 1, name: "Parking" },
@@ -82,6 +83,9 @@ export default function AddProperty() {
   const [uploading, setUploading] = useState(false)
   const router = useRouter()
 
+  const searchParams = useSearchParams()
+  const id = searchParams.get("id")
+
   const form = useForm<z.infer<typeof formSchema>>({
     defaultValues: {
       title: "",
@@ -102,45 +106,65 @@ export default function AddProperty() {
     name: "specifications",
   })
 
+  useEffect(() => {
+    if (!id) return
+
+    const fetchProperty = async () => {
+      const res = await axios.get(`/api/property/get/${id}`)
+
+      const data = res.data
+
+      form.reset({
+        title: data.title,
+        description: data.description,
+        price: data.price,
+        location: data.location,
+        propertyType: data.propertyType,
+
+        propertyCategory: data.propertyCategory.map((item: any) => item.name),
+
+        amenities: data.propertyAmenity.map((item: any) => item.amenity.id),
+
+        specifications: data.specification,
+      })
+    }
+
+    fetchProperty()
+  }, [id])
+
   async function onSubmit(data: z.infer<typeof formSchema>) {
     setUploading(true)
+
     try {
-      const res = await fetch("/api/property/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-
-      
-      const result = await res.json()
-
-      if (!res.ok) {
-        throw new Error(result.error || "Failed to save")
+      if (id) {
+        await axios.put(`/api/property/update/${id}`, data)
+      } else {
+        await axios.post(`/api/property/add`, data)
       }
-      setUploading(false)
-      // ✅ Success toast
-      toast("Student created successfully 🎉", {
+
+      toast("Property saved successfully 🎉", {
         position: "bottom-right",
       })
 
-       router.push("/dashboard/property")
+      router.push("/dashboard/property")
     } catch (err: unknown) {
       const error = err as Error
-      // ❌ Error toast
-      setUploading(false)
+
       toast("Error", {
         description: error.message,
         position: "bottom-right",
       })
+    } finally {
+      setUploading(false)
     }
   }
-
   return (
     <Card className="max-w-2xl">
       <CardHeader>
-        <CardTitle className="font-bold text-xl">Add Property</CardTitle>
+        <CardTitle className="text-xl font-bold">
+          {" "}
+          {id ? "Edit Property" : "Add Property"}{" "}
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <form
@@ -154,7 +178,12 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title" className="font-bold">Title</FieldLabel>
+                  <FieldLabel
+                    htmlFor="form-rhf-demo-title"
+                    className="font-bold"
+                  >
+                    Title
+                  </FieldLabel>
                   <Input
                     {...field}
                     id="form-rhf-demo-title"
@@ -188,7 +217,12 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title" className="font-bold">Price</FieldLabel>
+                  <FieldLabel
+                    htmlFor="form-rhf-demo-title"
+                    className="font-bold"
+                  >
+                    Price
+                  </FieldLabel>
                   <Input
                     type="number"
                     {...field}
@@ -206,7 +240,10 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title" className="font-bold">
+                  <FieldLabel
+                    htmlFor="form-rhf-demo-title"
+                    className="font-bold"
+                  >
                     Location
                   </FieldLabel>
                   <Input
@@ -259,6 +296,7 @@ export default function AddProperty() {
                   "2BHK",
                   "3BHK",
                   "Villa",
+                  "Plot",
                   "Shop",
                   "Office Space",
                   "Commercial Space",
@@ -278,7 +316,9 @@ export default function AddProperty() {
 
                 return (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel className="font-bold">Property Category</FieldLabel>
+                    <FieldLabel className="font-bold">
+                      Property Category
+                    </FieldLabel>
 
                     <div className="flex flex-wrap gap-2">
                       {options.map((item) => {
@@ -316,23 +356,28 @@ export default function AddProperty() {
                 <div className="space-y-2">
                   <FieldLabel className="font-bold">Amenities</FieldLabel>
                   <div className="grid grid-cols-3">
-                  {AMENITIES.map((item) => (
-                    <div key={item.id} className="flex items-center space-x-2">
-                      <Checkbox
-                        checked={field.value?.includes(item.id)}
-                        onCheckedChange={(checked) => {
-                          if (checked) {
-                            field.onChange([...field.value, item.id])
-                          } else {
-                            field.onChange(
-                              field.value.filter((id: number) => id !== item.id)
-                            )
-                          }
-                        }}
-                      />
-                      <span>{item.name}</span>
-                    </div>
-                  ))}
+                    {AMENITIES.map((item) => (
+                      <div
+                        key={item.id}
+                        className="flex items-center space-x-2"
+                      >
+                        <Checkbox
+                          checked={field.value?.includes(item.id)}
+                          onCheckedChange={(checked) => {
+                            if (checked) {
+                              field.onChange([...field.value, item.id])
+                            } else {
+                              field.onChange(
+                                field.value.filter(
+                                  (id: number) => id !== item.id
+                                )
+                              )
+                            }
+                          }}
+                        />
+                        <span>{item.name}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}

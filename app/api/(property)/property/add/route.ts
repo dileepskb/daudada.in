@@ -16,8 +16,6 @@ export async function POST(req: Request) {
       propertyCategory,
     } = body
 
-    console.log(description)
-
     const property = await prisma.property.create({
       data: {
         title,
