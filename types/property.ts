@@ -6,6 +6,14 @@ export type Specification = {
   key:string
   value:string
 }
+export type amenity = {
+  id:number
+  name:string
+}
+
+export type propertyAmenity = {
+  amenity:amenity
+}
 
 export type property = {
     id:number
@@ -19,6 +27,7 @@ export type property = {
   status:string
   images:PImages[]
   specification:Specification[]
+  propertyAmenity:propertyAmenity[]
 }
 
 export type testimonial = {

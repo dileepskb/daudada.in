@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import axios from "axios"
-import { Specification } from "@/types/property"
+import { propertyAmenity, Specification, property } from "@/types/property"
 export default  function PropertyDetails(){
 const params = useParams()
 
@@ -13,7 +13,7 @@ const params = useParams()
 
 
 
-  const [property, setProperty] = useState<any>(null)
+  const [property, setProperty] = useState<property | null>(null)
 
   useEffect(() => {
 
@@ -38,7 +38,11 @@ const params = useParams()
   }, [name])
 
 
-console.log(property)
+
+
+const Image = property?.images[0]
+
+     const { url } = Image as any;
 
     return(
         <main
@@ -87,7 +91,7 @@ console.log(property)
           x-component="img"
           x-id="PropertyDetail_47_10"
           x-dynamic="false"
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80"
+          src={`${url}`}
         />
       </div>
       <div
@@ -101,7 +105,7 @@ console.log(property)
         x-source-type="computed"
         x-source-editable="false"
       >
-        <button
+        {/* <button
           data-testid="gallery-thumb-0"
           className="aspect-square rounded-xl overflow-hidden border-2 border-brand-red"
           x-file-name="PropertyDetail"
@@ -144,7 +148,7 @@ console.log(property)
             x-dynamic="false"
             src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1400&q=80"
           />
-        </button>
+        </button> */}
       </div>
     </div>
     <div
@@ -438,7 +442,7 @@ key={index}
           x-source-var="p"
           x-source-path="description"
           x-source-editable="false"
-          dangerouslySetInnerHTML={{__html:property?.description}}
+          dangerouslySetInnerHTML={{__html:property?.description || ""}}
         >
         
         </p>
@@ -464,7 +468,7 @@ key={index}
           x-source-type="computed"
           x-source-editable="false"
         >
-          {property?.propertyAmenity?.map((items:unknown, index:number) => {
+          {property?.propertyAmenity?.map((items:propertyAmenity, index:number) => {
             console.log(items)
             return(
 <span
@@ -482,7 +486,7 @@ key={index}
             x-array-var="p"
             x-array-item-param="a"
           >
-            {items.amenity.name}
+            {items?.amenity?.name}
           </span>
             )
           })}
