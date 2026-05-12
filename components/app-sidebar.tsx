@@ -72,7 +72,7 @@ const data = {
         },
         {
           title: "Images",
-          url: "/dashboard/images",
+          url: "/dashboard/property/images",
         },
         
         // {

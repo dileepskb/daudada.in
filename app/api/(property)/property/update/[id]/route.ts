@@ -6,8 +6,6 @@ export async function PUT(
 ) {
   const { id } = await params
 
-  console.log("check id-----------", typeof id, id)
-
   const body = await req.json()
 
   const {
