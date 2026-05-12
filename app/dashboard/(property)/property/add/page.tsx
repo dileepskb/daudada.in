@@ -30,6 +30,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
+import MyEditor from "@/components/my_ui/MyEditor/MyEditor"
 
 const AMENITIES = [
   { id: 1, name: "Parking" },
@@ -85,10 +86,10 @@ export default function AddProperty() {
     defaultValues: {
       title: "",
       description: "",
-      price: 0,
+      price: undefined,
       location: "",
       propertyType: "",
-      propertyCategory:[],
+      propertyCategory: [],
       amenities: [],
       specifications: [{ key: "", value: "" }],
     },
@@ -112,6 +113,7 @@ export default function AddProperty() {
         body: JSON.stringify(data),
       })
 
+      
       const result = await res.json()
 
       if (!res.ok) {
@@ -122,7 +124,8 @@ export default function AddProperty() {
       toast("Student created successfully 🎉", {
         position: "bottom-right",
       })
-      // router.push("/dashboard/students/")
+
+       router.push("/dashboard/property")
     } catch (err: unknown) {
       const error = err as Error
       // ❌ Error toast
@@ -137,7 +140,7 @@ export default function AddProperty() {
   return (
     <Card className="max-w-2xl">
       <CardHeader>
-        <CardTitle>Add Property</CardTitle>
+        <CardTitle className="font-bold text-xl">Add Property</CardTitle>
       </CardHeader>
       <CardContent>
         <form
@@ -151,7 +154,7 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title">Title</FieldLabel>
+                  <FieldLabel htmlFor="form-rhf-demo-title" className="font-bold">Title</FieldLabel>
                   <Input
                     {...field}
                     id="form-rhf-demo-title"
@@ -170,16 +173,10 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title">
-                    Description
-                  </FieldLabel>
-                  <Input
-                    {...field}
-                    id="form-rhf-demo-title"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="description"
-                    autoComplete="off"
-                  />
+                  <FieldLabel className="font-bold">Description</FieldLabel>
+
+                  <MyEditor {...field} />
+
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -191,14 +188,11 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title">Price</FieldLabel>
+                  <FieldLabel htmlFor="form-rhf-demo-title" className="font-bold">Price</FieldLabel>
                   <Input
-                    {...field}
-                    id="form-rhf-demo-title"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="price"
-                    autoComplete="off"
                     type="number"
+                    {...field}
+                    value={field.value || ""}
                     onChange={(e) => field.onChange(Number(e.target.value))}
                   />
                   {fieldState.invalid && (
@@ -212,7 +206,7 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title">
+                  <FieldLabel htmlFor="form-rhf-demo-title" className="font-bold">
                     Location
                   </FieldLabel>
                   <Input
@@ -234,7 +228,7 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Property Type</FieldLabel>
+                  <FieldLabel className="font-bold">Property Type</FieldLabel>
 
                   <Select value={field.value} onValueChange={field.onChange}>
                     <SelectTrigger aria-invalid={fieldState.invalid}>
@@ -284,7 +278,7 @@ export default function AddProperty() {
 
                 return (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel>Property Category</FieldLabel>
+                    <FieldLabel className="font-bold">Property Category</FieldLabel>
 
                     <div className="flex flex-wrap gap-2">
                       {options.map((item) => {
@@ -320,8 +314,8 @@ export default function AddProperty() {
               defaultValue={[]}
               render={({ field }) => (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Amenities</label>
-
+                  <FieldLabel className="font-bold">Amenities</FieldLabel>
+                  <div className="grid grid-cols-3">
                   {AMENITIES.map((item) => (
                     <div key={item.id} className="flex items-center space-x-2">
                       <Checkbox
@@ -339,11 +333,12 @@ export default function AddProperty() {
                       <span>{item.name}</span>
                     </div>
                   ))}
+                  </div>
                 </div>
               )}
             />
             <div className="space-y-4">
-              <label className="text-sm font-medium">Specifications</label>
+              <FieldLabel className="font-bold">Specifications</FieldLabel>
 
               {fields.map((field, index) => (
                 <div key={field.id} className="flex gap-2">
