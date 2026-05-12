@@ -2,6 +2,8 @@
 // import HomeCounter from "../HomeCounter/HomeCounter";
 // import ClientSay from "../ClientSay/ClientSay";
 
+import HomeTab from "../HomeTab/HomeTab";
+
 export default function Hero(){
     return(
         <main className="flex-1">
@@ -30,7 +32,7 @@ export default function Hero(){
                   <div className="md:col-span-3">
                      <button type="button" role="combobox" aria-controls="radix-_r_4_" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" className="flex w-full items-center justify-between whitespace-nowrap border bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&amp;&gt;span]:line-clamp-1 h-12 rounded-xl border-brand-cream" data-testid="hero-location-select">
                         <span style={{ pointerEvents: 'none'}}>All Brij Locations</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true">
                            <path d="m6 9 6 6 6-6"></path>
                         </svg>
                      </button>
@@ -45,7 +47,7 @@ export default function Hero(){
                   </div>
                   <div className="md:col-span-4">
                      <div className="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-search absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-ink-soft" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-ink-soft" aria-hidden="true">
                            <path d="m21 21-4.34-4.34"></path>
                            <circle cx="11" cy="11" r="8"></circle>
                         </svg>
@@ -55,7 +57,7 @@ export default function Hero(){
                   <div className="md:col-span-3">
                      <button type="button" role="combobox" aria-controls="radix-_r_5_" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" className="flex w-full items-center justify-between whitespace-nowrap border bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&amp;&gt;span]:line-clamp-1 h-12 rounded-xl border-brand-cream" data-testid="hero-type-select">
                         <span style={{ pointerEvents: 'none'}}>All Types</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true">
                            <path d="m6 9 6 6 6-6"></path>
                         </svg>
                      </button>
@@ -98,14 +100,14 @@ export default function Hero(){
                </a>
                <a data-testid="quick-nav-view-all" className="group flex flex-col items-center gap-3" href="/properties" data-discover="true">
                   <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-emerald-600 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center group-hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(5,150,105,0.5)]">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-trees w-10 h-10 text-white" aria-hidden="true">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trees w-10 h-10 text-white" aria-hidden="true">
                         <path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"></path>
                         <path d="M7 16v6"></path>
                         <path d="M13 19v3"></path>
                         <path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"></path>
                      </svg>
                      <span className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-white border-2 border-emerald-600 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-arrow-right w-3.5 h-3.5 text-emerald-700" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-3.5 h-3.5 text-emerald-700" aria-hidden="true">
                            <path d="M5 12h14"></path>
                            <path d="m12 5 7 7-7 7"></path>
                         </svg>
@@ -119,14 +121,14 @@ export default function Hero(){
       <section className="bg-brand-ink text-white py-8" data-testid="trust-strip">
          <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-3 gap-6 text-sm">
             <div className="flex items-center gap-3">
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-shield-check text-brand-gold" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check text-brand-gold" aria-hidden="true">
                   <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
                   <path d="m9 12 2 2 4-4"></path>
                </svg>
                30-Year Title Search on every property
             </div>
             <div className="flex items-center gap-3">
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-scroll-text text-brand-gold" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-scroll-text text-brand-gold" aria-hidden="true">
                   <path d="M15 12h-5"></path>
                   <path d="M15 8h-5"></path>
                   <path d="M19 17V5a2 2 0 0 0-2-2H4"></path>
@@ -135,7 +137,7 @@ export default function Hero(){
                Lawyer-verified legal opinion included
             </div>
             <div className="flex items-center gap-3">
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-map-pinned text-brand-gold" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pinned text-brand-gold" aria-hidden="true">
                   <path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"></path>
                   <circle cx="12" cy="8" r="2"></circle>
                   <path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"></path>
@@ -144,30 +146,7 @@ export default function Hero(){
             </div>
          </div>
       </section>
-      <section className="max-w-7xl mx-auto px-6 md:px-10 py-24" data-testid="tabbed-featured">
-         <div className="text-center mb-10">
-            <div className="text-xs uppercase tracking-[0.25em] text-brand-red mb-2">Featured Properties</div>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-brand-ink">Browse by sacred location</h2>
-         </div>
-         <div dir="ltr" data-orientation="horizontal" className="mb-10">
-            <div role="tablist" aria-orientation="horizontal" className="items-center text-muted-foreground bg-brand-cream rounded-full p-1 h-auto mx-auto flex w-max flex-wrap justify-center" style={{ outline: 'none'}}>
-               <button type="button" role="tab" data-state="active" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm" >Govardhan</button>
-               <button type="button" data-state="inactive"  className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm">Mathura</button>
-               <button type="button" data-state="inactive" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm" >Vrindavan</button>
-               <button type="button" data-state="inactive" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm" >Barsana</button>
-               <button type="button" data-state="inactive" className="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow rounded-full data-[state=active]:bg-brand-red data-[state=active]:text-white px-5 py-2 text-sm">Jatipura</button></div>
-         </div>
-         <p className="text-center text-brand-ink-soft py-10" data-testid="tabbed-empty">No featured listings yet for Govardhan.</p>
-         <div className="text-center mt-10">
-            <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow h-9 rounded-full bg-brand-ink text-white hover:bg-black px-8 py-6" data-testid="tab-view-all-btn">
-               View All in Govardhan 
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-arrow-right ml-2 w-4 h-4" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-               </svg>
-            </button>
-         </div>
-      </section>
+      <HomeTab />
       <section className="max-w-7xl mx-auto px-6 md:px-10 py-24" data-testid="home-services">
          <div className="text-center mb-16">
             <div className="text-xs uppercase tracking-[0.25em] text-brand-red mb-2">Why Dau Dada</div>
@@ -176,7 +155,7 @@ export default function Hero(){
          <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-2xl p-8 border border-brand-cream hover:border-brand-gold/40 transition-all" data-testid="service-pillar-0">
                <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center mb-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-scale w-6 h-6 text-brand-red" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-scale w-6 h-6 text-brand-red" aria-hidden="true">
                      <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
                      <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
                      <path d="M7 21h10"></path>
@@ -189,7 +168,7 @@ export default function Hero(){
             </div>
             <div className="bg-white rounded-2xl p-8 border border-brand-cream hover:border-brand-gold/40 transition-all" data-testid="service-pillar-1">
                <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center mb-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-eye w-6 h-6 text-brand-red" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-eye w-6 h-6 text-brand-red" aria-hidden="true">
                      <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
                      <circle cx="12" cy="12" r="3"></circle>
                   </svg>
@@ -199,7 +178,7 @@ export default function Hero(){
             </div>
             <div className="bg-white rounded-2xl p-8 border border-brand-cream hover:border-brand-gold/40 transition-all" data-testid="service-pillar-2">
                <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center mb-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-file-search w-6 h-6 text-brand-red" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-search w-6 h-6 text-brand-red" aria-hidden="true">
                      <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
                      <path d="M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"></path>
                      <path d="m9 18-1.5-1.5"></path>
@@ -223,7 +202,7 @@ export default function Hero(){
                   <div className="aspect-[4/5] overflow-hidden relative">
                      <img alt="Amit Dashana" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/zqfoh7zb_WhatsApp%20Image%202026-05-04%20at%2020.48.27.jpeg" />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
                         <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
                         <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
                      </svg>
@@ -241,7 +220,7 @@ export default function Hero(){
                   <div className="aspect-[4/5] overflow-hidden relative">
                      <img alt="Aman Birla" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/h6fehy4w_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%281%29.jpeg" />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
                         <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
                         <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
                      </svg>
@@ -259,7 +238,7 @@ export default function Hero(){
                   <div className="aspect-[4/5] overflow-hidden relative">
                      <img alt="Sudhanshu Sharma" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/kuo45hnu_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%283%29.jpeg" />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
                         <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
                         <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
                      </svg>
@@ -277,7 +256,7 @@ export default function Hero(){
                   <div className="aspect-[4/5] overflow-hidden relative">
                      <img alt="Rajkumar" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/0jqejqg0_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%282%29.jpeg" />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
                         <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
                         <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
                      </svg>
@@ -305,7 +284,7 @@ export default function Hero(){
                   <p className="font-light opacity-80 leading-relaxed mb-8">We bring serious, verified buyers — and our legal wing handles paperwork end to end. List your property with us and let your land find the right hands.</p>
                   <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow h-9 rounded-full bg-brand-red text-white hover:bg-brand-red-dark px-8 py-6 text-base shadow-brand" data-testid="home-cta-list-btn">
                      List Your Property 
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-arrow-right ml-2 w-4 h-4" aria-hidden="true">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right ml-2 w-4 h-4" aria-hidden="true">
                         <path d="M5 12h14"></path>
                         <path d="m12 5 7 7-7 7"></path>
                      </svg>

@@ -171,9 +171,9 @@
     }
 }
 
-* {
+/* * {
     border-color: hsl(var(--border));
-}
+} */
 
 body {
     margin: 0;

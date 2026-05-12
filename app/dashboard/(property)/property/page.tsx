@@ -98,7 +98,7 @@ useEffect(() => {
               <TableCell className="font-medium">{property.title}</TableCell>
               <TableCell>{property.propertyType}</TableCell>
               <TableCell>{property.status}</TableCell>
-              <TableCell className="text-right">
+              <TableCell className="text-right flex gap-1 justify-end">
                 <Tooltip>
                   <TooltipTrigger>
                     {" "}

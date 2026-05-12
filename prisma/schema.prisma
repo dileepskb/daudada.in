@@ -121,9 +121,14 @@ model Property {
   description String?
 
   price    Float
+  address String?
   location String
 
   propertyType String
+  propertyCategory PropertyCategory[]
+
+
+  transaction_type  String? // # buy, rent, sell
 
   status PropertyStatus @default(AVAILABLE)
 
@@ -136,6 +141,33 @@ model Property {
 
   createdAt DateTime @default(now())
 }
+
+
+model PropertyCategory{
+    id          Int     @id @default(autoincrement())
+    name String
+    propertyId Int
+    property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+}
+   
+    // transaction_type: str  # buy, rent, sell
+    // area_value: float
+    // area_unit: str  # sqft, sqyd, bigha, acre
+    // bedrooms: Optional[int] = 0
+    // bathrooms: Optional[int] = 0
+    // location: str  # Govardhan, Mathura, etc.
+    // locality: str  # parikrama marg, etc.
+    // address: Optional[str] = ""
+    // images: List[str] = []
+    // amenities: List[str] = []
+    // legal_status: str = "verified"  # verified, pending
+    // title_search_years: int = 30
+    // mvda_compliant: bool = True
+    // featured: bool = False
+    // # Connectivity — drive time in minutes from major Brij hubs / cities
+    // distances: dict = {}  # e.g. {"Mathura": 25, "Govardhan": 5, "Delhi": 180}
+    // # Nearby landmarks — list of {name: str, minutes: int}
+    // nearby_landmarks: List[dict] = []
 
 // =====================
 // PROPERTY SPECIFICATION
