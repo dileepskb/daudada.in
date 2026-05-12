@@ -905,7 +905,7 @@ export default function LandingPage(){
                 </label>
                 <input
                   placeholder="Naam likhein"
-                  required=""
+                  required
                   data-testid="lead-form-name-input"
                   className="w-full px-4 py-3.5 bg-white/80 border border-[#002D62]/15 focus:border-[#002D62] outline-none transition-colors text-[#002D62] placeholder:text-[#4A5568]/60"
                   x-file-name="Hero"
@@ -939,7 +939,7 @@ export default function LandingPage(){
                 </label>
                 <input
                   placeholder="+91 98XXX XXXXX"
-                  required=""
+                  required
                   data-testid="lead-form-whatsapp-input"
                   className="w-full px-4 py-3.5 bg-white/80 border border-[#002D62]/15 focus:border-[#002D62] outline-none transition-colors text-[#002D62] placeholder:text-[#4A5568]/60"
                   x-file-name="Hero"
@@ -6365,7 +6365,7 @@ export default function LandingPage(){
                     Your Name *
                   </label>
                   <input
-                    required=""
+                    required
                     placeholder="Aapka naam"
                     data-testid="seller-form-name"
                     className="w-full px-4 py-3 bg-white border border-[#002D62]/15 focus:border-[#002D62] outline-none transition-colors text-[#002D62] placeholder:text-[#4A5568]/60"
@@ -6399,7 +6399,7 @@ export default function LandingPage(){
                     Phone *
                   </label>
                   <input
-                    required=""
+                    required
                     placeholder="+91 98XXX XXXXX"
                     data-testid="seller-form-phone"
                     className="w-full px-4 py-3 bg-white border border-[#002D62]/15 focus:border-[#002D62] outline-none transition-colors text-[#002D62] placeholder:text-[#4A5568]/60"
@@ -6476,7 +6476,7 @@ export default function LandingPage(){
                     Location *
                   </label>
                   <select
-                    required=""
+                    required
                     data-testid="seller-form-location"
                     className="w-full px-4 py-3 bg-white border border-[#002D62]/15 focus:border-[#002D62] outline-none transition-colors text-[#002D62] placeholder:text-[#4A5568]/60"
                     x-file-name="SellerForm"
@@ -6700,7 +6700,7 @@ export default function LandingPage(){
                     Property Type *
                   </label>
                   <select
-                    required=""
+                    required
                     data-testid="seller-form-type"
                     className="w-full px-4 py-3 bg-white border border-[#002D62]/15 focus:border-[#002D62] outline-none transition-colors text-[#002D62] placeholder:text-[#4A5568]/60"
                     x-file-name="SellerForm"
@@ -6839,7 +6839,7 @@ export default function LandingPage(){
                     Area *
                   </label>
                   <input
-                    required=""
+                    required
                     placeholder="e.g. 200"
                     data-testid="seller-form-area"
                     className="w-full px-4 py-3 bg-white border border-[#002D62]/15 focus:border-[#002D62] outline-none transition-colors text-[#002D62] placeholder:text-[#4A5568]/60"
