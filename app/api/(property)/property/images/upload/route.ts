@@ -27,9 +27,9 @@ export async function POST(req: Request) {
       const fileName = `${Date.now()}-${image.name}`
 
       const safeName = fileName
-  .replace(/\s+/g, "-")
-  .replace(/,/g, "")
-  .replace(/[^\w.-]/g, "")
+ .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
 
       const filePath = path.join(process.cwd(), "public/uploads", safeName)
 
