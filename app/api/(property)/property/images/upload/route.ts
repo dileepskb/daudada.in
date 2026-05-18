@@ -24,12 +24,18 @@ export async function POST(req: Request) {
 
       const buffer = Buffer.from(bytes)
 
-      const fileName = `${Date.now()}-${image.name}`
+      // const fileName = `${Date.now()}-${image.name}`
 
-      const safeName = fileName
- .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "")
+      const ext = image.name.split(".").pop()
+
+const baseName = image.name
+  .replace(/\.[^/.]+$/, "")
+  .toLowerCase()
+  .replace(/\s+/g, "-")
+  .replace(/[^a-z0-9-]/g, "")
+
+const safeName =
+  `${Date.now()}-${baseName}.${ext}`
 
       const filePath = path.join(process.cwd(), "public/uploads", safeName)
 
