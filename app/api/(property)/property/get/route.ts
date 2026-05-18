@@ -13,6 +13,7 @@ export async function POST(
 
     include: {
       propertyCategory: true,
+      images:true,
       propertyAmenity: {
         include: {
           amenity: true,

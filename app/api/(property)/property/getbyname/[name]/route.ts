@@ -13,6 +13,7 @@ export async function GET(
     },
 
     include: {
+      images:true,
       propertyCategory: true,
       propertyAmenity: {
         include: {

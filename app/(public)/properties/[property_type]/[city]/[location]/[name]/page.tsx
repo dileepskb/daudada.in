@@ -37,8 +37,9 @@ const params = useParams()
 
   }, [name])
 
-
+console.log(property)
 const Image = property?.images?.[0]?.url
+console.log(Image)
 
    
 
