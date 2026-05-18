@@ -51,7 +51,7 @@ export default function Hero(){
                            <path d="m21 21-4.34-4.34"></path>
                            <circle cx="11" cy="11" r="8"></circle>
                         </svg>
-                        <input className="flex w-full border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm h-12 rounded-xl pl-9 border-brand-cream" data-testid="hero-locality-input" placeholder="Locality (Parikrama Marg, Chhatikara…)" value="" />
+                        <input className="flex w-full border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm h-12 rounded-xl pl-9 border-brand-cream" data-testid="hero-locality-input" placeholder="Locality (Parikrama Marg, Chhatikara…)" />
                      </div>
                   </div>
                   <div className="md:col-span-3">

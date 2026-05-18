@@ -125,7 +125,7 @@ model Property {
   title       String
   description String?
 
-  price    Float
+  price    Float?
   address String?
   location String
   city String?

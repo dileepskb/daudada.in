@@ -1,14 +1,14 @@
+"use client"
 import { property } from "@/types/property";
+import { useEffect, useState } from "react";
 
 type Props = {
   property: property
 }
 
 export default function PropertyCard({property}:Props){
-    console.log(property)
-    const Image = property?.images[0]
-     console.log(Image)
-     const { url } = Image;
+  
+    const img = property?.images?.[0]?.url
     return(
         <div
   
@@ -35,7 +35,7 @@ export default function PropertyCard({property}:Props){
         x-component="img"
         x-id="PropertyCard_24_8"
         x-dynamic="false"
-        src={`${url}`}
+        src={`${img}`}
       />
       <div
         className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-medium text-brand-red"

@@ -302,10 +302,11 @@ export default function AddProperty() {
                     <SelectContent>
                       <SelectItem value="Govardhan">Govardhan</SelectItem>
                       <SelectItem value="Jatipura">Jatipura</SelectItem>
-                      <SelectItem value="Govardhan">Vrindavan</SelectItem>
-                      <SelectItem value="Govardhan">Barsana</SelectItem>
-                      <SelectItem value="Govardhan">Mathura</SelectItem>
-                      <SelectItem value="Ring Road">Ring Road</SelectItem>
+                      <SelectItem value="Vrindavan">Vrindavan</SelectItem>
+                      <SelectItem value="Barsana">Barsana</SelectItem>
+                      <SelectItem value="Mathura">Mathura</SelectItem>
+                      <SelectItem value="Ring-Road">Ring Road</SelectItem>
+                      <SelectItem value="Poonchri">Poonchri</SelectItem>
                     </SelectContent>
                   </Select>
 
@@ -386,6 +387,7 @@ export default function AddProperty() {
                   "House",
                   "Villa",
                   "Plot",
+                  "Land",
                   "Shop",
                   "Office Space",
                   "Commercial Space",

@@ -82,6 +82,38 @@ const data = {
       ],
     },
     {
+      title: "Leads",
+      url: "#",
+      icon: (
+        <TerminalSquareIcon
+        />
+      ),
+      isActive: true,
+      items: [
+        {
+          title: "All Leads",
+          url: "/dashboard/lead",
+        },
+        // {
+        //   title: "Add Property",
+        //   url: "/dashboard/property/add",
+        // },
+        // {
+        //   title: "Videos",
+        //   url: "/dashboard/videos",
+        // },
+        // {
+        //   title: "Images",
+        //   url: "/dashboard/property/images",
+        // },
+        
+        // {
+        //   title: "Settings",
+        //   url: "#",
+        // },
+      ],
+    },
+    {
       title: "Testimonial",
       url: "#",
       icon: (
