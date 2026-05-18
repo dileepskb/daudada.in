@@ -105,6 +105,11 @@ model Lead {
   assignedTo   User? @relation("AssignedTo", fields: [assignedToId], references: [id])
 
   notes String?
+  location String?
+  property_type String?
+  area String?
+  unit String? 
+  expected_price String 
 
   activities Activity[]
 
