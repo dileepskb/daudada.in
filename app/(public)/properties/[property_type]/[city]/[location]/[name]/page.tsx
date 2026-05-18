@@ -38,11 +38,9 @@ const params = useParams()
   }, [name])
 
 
+const Image = property?.images?.[0]?.url
 
-
-const Image = property?.images[0]
-
-     const { url } = Image as any;
+   
 
     return(
         <main
@@ -91,7 +89,7 @@ const Image = property?.images[0]
           x-component="img"
           x-id="PropertyDetail_47_10"
           x-dynamic="false"
-          src={`${url}`}
+          src={`${Image}`}
         />
       </div>
       <div
