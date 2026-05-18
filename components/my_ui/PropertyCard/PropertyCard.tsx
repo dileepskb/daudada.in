@@ -1,5 +1,6 @@
 "use client"
 import { property } from "@/types/property";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -21,9 +22,9 @@ export default function PropertyCard({property}:Props){
     x-id="PropertyCard_19_4"
     x-dynamic="false"
   >
-    <a
+    <Link
       className="relative aspect-[4/3] overflow-hidden block"
-      href="/properties/6a9ac87f-a1ee-400d-9cdd-ec39d91df642"
+       href={`${'/properties/'}/${property.propertyType}/${property.city}/${property.address}/${property.title}`}
       data-discover="true"
     >
       <img
@@ -81,7 +82,7 @@ export default function PropertyCard({property}:Props){
       >
         Featured
       </div>
-    </a>
+    </Link>
     <div
       className="p-5 flex flex-col gap-3 flex-1"
       x-file-name="PropertyCard"
@@ -91,9 +92,9 @@ export default function PropertyCard({property}:Props){
       x-id="PropertyCard_35_6"
       x-dynamic="false"
     >
-      <a
+      <Link
         className="flex flex-col gap-3"
-        href="/properties/6a9ac87f-a1ee-400d-9cdd-ec39d91df642"
+        href={`${'/properties/'}/${property.propertyType}/${property.city}/${property.address}/${property.title}`}
         data-discover="true"
       >
         <div
@@ -247,7 +248,7 @@ key={index}
           )})}
           
         </div>
-      </a>
+      </Link>
       <div
         className="grid grid-cols-2 gap-2 pt-1"
         x-file-name="PropertyCard"
@@ -293,7 +294,7 @@ key={index}
           </svg>
           Price on Request
         </a>
-        <a
+        <Link
           data-testid="card-visit-6a9ac87f-a1ee-400d-9cdd-ec39d91df642"
           className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-brand-ink text-brand-ink text-xs font-semibold py-2.5 hover:bg-brand-ink hover:text-white transition-colors"
           href={`${'/properties/'}/${property.propertyType}/${property.city}/${property.address}/${property.title}`}
@@ -322,7 +323,7 @@ key={index}
             <path d="M7 7h10v10" />
             <path d="M7 17 17 7" />
           </svg>
-        </a>
+        </Link>
       </div>
       <span
         className="text-[10px] uppercase tracking-widest text-brand-ink-soft text-center -mt-1"
