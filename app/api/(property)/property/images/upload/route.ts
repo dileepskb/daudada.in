@@ -26,13 +26,18 @@ export async function POST(req: Request) {
 
       const fileName = `${Date.now()}-${image.name}`
 
-      const filePath = path.join(process.cwd(), "public/uploads", fileName)
+      const safeName = fileName
+  .replace(/\s+/g, "-")
+  .replace(/,/g, "")
+  .replace(/[^\w.-]/g, "")
+
+      const filePath = path.join(process.cwd(), "public/uploads", safeName)
 
       await writeFile(filePath, buffer)
 
       await prisma.propertyImage.create({
         data: {
-          url: `/uploads/${fileName}`,
+          url: `/uploads/${safeName}`,
 
           propertyId: Number(propertyId),
         },

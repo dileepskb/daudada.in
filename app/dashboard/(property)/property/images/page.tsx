@@ -23,6 +23,7 @@ import {
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { IoMdClose } from "react-icons/io";
 
 type Property = {
   id: number
@@ -108,7 +109,29 @@ export default function PropertyImagesPage() {
     }
   }
 
-console.log(uploadedImages)
+const handleDelete = async (id: number) => {
+    const confirmDelete = confirm("Are you sure?")
+    if (!confirmDelete) return
+
+    try {
+      const res = await fetch(`/api/property/images/delete/${id}`, {
+        method: "DELETE",
+      })
+
+      if (res.ok) {
+
+      const propertyId =
+        form.getValues("propertyId")
+        getImages(propertyId)
+
+    } else {
+
+      alert("Delete failed")
+    }
+    } catch (err) {
+      alert("Something went wrong")
+    }
+  }
 
   return (
     <>
@@ -199,7 +222,8 @@ console.log(uploadedImages)
 
         {
           uploadedImages.map((item: any) => (
-<div  key={item.id}>
+<div  key={item.id} className="relative">
+            <button onClick={() => handleDelete(item.id)} className="absolute right-2 top-2 cursor-pointer bg-red-600 rounded-full text-white z-[10]"><IoMdClose size={20} /></button>
             <img
               src={item.url}
               alt=""
