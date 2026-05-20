@@ -123,12 +123,16 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "Seo",
-          url: "/dashboard/lead",
+          title: "All Property Pages Seo",
+          url: "/dashboard/property_seo",
         },
         {
-          title: "Add Seo",
-          url: "/dashboard/seo/add",
+          title: "Other Pages Seo",
+          url: "/dashboard/other_page_seo",
+        },
+        {
+          title: "Home Page Seo",
+          url: "/dashboard/homepage",
         },
         // {
         //   title: "Videos",
