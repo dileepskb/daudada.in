@@ -209,7 +209,7 @@ export default function Hero(){
                      </svg>
                      <div className="absolute bottom-4 left-4 right-4 text-white">
                         <div className="font-display text-xl font-medium leading-tight">Amit Dashana</div>
-                        <div className="text-[11px] tracking-wide opacity-90">Sub-Editor, Times of India</div>
+                        <div className="text-[11px] tracking-wide opacity-90">Sub-Head, Times of India</div>
                         <div className="text-[10px] uppercase tracking-[0.2em] text-brand-gold mt-0.5">Haridwar</div>
                      </div>
                   </div>
@@ -237,7 +237,7 @@ export default function Hero(){
                </article>
                <article data-testid="testimonial-card-2" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
                   <div className="aspect-[4/5] overflow-hidden relative">
-                     <img alt="Sudhanshu Sharma" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/kuo45hnu_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%283%29.jpeg" />
+                      <img alt="Rajkumar" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/0jqejqg0_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%282%29.jpeg" />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
                         <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
@@ -255,7 +255,8 @@ export default function Hero(){
                </article>
                <article data-testid="testimonial-card-3" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
                   <div className="aspect-[4/5] overflow-hidden relative">
-                     <img alt="Rajkumar" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/0jqejqg0_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%282%29.jpeg" />
+                  <img alt="Sudhanshu Sharma" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/kuo45hnu_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%283%29.jpeg" />
+                    
                      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
                         <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
