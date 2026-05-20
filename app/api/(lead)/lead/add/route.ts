@@ -10,6 +10,8 @@ export async function POST(req: Request) {
       data
     } = body
 
+    console.log("dileep----------------", data)
+
     const lead = await prisma.lead.create({
       data: {...data,  createdById: 1,},
       include: {

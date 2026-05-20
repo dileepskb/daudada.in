@@ -99,7 +99,12 @@ export default function Hero(){
                   <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Jatipura" className="w-full h-full object-cover" src="/images/jatipura.jpeg" /></div>
                   <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Jatipura</span>
                </Link>
-               <Link data-testid="quick-nav-view-all" className="group flex flex-col items-center gap-3" href="/properties" data-discover="true">
+               <Link data-testid="quick-nav-Jatipura" className="group flex flex-col items-center gap-3" href="/properties" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="View All" className="w-full h-full object-cover" src="/images/viewall.jpeg" /></div>
+                  <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">View All</span>
+               </Link>
+               
+               {/* <Link data-testid="quick-nav-view-all" className="group flex flex-col items-center gap-3" href="/properties" data-discover="true">
                   <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-emerald-600 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center group-hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(5,150,105,0.5)]">
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trees w-10 h-10 text-white" aria-hidden="true">
                         <path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"></path>
@@ -115,7 +120,7 @@ export default function Hero(){
                      </span>
                   </div>
                   <span className="font-display text-xl font-medium text-emerald-700 group-hover:text-emerald-800 transition-colors text-center leading-tight">View All<br /><span className="text-sm">Locations</span></span>
-               </Link>
+               </Link> */}
             </div>
          </div>
       </section>
@@ -235,25 +240,7 @@ export default function Hero(){
                      <p className="text-sm text-brand-ink-soft font-light leading-relaxed italic">&quot;Dau Dada doesn&apos;t sell — they consult. They walked me through MVDA zoning and exit liquidity before I committed. Rare honesty.&quot;</p>
                   </div>
                </article>
-               <article data-testid="testimonial-card-2" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                  <div className="aspect-[4/5] overflow-hidden relative">
-                      <img alt="Rajkumar" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/0jqejqg0_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%282%29.jpeg" />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
-                        <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
-                        <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
-                     </svg>
-                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                        <div className="font-display text-xl font-medium leading-tight">Sudhanshu Sharma</div>
-                        <div className="text-[11px] tracking-wide opacity-90">Business Owner</div>
-                        <div className="text-[10px] uppercase tracking-[0.2em] text-brand-gold mt-0.5">Delhi</div>
-                     </div>
-                  </div>
-                  <div className="p-5 flex-1 flex">
-                     <p className="text-sm text-brand-ink-soft font-light leading-relaxed italic">&quot;From farm well to mutation papers — Ravi ji&apos;s local network closed my farmhouse deal in 18 days. Smooth, transparent, devotional.&quot;</p>
-                  </div>
-               </article>
-               <article data-testid="testimonial-card-3" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                <article data-testid="testimonial-card-3" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
                   <div className="aspect-[4/5] overflow-hidden relative">
                   <img alt="Sudhanshu Sharma" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/kuo45hnu_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%283%29.jpeg" />
                     
@@ -272,6 +259,25 @@ export default function Hero(){
                      <p className="text-sm text-brand-ink-soft font-light leading-relaxed italic">&quot;I&apos;m based in Mumbai but trusted Dau Dada for a Vrindavan plot. End-to-end registry handled remotely. Faith-meets-legal — for real.&quot;</p>
                   </div>
                </article>
+               <article data-testid="testimonial-card-2" className="bg-white rounded-2xl border border-brand-cream overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                  <div className="aspect-[4/5] overflow-hidden relative">
+                      <img alt="Rajkumar" className="w-full h-full object-cover" src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/0jqejqg0_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%282%29.jpeg" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote absolute top-4 right-4 w-7 h-7 text-brand-gold/80" aria-hidden="true">
+                        <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                        <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                     </svg>
+                     <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="font-display text-xl font-medium leading-tight">Sudhanshu Sharma</div>
+                        <div className="text-[11px] tracking-wide opacity-90">Business Owner</div>
+                        <div className="text-[10px] uppercase tracking-[0.2em] text-brand-gold mt-0.5">Delhi</div>
+                     </div>
+                  </div>
+                  <div className="p-5 flex-1 flex">
+                     <p className="text-sm text-brand-ink-soft font-light leading-relaxed italic">&quot;From farm well to mutation papers — Ravi ji&apos;s local network closed my farmhouse deal in 18 days. Smooth, transparent, devotional.&quot;</p>
+                  </div>
+               </article>
+              
             </div>
             <div className="text-center mt-12"><a href="/reviews" data-discover="true"><button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow h-9 rounded-full bg-brand-ink text-white hover:bg-black px-8 py-6" data-testid="testimonials-watch-btn">Watch Video Reviews</button></a></div>
          </div>

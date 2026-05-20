@@ -92,7 +92,7 @@ export default function SeoForm() {
     console.log(formData)
   }
 
-  console.log(data)
+
 
   return (
     <Card className="max-w-3xl">
