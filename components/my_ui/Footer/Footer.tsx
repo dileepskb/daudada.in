@@ -248,7 +248,7 @@ export default function Footer(){
           </Link>
         </li>
         <li>
-          <Link href="#" className="hover:text-brand-gold transition-colors">
+          <Link href="/disclaimer" className="hover:text-brand-gold transition-colors">
             Disclaimer
           </Link>
         </li>
