@@ -1,6 +1,7 @@
 export type PImages = {
   id:number
   url:string
+  image_type:string
 }
 export type Specification = {
   key:string

@@ -221,7 +221,7 @@ model PropertyAmenity {
 model PropertyImage {
   id  Int    @id @default(autoincrement())
   url String
-
+  image_type String?
   propertyId Int
   property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
 }

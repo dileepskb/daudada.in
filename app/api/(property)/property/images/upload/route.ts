@@ -7,6 +7,10 @@ export async function POST(req: Request) {
     const formData = await req.formData()
 
     const propertyId = formData.get("propertyId")
+    const image_type = formData.get("image_type")
+
+        
+    console.log("dileep----------------", image_type)
 
     const images = formData.getAll("images") as File[]
 
@@ -44,7 +48,7 @@ const safeName =
       await prisma.propertyImage.create({
         data: {
           url: `/uploads/${safeName}`,
-
+          image_type:image_type,
           propertyId: Number(propertyId),
         },
       })

@@ -38,8 +38,14 @@ const params = useParams()
   }, [name])
 
 console.log(property)
-const Image = property?.images?.[0]?.url
-console.log(Image)
+
+
+    const fimg =  property?.images?.filter((item) => item.image_type === "page_image") || []
+
+    const Image = fimg[0]?.url
+
+// const Image = property?.images?.[0]?.url
+// console.log(Image)
 
    
 

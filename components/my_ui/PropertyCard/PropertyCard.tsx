@@ -8,8 +8,11 @@ type Props = {
 }
 
 export default function PropertyCard({property}:Props){
-  
-    const img = property?.images?.[0]?.url
+    console.log(property.images)
+
+    const fimg =  property?.images?.filter((item) => item.image_type === "feature_image") || []
+
+    const img = fimg[0]?.url
     return(
         <div
   

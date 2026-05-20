@@ -32,6 +32,7 @@ type Property = {
 
 type FormValues = {
   propertyId: string
+  image_type: string
 }
 
 export default function PropertyImagesPage() {
@@ -50,6 +51,7 @@ export default function PropertyImagesPage() {
   const form = useForm<FormValues>({
     defaultValues: {
       propertyId: "",
+      image_type:""
     },
   })
 
@@ -78,22 +80,29 @@ export default function PropertyImagesPage() {
   }
 
   const onSubmit = async (data: FormValues) => {
+    console.log(data)
     try {
       setUploading(true)
 
       const formData = new FormData()
 
+      
+
       formData.append("propertyId", data.propertyId)
+      formData.append("image_type", data.image_type)
 
       images.forEach((file) => {
         formData.append("images", file)
       })
+
+      
 
       await axios.post("/api/property/images/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
+      console.log(formData)
 
       alert("Images uploaded successfully")
 
@@ -170,6 +179,41 @@ const handleDelete = async (id: number) => {
                             {item.title}
                           </SelectItem>
                         ))}
+                      </SelectContent>
+                    </Select>
+
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+              <Controller
+                name="image_type"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel className="font-bold">
+                      Select Image Type
+                    </FieldLabel>
+
+                    <Select
+                      value={field.value}
+                      onValueChange={(value) => {
+                        field.onChange(value)
+                      }}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select property" />
+                      </SelectTrigger>
+
+                      <SelectContent>
+                         <SelectItem value={"page_image"}>
+                            Page Image (Only one image as show on details page first)
+                          </SelectItem>
+                          <SelectItem value={"feature_image"}>
+                            Feature Image
+                          </SelectItem>
                       </SelectContent>
                     </Select>
 
