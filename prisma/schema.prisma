@@ -261,3 +261,33 @@ model Testimonial {
 
   createdAt DateTime @default(now())
 }
+
+model Seo {
+
+  id Int @id @default(autoincrement())
+  page_url String @unique
+
+  meta_title String?
+  meta_description String?
+
+  meta_keywords String?
+
+  og_title String?
+  og_description String?
+  og_image String?
+
+  twitter_title String?
+  twitter_description String?
+  twitter_image String?
+
+  canonical_url String?
+
+  schema Json?
+
+  gtag_head String?
+  custom_head String?
+
+  robots String? @default("index, follow")
+
+  createdAt DateTime @default(now())
+}

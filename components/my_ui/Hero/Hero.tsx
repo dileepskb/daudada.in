@@ -2,6 +2,7 @@
 // import HomeCounter from "../HomeCounter/HomeCounter";
 // import ClientSay from "../ClientSay/ClientSay";
 
+import Link from "next/link";
 import HomeTab from "../HomeTab/HomeTab";
 
 export default function Hero(){
@@ -78,27 +79,27 @@ export default function Hero(){
          <div className="max-w-7xl mx-auto px-6 md:px-10">
             <p className="text-center text-xs uppercase tracking-[0.25em] text-brand-red mb-6">Jump to your sacred location</p>
             <div className="flex justify-center flex-wrap gap-6 md:gap-10">
-               <a data-testid="quick-nav-Mathura" className="group flex flex-col items-center gap-3" href="/properties?loc=Mathura" data-discover="true">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Mathura" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+               <Link data-testid="quick-nav-Mathura" className="group flex flex-col items-center gap-3" href="/properties?loc=Mathura" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Mathura" className="w-full h-full object-cover" src="/images/mathura.jpeg" /></div>
                   <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Mathura</span>
-               </a>
-               <a data-testid="quick-nav-Govardhan" className="group flex flex-col items-center gap-3" href="/properties?loc=Govardhan" data-discover="true">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Govardhan" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+               </Link>
+               <Link data-testid="quick-nav-Govardhan" className="group flex flex-col items-center gap-3" href="/properties?loc=Govardhan" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Govardhan" className="w-full h-full object-cover" src="/images/govardhan.jpeg" /></div>
                   <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Govardhan</span>
-               </a>
-               <a data-testid="quick-nav-Vrindavan" className="group flex flex-col items-center gap-3" href="/properties?loc=Vrindavan" data-discover="true">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Vrindavan" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1567604130959-7ea7ab2a7e4f?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+               </Link>
+               <Link data-testid="quick-nav-Vrindavan" className="group flex flex-col items-center gap-3" href="/properties?loc=Vrindavan" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Vrindavan" className="w-full h-full object-cover" src="/images/varindavan.jpeg" /></div>
                   <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Vrindavan</span>
-               </a>
-               <a data-testid="quick-nav-Barsana" className="group flex flex-col items-center gap-3" href="/properties?loc=Barsana" data-discover="true">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Barsana" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+               </Link>
+               <Link data-testid="quick-nav-Barsana" className="group flex flex-col items-center gap-3" href="/properties?loc=Barsana" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Barsana" className="w-full h-full object-cover" src="/images/barsana.jpeg" /></div>
                   <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Barsana</span>
-               </a>
-               <a data-testid="quick-nav-Jatipura" className="group flex flex-col items-center gap-3" href="/properties?loc=Jatipura" data-discover="true">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Jatipura" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&amp;fit=crop&amp;w=400&amp;q=80" /></div>
+               </Link>
+               <Link data-testid="quick-nav-Jatipura" className="group flex flex-col items-center gap-3" href="/properties?loc=Jatipura" data-discover="true">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-brand-cream group-hover:ring-brand-red group-hover:scale-105 transition-all"><img alt="Jatipura" className="w-full h-full object-cover" src="/images/jatipura.jpeg" /></div>
                   <span className="font-display text-xl font-medium text-brand-ink group-hover:text-brand-red transition-colors">Jatipura</span>
-               </a>
-               <a data-testid="quick-nav-view-all" className="group flex flex-col items-center gap-3" href="/properties" data-discover="true">
+               </Link>
+               <Link data-testid="quick-nav-view-all" className="group flex flex-col items-center gap-3" href="/properties" data-discover="true">
                   <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-emerald-600 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center group-hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(5,150,105,0.5)]">
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trees w-10 h-10 text-white" aria-hidden="true">
                         <path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"></path>
@@ -114,7 +115,7 @@ export default function Hero(){
                      </span>
                   </div>
                   <span className="font-display text-xl font-medium text-emerald-700 group-hover:text-emerald-800 transition-colors text-center leading-tight">View All<br /><span className="text-sm">Locations</span></span>
-               </a>
+               </Link>
             </div>
          </div>
       </section>

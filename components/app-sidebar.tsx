@@ -114,6 +114,38 @@ const data = {
       ],
     },
     {
+      title: "Seo",
+      url: "#",
+      icon: (
+        <TerminalSquareIcon
+        />
+      ),
+      isActive: true,
+      items: [
+        {
+          title: "Seo",
+          url: "/dashboard/lead",
+        },
+        {
+          title: "Add Seo",
+          url: "/dashboard/seo/add",
+        },
+        // {
+        //   title: "Videos",
+        //   url: "/dashboard/videos",
+        // },
+        // {
+        //   title: "Images",
+        //   url: "/dashboard/property/images",
+        // },
+        
+        // {
+        //   title: "Settings",
+        //   url: "#",
+        // },
+      ],
+    },
+    {
       title: "Testimonial",
       url: "#",
       icon: (
