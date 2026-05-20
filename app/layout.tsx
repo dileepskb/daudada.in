@@ -94,25 +94,9 @@ export default function RootLayout({
       >
 {/* <!-- Google Tag Manager (noscript) --> */}
 
-<noscript>
 
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-T25HKBDD"
 
-        height="0"
-
-        width="0"
-
-        style={{
-          display: "none",
-          visibility: "hidden",
-        }}
-      />
-
-    </noscript>
-    {/* <!-- End Google Tag Manager (noscript) --> */}
-
-        {/* Facebook Pixel */}
+ {/* Facebook Pixel */}
         <Script
           id="facebook-pixel"
           strategy="afterInteractive"
@@ -141,6 +125,25 @@ export default function RootLayout({
             src="https://www.facebook.com/tr?id=876032862185530&ev=PageView&noscript=1"
           />
         </noscript>
+<noscript>
+
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T25HKBDD"
+
+        height="0"
+
+        width="0"
+
+        style={{
+          display: "none",
+          visibility: "hidden",
+        }}
+      />
+
+    </noscript>
+    {/* <!-- End Google Tag Manager (noscript) --> */}
+
+       
         <ThemeProvider>
           <TooltipProvider>
            
