@@ -5,7 +5,7 @@ export default function PropertiesBanner(){
         <img
           alt="Brij"
           className="w-full h-full object-cover"
-          src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=2000&q=80"
+          src="/images/propertybanner.jpg"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/85 via-brand-ink/65 to-brand-ink/40" />
       </div>
