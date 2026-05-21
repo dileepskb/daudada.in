@@ -19,6 +19,9 @@ export default function FieldRenderer({
   form,
 }: Props) {
 
+  console.log(field)
+  console.log(form)
+
   switch (field.component) {
 
     case "input":

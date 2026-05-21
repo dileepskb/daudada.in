@@ -132,7 +132,7 @@ const data = {
         },
         {
           title: "Home Page Seo",
-          url: "/dashboard/homepage",
+          url: "/dashboard/seo/home_seo/add",
         },
         // {
         //   title: "Videos",

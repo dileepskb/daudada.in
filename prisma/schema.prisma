@@ -104,12 +104,12 @@ model Lead {
   assignedToId Int?
   assignedTo   User? @relation("AssignedTo", fields: [assignedToId], references: [id])
 
-  notes String?
-  location String?
-  property_type String?
-  area String?
-  unit String? 
-  expected_price String 
+  notes          String?
+  location       String?
+  property_type  String?
+  area           String?
+  unit           String?
+  expected_price String
 
   activities Activity[]
 
@@ -126,15 +126,14 @@ model Property {
   description String?
 
   price    Float?
-  address String?
+  address  String?
   location String
-  city String?
+  city     String?
 
-  propertyType String
+  propertyType     String
   propertyCategory PropertyCategory[]
 
-
-  transaction_type  String? // # buy, rent, sell
+  transaction_type String? // # buy, rent, sell
 
   status PropertyStatus @default(AVAILABLE)
 
@@ -148,32 +147,31 @@ model Property {
   createdAt DateTime @default(now())
 }
 
-
-model PropertyCategory{
-    id          Int     @id @default(autoincrement())
-    name String
-    propertyId Int
-    property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+model PropertyCategory {
+  id         Int      @id @default(autoincrement())
+  name       String
+  propertyId Int
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
 }
-   
-    // transaction_type: str  # buy, rent, sell
-    // area_value: float
-    // area_unit: str  # sqft, sqyd, bigha, acre
-    // bedrooms: Optional[int] = 0
-    // bathrooms: Optional[int] = 0
-    // location: str  # Govardhan, Mathura, etc.
-    // locality: str  # parikrama marg, etc.
-    // address: Optional[str] = ""
-    // images: List[str] = []
-    // amenities: List[str] = []
-    // legal_status: str = "verified"  # verified, pending
-    // title_search_years: int = 30
-    // mvda_compliant: bool = True
-    // featured: bool = False
-    // # Connectivity — drive time in minutes from major Brij hubs / cities
-    // distances: dict = {}  # e.g. {"Mathura": 25, "Govardhan": 5, "Delhi": 180}
-    // # Nearby landmarks — list of {name: str, minutes: int}
-    // nearby_landmarks: List[dict] = []
+
+// transaction_type: str  # buy, rent, sell
+// area_value: float
+// area_unit: str  # sqft, sqyd, bigha, acre
+// bedrooms: Optional[int] = 0
+// bathrooms: Optional[int] = 0
+// location: str  # Govardhan, Mathura, etc.
+// locality: str  # parikrama marg, etc.
+// address: Optional[str] = ""
+// images: List[str] = []
+// amenities: List[str] = []
+// legal_status: str = "verified"  # verified, pending
+// title_search_years: int = 30
+// mvda_compliant: bool = True
+// featured: bool = False
+// # Connectivity — drive time in minutes from major Brij hubs / cities
+// distances: dict = {}  # e.g. {"Mathura": 25, "Govardhan": 5, "Delhi": 180}
+// # Nearby landmarks — list of {name: str, minutes: int}
+// nearby_landmarks: List[dict] = []
 
 // =====================
 // PROPERTY SPECIFICATION
@@ -219,8 +217,8 @@ model PropertyAmenity {
 // =====================
 
 model PropertyImage {
-  id  Int    @id @default(autoincrement())
-  url String
+  id         Int      @id @default(autoincrement())
+  url        String
   image_type String?
   propertyId Int
   property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
@@ -248,46 +246,145 @@ model Activity {
 // Testimonial
 // =====================
 model Testimonial {
-  id        Int      @id @default(autoincrement())
+  id Int @id @default(autoincrement())
 
-  content   String   // testimonial text
-  name      String   // Rajesh Sharma
-  role      String?  // Engineer
-  location  String?  // Delhi
-  star      Int
-  image     String?
+  content  String // testimonial text
+  name     String // Rajesh Sharma
+  role     String? // Engineer
+  location String? // Delhi
+  star     Int
+  image    String?
 
-  isActive  Boolean  @default(true)
+  isActive Boolean @default(true)
 
   createdAt DateTime @default(now())
 }
 
 model Seo {
-
-  id Int @id @default(autoincrement())
+  id       Int    @id @default(autoincrement())
   page_url String @unique
 
-  meta_title String?
+  meta_title       String?
   meta_description String?
 
   meta_keywords String?
 
-  og_title String?
+  og_title       String?
   og_description String?
-  og_image String?
+  og_image       String?
 
-  twitter_title String?
+  twitter_title       String?
   twitter_description String?
-  twitter_image String?
+  twitter_image       String?
 
   canonical_url String?
 
   schema Json?
 
-  gtag_head String?
+  gtag_head   String?
   custom_head String?
 
   robots String? @default("index, follow")
 
   createdAt DateTime @default(now())
+}
+
+model my_forms {
+  formid             String              @id @db.VarChar(50)
+  title              String?             @db.VarChar(255)
+  type               String?             @db.VarChar(50)
+  module             String?             @db.VarChar(50)
+  pkeys              String?             @db.VarChar(255)
+  pkeyid             String?             @db.VarChar(100)
+  dbtable            String?             @db.VarChar(100)
+  model              String?             @db.VarChar(100)
+  orderby            String?             @db.VarChar(100)
+  extra_props        String?             @db.VarChar(255)
+  readonly           Int?                @db.SmallInt
+  colsize            String?             @db.VarChar(10)
+  classes            String?             @db.VarChar(255)
+  hint               String?
+  sortno             Int?                @db.SmallInt
+  active             Int?                @default(1) @db.SmallInt
+  formview           String?             @db.VarChar(100)
+  formfilter         String?             @db.VarChar(100)
+  description        String?
+  formgroup          String?             @db.VarChar(255)
+  icon               String?             @db.VarChar(30)
+  custom_db_table    String?             @db.VarChar(30)
+  created_at         DateTime?           @default(now())
+  metadata           Json?
+  searching_key      String?
+  redirect_on_submit String?
+  source_key         String?
+  updated_at         DateTime?           @updatedAt
+  my_forms_columns   my_forms_columns[]
+  my_forms_sections  my_forms_sections[]
+}
+
+model my_forms_columns {
+  formid                String    @db.VarChar(50)
+  sectionid             String?   @db.VarChar(50)
+  field                 String    @db.VarChar(100)
+  title                 String?   @db.VarChar
+  colsize               String?   @db.VarChar(30)
+  type                  String?   @db.VarChar(30)
+  component             String?   @db.VarChar(128)
+  required              Int?      @db.SmallInt
+  sortno                Int?      @db.SmallInt
+  active                Int?      @default(1) @db.SmallInt
+  formview              Int?      @default(1) @db.SmallInt
+  listview              Int?      @default(1) @db.SmallInt
+  selectqry             String?
+  selectqry_table       String?
+  options               Json?
+  defaultvalue          Json?
+  addattrs              Json?
+  readonly              Int?      @db.SmallInt
+  hidden                Int?      @db.SmallInt
+  classes               String?   @db.VarChar(255)
+  inline                Int?      @db.SmallInt
+  placeholder           String?   @db.VarChar(255)
+  hint                  String?
+  dt_width              String?   @db.VarChar(10)
+  dt_sortable           Int?      @default(1) @db.SmallInt
+  dt_callback           String?   @db.VarChar(100)
+  dt_class              String?   @db.VarChar(100)
+  dt_rander             String?
+  dt_rowgroup           Int?      @db.SmallInt
+  dt_filter             Int?      @default(1) @db.SmallInt
+  dbfield               Int?      @default(1) @db.SmallInt
+  info                  String?   @db.VarChar
+  title_lng             String?   @db.VarChar
+  printview             Int?      @db.SmallInt
+  printview_spl         Int?      @default(0) @db.SmallInt
+  show_class            Json?
+  created_at            DateTime? @default(now())
+  metadata              Json?
+  searching_key         String?
+  depend_key            Int?
+  depend_key_name       Json?
+  updated_at            DateTime? @updatedAt
+  display_searching_key String?
+
+  my_forms my_forms @relation(fields: [formid], references: [formid], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([formid, field])
+}
+
+model my_forms_sections {
+  formid         String    @db.VarChar(50)
+  sectionid      String    @db.VarChar(50)
+  title          String?   @db.VarChar(255)
+  readonly       Int?      @db.SmallInt
+  colsize        String?   @db.VarChar(30)
+  classes        String?   @db.VarChar(255)
+  hint           String?
+  sortno         Int?      @db.SmallInt
+  tab            Int?      @default(0) @db.SmallInt
+  active         Int?      @default(1) @db.SmallInt
+  my_formsFormid String?   @db.VarChar(50)
+  my_forms       my_forms? @relation(fields: [my_formsFormid], references: [formid])
+
+  @@id([formid, sectionid])
 }

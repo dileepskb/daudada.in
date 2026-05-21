@@ -7,6 +7,10 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
+
+import ReactQueryProvider
+from "@/providers/ReactQueryProvider"
+
 // const inter = Inter({
 //   subsets: ["latin"],
 //   variable: "--font-inter",
@@ -143,15 +147,16 @@ export default function RootLayout({
     </noscript>
     {/* <!-- End Google Tag Manager (noscript) --> */}
 
-       
+       <ReactQueryProvider>
         <ThemeProvider>
           <TooltipProvider>
            
-            {children}
+           {children}
         
             </TooltipProvider>
         </ThemeProvider>
         <Toaster richColors position="top-right" />
+      </ReactQueryProvider>
       </body>
     </html>
   )
