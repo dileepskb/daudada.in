@@ -10,6 +10,7 @@ export default function PropertiesBanner(){
         <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/85 via-brand-ink/65 to-brand-ink/40" />
       </div>
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28 text-white">
+        <br /> <br />
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/90 text-white text-[10px] tracking-[0.25em] uppercase font-semibold mb-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +37,7 @@ export default function PropertiesBanner(){
           Every plot, home and commercial space below carries a 30-year title
           search and MVDA cross-check.
         </p>
+        <br /><br />
       </div>
     </section>
     )
