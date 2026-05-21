@@ -272,7 +272,7 @@ console.log(property)
           x-dynamic="false"
         >
           <a
-            href="https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%3A%2020%2C000%20Sq.%20Ft.%20Plot%20Near%20Surbhi%20Kund%20(Govardhan)"
+            href="https://wa.me/919999465579?text=Hi%2C%20I'm%20interested%20in%3A%2020%2C000%20Sq.%20Ft.%20Plot%20Near%20Surbhi%20Kund%20(Govardhan)"
             target="_blank"
             rel="noreferrer"
             data-testid="detail-wa-price"
@@ -862,7 +862,7 @@ key={index}
             x-dynamic="false"
           >
             <a
-              href="tel:919876543210"
+              href="tel:919999465579"
               data-testid="inq-call-btn"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-brand-ink py-3 text-sm hover:bg-brand-ink hover:text-white transition-colors"
               x-file-name="PropertyDetail"
@@ -896,7 +896,7 @@ key={index}
               Call
             </a>
             <a
-              href="https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%3A%2020%2C000%20Sq.%20Ft.%20Plot%20Near%20Surbhi%20Kund%20(Govardhan)"
+              href="https://wa.me/919999465579?text=Hi%2C%20I'm%20interested%20in%3A%2020%2C000%20Sq.%20Ft.%20Plot%20Near%20Surbhi%20Kund%20(Govardhan)"
               target="_blank"
               rel="noreferrer"
               data-testid="inq-whatsapp-btn"

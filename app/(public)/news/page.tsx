@@ -296,7 +296,7 @@ export default function News() {
                   <div className="contact-box">
                      <h4>Get Free Consultation</h4>
                      <p>Apni property ki legal safety ke liye humse sampark karein</p>
-                     <a href="/contact" className="contact-link">Contact Us →</a>
+                     <a href="/contact-us" className="contact-link">Contact Us →</a>
                   </div>
                   <div className="ebook-download-box">
                      <div className="ebook-icon">📖</div>

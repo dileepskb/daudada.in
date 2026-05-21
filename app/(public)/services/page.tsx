@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Service(){
     return(
         <main className="flex-1">
@@ -281,14 +283,12 @@ export default function Service(){
           Tell us your situation — we'll review it free of cost and tell you
           exactly what's needed to make your purchase or sale safe.
         </p>
-        <a href="/post-property" data-discover="true">
-          <button
-            className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 rounded-full bg-brand-red text-white hover:bg-brand-red-dark px-8 py-6 shadow-brand"
-            data-testid="services-cta-btn"
-          >
+           
+        <Link href="/contact-us" data-discover="true"  className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 rounded-full bg-brand-red text-white hover:bg-brand-red-dark px-8 py-6 shadow-brand">
+         
             Talk to Our Lawyer
-          </button>
-        </a>
+ 
+        </Link>
       </div>
       <img
         className="rounded-2xl w-full"

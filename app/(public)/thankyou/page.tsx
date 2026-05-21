@@ -173,7 +173,7 @@ export default function Thankyou(){
           Back to Home
         </button>
         <a
-          href="https://wa.me/919876543210?text=Namaste!%20Mujhe%20Dau%20Dada%20Properties%20ki%20WhatsApp%20community%20mein%20judna%20hai."
+          href="https://wa.me/919999465579?text=Namaste!%20Mujhe%20Dau%20Dada%20Properties%20ki%20WhatsApp%20community%20mein%20judna%20hai."
           target="_blank"
           rel="noopener noreferrer"
           data-testid="ty-whatsapp-btn"
@@ -653,7 +653,7 @@ export default function Thankyou(){
           x-dynamic="false"
         >
           <a
-            href="https://wa.me/919876543210?text=Hi%20Dau%20Dada%20%E2%80%94%20please%20send%20me%20the%20Braj%20Property%20Checklist."
+            href="https://wa.me/919999465579?text=Hi%20Dau%20Dada%20%E2%80%94%20please%20send%20me%20the%20Braj%20Property%20Checklist."
             target="_blank"
             rel="noopener noreferrer"
             data-testid="ty-checklist-cta"
@@ -733,7 +733,7 @@ export default function Thankyou(){
         x-dynamic="false"
       >
         <a
-          href="tel:+919876543210"
+          href="tel:+919999465579"
           className="inline-flex items-center gap-2.5 text-[#002D62] hover:text-[#be1e2d] transition-colors"
           data-testid="ty-phone-link"
           x-file-name="ThankYou"

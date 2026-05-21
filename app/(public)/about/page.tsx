@@ -151,7 +151,7 @@ export default function Contact() {
             properties@daudada.in
           </a>
           <a
-            href="https://wa.me/919876543210?text=Hi%20Ravi%20ji%20—%20I%20would%20like%20to%20discuss%20a%20Brij%20property"
+            href="https://wa.me/919999465579?text=Hi%20Ravi%20ji%20—%20I%20would%20like%20to%20discuss%20a%20Brij%20property"
             target="_blank"
             rel="noreferrer"
             data-testid="ravi-whatsapp"
@@ -223,7 +223,7 @@ export default function Contact() {
             nitin.gautam@daudada.in
           </a>
           <a
-            href="https://wa.me/919876543210?text=Hi%20Adv.%20Nitin%20—%20I%20need%20legal%20advice%20on%20a%20Brij%20property"
+            href="https://wa.me/919999465579?text=Hi%20Adv.%20Nitin%20—%20I%20need%20legal%20advice%20on%20a%20Brij%20property"
             target="_blank"
             rel="noreferrer"
             data-testid="nitin-whatsapp"

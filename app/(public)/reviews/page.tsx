@@ -260,7 +260,9 @@ export default function Reviews(){
           gift you a special parikrama gift hamper.
         </p>
         <a
-          href="https://wa.me/919876543210?text=Hi%20Dau%20Dada%20—%20I'd%20like%20to%20share%20my%20review"
+         href={`https://wa.me/?text=${encodeURIComponent(
+    "Check this property https://daudada.in/reviews"
+  )}`}
           target="_blank"
           rel="noreferrer"
           data-testid="reviews-share-btn"

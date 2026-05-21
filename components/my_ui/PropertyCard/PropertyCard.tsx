@@ -262,7 +262,7 @@ key={index}
         x-dynamic="false"
       >
         <a
-          href="https://wa.me/919876543210?text=Hi%2C%20I%20would%20like%20a%20price%20quote%20for%3A%2030%2C000%20Sq.%20Ft.%20Plot%20Near%20Luk%20Luk%20Dau%20Ji%20Temple%20(Near%20Luk%20Luk%20Dau%20Ji%20Temple%2C%20Govardhan)"
+          href="https://wa.me/919999465579?text=Hi%2C%20I%20would%20like%20a%20price%20quote%20for%3A%2030%2C000%20Sq.%20Ft.%20Plot%20Near%20Luk%20Luk%20Dau%20Ji%20Temple%20(Near%20Luk%20Luk%20Dau%20Ji%20Temple%2C%20Govardhan)"
           target="_blank"
           rel="noreferrer"
           data-testid="card-wa-6a9ac87f-a1ee-400d-9cdd-ec39d91df642"

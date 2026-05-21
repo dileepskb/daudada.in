@@ -659,7 +659,7 @@ const page = () => {
             {" "}
           </span>
           <a
-            href="tel:+919876543210"
+            href="tel:+919999465579"
             className="text-[#be1e2d] hover:underline font-medium"
             x-file-name="Privacy"
             x-line-number={98}
