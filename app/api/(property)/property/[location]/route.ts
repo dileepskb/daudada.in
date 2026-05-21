@@ -8,12 +8,15 @@ export async function POST(
   const { location } = await params;
 
 
-
   try {
     const property = await prisma.property.findMany({
-        where:{
-            location:location
-        },
+       ...(location !== "Mathura" && {
+
+      where: {
+        location,
+      },
+
+    }),
         take: 3,
         include:{
           images:true,

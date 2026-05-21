@@ -8,7 +8,7 @@ import PropertyCard from "../PropertyCard/PropertyCard"
 export default function HomeTab(){
   const [properties, setProperties] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  const [activeLocation, setActiveLocation] = useState("Govardhan")
+  const [activeLocation, setActiveLocation] = useState("Jatipura")
   const [error, setError] = useState("")
 
 
@@ -31,7 +31,7 @@ const getProperty =  async (e:string) => {
 
 useEffect(() => {
     const fetchData = async () => {
-    await getProperty("Govardhan")
+    await getProperty("Jatipura")
   }
 
   fetchData()
