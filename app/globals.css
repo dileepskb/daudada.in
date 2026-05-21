@@ -123,6 +123,7 @@
     --color-brand-ink: #1a1f2b;
     --color-brand-ivory: #f8f7f4;
     --color-brand-gold:#d4af37;
+    --color-brand-cream: #efece5;
 }
 
 @layer base {
@@ -139,6 +140,7 @@
 
 
 :root {
+    --color-brand-cream: #efece5;
     --brand-red: #a31d1d;
     --brand-red-dark: #8b1818;
     --brand-gold: #d4af37;

@@ -1,5 +1,6 @@
 export default function Contact() {
-  return <div><main className="main-content">
+  return <div>
+   <main className="main-content">
    <div className="contact-page">
       <section className="page-header">
          <div className="container">

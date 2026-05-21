@@ -47,7 +47,7 @@ export default function Reviews(){
               src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/zqfoh7zb_WhatsApp%20Image%202026-05-04%20at%2020.48.27.jpeg"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute inset-0 flex items-center justify-center">
+            {/* <div className="absolute inset-0 flex items-center justify-center">
               <span className="w-20 h-20 rounded-full bg-white/95 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ export default function Reviews(){
                   <polygon points="6 3 20 12 6 21 6 3" />
                 </svg>
               </span>
-            </div>
+            </div> */}
             <div className="absolute bottom-0 left-0 right-0 p-5 text-white text-left">
               <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-1">
                 Haridwar
@@ -74,12 +74,12 @@ export default function Reviews(){
                 Amit Dashana
               </div>
               <div className="text-sm opacity-90">
-                Sub-Editor, Times of India
+                Sub-Head, Times of India
               </div>
             </div>
-            <div className="absolute bottom-4 right-4 px-2.5 py-1 rounded-md bg-black/70 text-white text-[10px] font-semibold tabular-nums">
+            {/* <div className="absolute bottom-4 right-4 px-2.5 py-1 rounded-md bg-black/70 text-white text-[10px] font-semibold tabular-nums">
               1:42
-            </div>
+            </div> */}
           </button>
           <div className="p-6 relative">
             <svg
@@ -116,9 +116,9 @@ export default function Reviews(){
               src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/h6fehy4w_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%281%29.jpeg"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-gold text-brand-ink text-[10px] uppercase tracking-widest font-bold">
+            {/* <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-gold text-brand-ink text-[10px] uppercase tracking-widest font-bold">
               Coming Soon
-            </div>
+            </div> */}
             <div className="absolute bottom-0 left-0 right-0 p-5 text-white text-left">
               <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-1">
                 Delhi
@@ -154,20 +154,67 @@ export default function Reviews(){
             </p>
           </div>
         </article>
-        <article
-          data-testid="review-card-2"
+         <article
+          data-testid="review-card-3"
           className="group bg-white rounded-3xl overflow-hidden border border-brand-cream hover:shadow-soft transition-all"
         >
           <button className="relative w-full aspect-video overflow-hidden block">
-            <img
+           <img
               alt="Sudhanshu Sharma"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/kuo45hnu_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%283%29.jpeg"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-gold text-brand-ink text-[10px] uppercase tracking-widest font-bold">
+            {/* <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-gold text-brand-ink text-[10px] uppercase tracking-widest font-bold">
               Coming Soon
+            </div> */}
+            <div className="absolute bottom-0 left-0 right-0 p-5 text-white text-left">
+              <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-1">
+                Mumbai
+              </div>
+              <div className="font-display text-2xl font-medium">Rajkumar</div>
+              <div className="text-sm opacity-90">Business Manager</div>
             </div>
+          </button>
+          <div className="p-6 relative">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-quote absolute -top-4 left-6 w-9 h-9 text-brand-red bg-white p-1.5 rounded-full border border-brand-cream"
+              aria-hidden="true"
+            >
+              <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+              <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+            </svg>
+            <p className="text-brand-ink-soft font-light italic leading-relaxed pt-3">
+              "I'm based in Mumbai but trusted Dau Dada for a Vrindavan plot.
+              End-to-end registry handled remotely. Faith-meets-legal — for
+              real."
+            </p>
+          </div>
+        </article>
+        <article
+          data-testid="review-card-2"
+          className="group bg-white rounded-3xl overflow-hidden border border-brand-cream hover:shadow-soft transition-all"
+        >
+          <button className="relative w-full aspect-video overflow-hidden block">
+             <img
+              alt="Rajkumar"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/0jqejqg0_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%282%29.jpeg"
+            />
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            {/* <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-gold text-brand-ink text-[10px] uppercase tracking-widest font-bold">
+              Coming Soon
+            </div> */}
             <div className="absolute bottom-0 left-0 right-0 p-5 text-white text-left">
               <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-1">
                 Delhi
@@ -202,52 +249,7 @@ export default function Reviews(){
             </p>
           </div>
         </article>
-        <article
-          data-testid="review-card-3"
-          className="group bg-white rounded-3xl overflow-hidden border border-brand-cream hover:shadow-soft transition-all"
-        >
-          <button className="relative w-full aspect-video overflow-hidden block">
-            <img
-              alt="Rajkumar"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              src="https://customer-assets.emergentagent.com/job_daudada-realty/artifacts/0jqejqg0_WhatsApp%20Image%202026-05-04%20at%2020.48.27%20%282%29.jpeg"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-gold text-brand-ink text-[10px] uppercase tracking-widest font-bold">
-              Coming Soon
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-5 text-white text-left">
-              <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-1">
-                Mumbai
-              </div>
-              <div className="font-display text-2xl font-medium">Rajkumar</div>
-              <div className="text-sm opacity-90">Business Manager</div>
-            </div>
-          </button>
-          <div className="p-6 relative">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-quote absolute -top-4 left-6 w-9 h-9 text-brand-red bg-white p-1.5 rounded-full border border-brand-cream"
-              aria-hidden="true"
-            >
-              <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
-              <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
-            </svg>
-            <p className="text-brand-ink-soft font-light italic leading-relaxed pt-3">
-              "I'm based in Mumbai but trusted Dau Dada for a Vrindavan plot.
-              End-to-end registry handled remotely. Faith-meets-legal — for
-              real."
-            </p>
-          </div>
-        </article>
+       
       </div>
       <div className="mt-16 bg-brand-cream rounded-3xl p-10 md:p-14 text-center">
         <h2 className="font-display text-3xl md:text-4xl font-medium text-brand-ink mb-3">

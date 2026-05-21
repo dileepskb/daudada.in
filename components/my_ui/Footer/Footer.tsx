@@ -69,13 +69,17 @@ export default function Footer(){
    <footer className="bg-brand-ink text-brand-ivory" data-testid="site-footer">
   <div className="max-w-7xl mx-auto px-6 md:px-10 py-14 grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-10">
     <div className="col-span-2 md:col-span-3">
-      <div className="flex items-center gap-3 mb-5">
+  
+      <div >
+            <Link href={'/'} className="flex items-center gap-3 mb-5">
         <div className="h-14 w-14 rounded-xl overflow-hidden ring-1 ring-white/15 flex-shrink-0">
+        
           <img
             alt="Dau Dada"
             className="h-full w-full object-cover"
             src="https://customer-assets.emergentagent.com/job_6764da25-50bd-4908-8adb-2df0bd95bfde/artifacts/oi8qahgx_Dau%20Dada%20Profile%20Image.jpg"
           />
+         
         </div>
         <div className="leading-tight">
           <div className="font-display text-2xl font-semibold">Dau Dada</div>
@@ -83,7 +87,9 @@ export default function Footer(){
             Properties
           </div>
         </div>
+        </Link>
       </div>
+ 
       <p className="text-sm opacity-75 leading-relaxed font-light">
         Real estate consultants for the sacred Brij — Govardhan, Mathura,
         Vrindavan, Barsana &amp; Jatipura. Where faith meets legal certainty.
@@ -157,7 +163,7 @@ export default function Footer(){
     <div className="md:col-span-2">
       <h4 className="font-display text-lg mb-4 text-brand-gold">Quick Links</h4>
       <ul className="space-y-2.5 text-sm opacity-80">
-        <li>
+        {/* <li>
           <Link
             className="hover:text-brand-gold transition-colors"
             data-testid="footer-home"
@@ -166,7 +172,7 @@ export default function Footer(){
           >
             Home
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             className="hover:text-brand-gold transition-colors"
@@ -224,7 +230,17 @@ export default function Footer(){
             href="/reviews"
             data-discover="true"
           >
-            Video Reviews
+            Reviews
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="hover:text-brand-gold transition-colors"
+            data-testid="footer-reviews"
+            href="/contact-us"
+            data-discover="true"
+          >
+            Contact Us
           </Link>
         </li>
       </ul>
@@ -287,7 +303,60 @@ export default function Footer(){
               <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
               <circle cx={12} cy={10} r={3} />
             </svg>{" "}
-            Govardhan &amp; Jatipura
+             Jatipura
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="flex items-center gap-2 hover:text-brand-gold transition-colors"
+            data-testid="footer-loc-govardhan"
+            href="/properties?loc=Govardhan"
+            data-discover="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-map-pin w-4 h-4 flex-shrink-0"
+              aria-hidden="true"
+            >
+              <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+              <circle cx={12} cy={10} r={3} />
+            </svg>{" "}
+            Govardhan
+          </Link>
+        </li>
+        
+        {/* <li>
+          <Link
+            className="flex items-center gap-2 hover:text-brand-gold transition-colors"
+            data-testid="footer-loc-vrindavan"
+            href="/properties?loc=Vrindavan"
+            data-discover="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-map-pin w-4 h-4 flex-shrink-0"
+              aria-hidden="true"
+            >
+              <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+              <circle cx={12} cy={10} r={3} />
+            </svg>{" "}
+            Vrindavan 
           </Link>
         </li>
         <li>
@@ -313,9 +382,9 @@ export default function Footer(){
               <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
               <circle cx={12} cy={10} r={3} />
             </svg>{" "}
-            Vrindavan &amp; Barsana
+            Barsana
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             className="flex items-center gap-2 hover:text-brand-gold transition-colors"
@@ -339,9 +408,35 @@ export default function Footer(){
               <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
               <circle cx={12} cy={10} r={3} />
             </svg>{" "}
-            Mathura &amp; Ring Road
+            Mathura 
           </Link>
         </li>
+        {/* <li>
+          <Link
+            className="flex items-center gap-2 hover:text-brand-gold transition-colors"
+            data-testid="footer-loc-mathura"
+            href="/properties?loc=Mathura"
+            data-discover="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-map-pin w-4 h-4 flex-shrink-0"
+              aria-hidden="true"
+            >
+              <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+              <circle cx={12} cy={10} r={3} />
+            </svg>{" "}
+            Ring Road
+          </Link>
+        </li> */}
       </ul>
     </div>
     <div className="col-span-2 md:col-span-3">
