@@ -29,6 +29,7 @@ export type property = {
   images:PImages[]
   specification:Specification[]
   propertyAmenity:propertyAmenity[]
+  slug:string
 }
 
 export type testimonial = {

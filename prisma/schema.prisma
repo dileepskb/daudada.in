@@ -129,6 +129,7 @@ model Property {
   address  String?
   location String
   city     String?
+  slug     String?
 
   propertyType     String
   propertyCategory PropertyCategory[]

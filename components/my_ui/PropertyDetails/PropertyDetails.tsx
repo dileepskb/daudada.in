@@ -7,11 +7,11 @@ import { propertyAmenity, Specification, property } from "@/types/property"
 export default  function PropertyDetails(){
 const params = useParams()
 
-  const name = decodeURIComponent(
+  const slug = decodeURIComponent(
     params.name as string
   )
 
-
+console.log(slug)
 
   const [property, setProperty] = useState<property | null>(null)
 
@@ -22,7 +22,7 @@ const params = useParams()
       try {
 
         const res = await axios.get(
-          `/api/property/getbyname/${name}`
+          `/api/property/getbyname/${slug}`
         )
 
         setProperty(res.data)
