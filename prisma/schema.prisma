@@ -389,3 +389,14 @@ model my_forms_sections {
 
   @@id([formid, sectionid])
 }
+
+
+model testform{
+     id       Int    @id @default(autoincrement())
+     name String
+     gender String
+     user String
+     photo String[]
+     specification Json
+     amenities String[]
+}

@@ -2,75 +2,99 @@
 
 import { prisma } from "@/lib/prisma"
 
-export async function POST(
-  req: Request
-) {
+import { executeDynamicQuery } from "@/utils/executeDynamicQuery"
 
+export async function POST(req: Request) {
   try {
-
     const body = await req.json()
 
     const { formId } = body
 
-    if (!formId) {
+    // validation
 
+    if (!formId) {
       return Response.json(
         {
           success: false,
+
           error: "Form ID is required",
         },
+
         {
           status: 400,
         }
       )
     }
 
-    const form =
-      await prisma.my_forms.findUnique({
+    // form
 
-        where: {
-          formid:formId,
-        },
-      })
+    const form = await prisma.my_forms.findUnique({
+      where: {
+        formid: formId,
+      },
+    })
 
     if (!form) {
-
       return Response.json(
         {
           success: false,
+
           error: "Form not found",
         },
+
         {
           status: 404,
         }
       )
     }
 
-    const sections =
-      await prisma.my_forms_sections.findMany({
+    // sections
 
-        where: {
-          formid:formId,
-          active: 1,
-        },
+    const sections = await prisma.my_forms_sections.findMany({
+      where: {
+        formid: formId,
+        active: 1,
+      },
 
-        orderBy: {
-          sortno: "asc",
-        },
+      orderBy: {
+        sortno: "asc",
+      },
+    })
+
+    // columns
+
+    const columns = await prisma.my_forms_columns.findMany({
+      where: {
+        formid: formId,
+        active: 1,
+      },
+
+      orderBy: {
+        sortno: "asc",
+      },
+    })
+
+    // dynamic query options
+
+    const updatedColumns = await Promise.all(
+      columns.map(async (column) => {
+        // if dynamic query exists
+
+        if (column.selectqry) {
+          const dynamicOptions = await executeDynamicQuery(column.selectqry)
+
+          return {
+            ...column,
+
+            options: dynamicOptions,
+          }
+        }
+
+        return column
       })
+    )
 
-    const columns =
-      await prisma.my_forms_columns.findMany({
-
-        where: {
-          formid:formId,
-          active: 1,
-        },
-
-        orderBy: {
-          sortno: "asc",
-        },
-      })
+    // final response
 
     const response: any = {
       form,
@@ -79,43 +103,34 @@ export async function POST(
     // WITH SECTIONS
 
     if (sections.length > 0) {
+      response.sections = sections.map((section) => ({
+        ...section,
 
-      response.sections = sections.map(
-        (section) => ({
-
-          ...section,
-
-          columns: columns.filter(
-            (column) =>
-              column.sectionid ===
-              section.sectionid
-          ),
-        })
-      )
-
+        columns: updatedColumns.filter(
+          (column) => column.sectionid === section.sectionid
+        ),
+      }))
     } else {
-
       // WITHOUT SECTIONS
 
-      response.columns = columns
+      response.columns = updatedColumns
     }
 
     return Response.json({
-
       success: true,
 
       data: response,
     })
-
   } catch (error) {
-
     console.log(error)
 
     return Response.json(
       {
         success: false,
+
         error: "Failed to load form",
       },
+
       {
         status: 500,
       }
