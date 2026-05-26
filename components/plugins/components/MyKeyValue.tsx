@@ -22,6 +22,7 @@ type Props = {
   keyPlaceholder?: string
 
   valuePlaceholder?: string
+  type:string
 }
 
 export function MyKeyValue({

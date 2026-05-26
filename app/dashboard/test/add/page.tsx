@@ -1,8 +1,10 @@
 
 import FormGenerator from "@/components/plugins/formGenerator/form";
+import { Suspense } from "react";
 
-export default function AddHomeSeo(){
-    return(
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
         <FormGenerator
           formId="testform"
         //   formIntData={{
@@ -10,5 +12,6 @@ export default function AddHomeSeo(){
         //     tabs: true,
         //   }}
         />
+        </Suspense>
     )
 }
