@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   .replace(/[^a-z0-9-]/g, "")
   .replace(/-+/g, "-")
 
-  console.log("slug-------------------",slug)
+
     const property = await prisma.property.create({
       data: {
         title,

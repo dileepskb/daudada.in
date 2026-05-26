@@ -6,12 +6,11 @@ import axios from "axios"
 import { propertyAmenity, Specification, property } from "@/types/property"
 export default  function PropertyDetails(){
 const params = useParams()
+console.log(params)
 
   const slug = decodeURIComponent(
-    params.name as string
+    params.slug as string
   )
-
-
 
   const [property, setProperty] = useState<property | null>(null)
 
@@ -37,7 +36,7 @@ const params = useParams()
 
   }, [name])
 
-console.log(property)
+console.log("property details page", property)
 
 
     const fimg =  property?.images?.filter((item) => item.image_type === "page_image") || []

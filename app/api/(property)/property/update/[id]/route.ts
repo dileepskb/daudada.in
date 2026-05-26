@@ -1,32 +1,23 @@
-import { prisma } from "@/lib/prisma"
+import { prisma } from "@/lib/prisma";
 
 export async function PUT(
   req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  {
+    params,
+  }: {
+    params: Promise<{
+      id: string;
+    }>;
+  }
 ) {
-  const { id } = await params
+  try {
+    const { id } =
+      await params;
 
-  const body = await req.json()
+    const body =
+      await req.json();
 
-  const {
-    title,
-    description,
-    price,
-    address,
-    location,
-    city,
-    propertyType,
-    specifications,
-    amenities,
-    propertyCategory,
-  } = body
-
-  await prisma.property.update({
-    where: {
-      id: Number(id),
-    },
-
-    data: {
+    const {
       title,
       description,
       price,
@@ -34,36 +25,165 @@ export async function PUT(
       location,
       city,
       propertyType,
-      propertyCategory: {
-        deleteMany: {},
-        create: propertyCategory.map((item: string) => ({
-          name: item,
-        })),
-      },
+      specifications = [],
+      amenities = [],
+      propertyCategory = [],
+    } = body;
 
-      specification: {
-        deleteMany: {},
+    /**
+     * Slug
+     */
 
-        create: specifications.map(
-          ({ key, value }: { key: string; value: string }) => ({
-            key,
-            value,
+    const slug = title
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(
+        /[^a-z0-9-]/g,
+        ""
+      )
+      .replace(/-+/g, "-");
+
+    /**
+     * Ensure arrays
+     */
+
+    const safeCategories =
+      Array.isArray(
+        propertyCategory
+      )
+        ? propertyCategory
+        : [];
+
+    const safeAmenities =
+      Array.isArray(
+        amenities
+      )
+        ? amenities
+        : [];
+
+    const safeSpecifications =
+      Array.isArray(
+        specifications
+      )
+        ? specifications
+        : [];
+
+    /**
+     * Remove old relations
+     */
+
+    await prisma.propertyCategory.deleteMany(
+      {
+        where: {
+          propertyId:
+            Number(id),
+        },
+      }
+    );
+
+    await prisma.specification.deleteMany(
+      {
+        where: {
+          propertyId:
+            Number(id),
+        },
+      }
+    );
+
+    await prisma.propertyAmenity.deleteMany(
+      {
+        where: {
+          propertyId:
+            Number(id),
+        },
+      }
+    );
+
+    /**
+     * Update property
+     */
+
+    await prisma.property.update({
+  where: {
+    id: Number(id),
+  },
+
+  data: {
+    title,
+    description,
+    price,
+    address,
+    location,
+    city,
+    propertyType,
+    slug,
+
+    /**
+     * Categories
+     */
+
+    propertyCategory: {
+      create:
+        safeCategories.map(
+          (
+            item: string
+          ) => ({
+            name: item,
           })
         ),
-      },
-
-      propertyAmenity: {
-        deleteMany: {},
-        create: amenities.map((id: number) => ({
-          amenity: {
-            connect: { id },
-          },
-        })),
-      },
     },
-  })
 
-  return Response.json({
-    success: true,
-  })
+    /**
+     * Specifications
+     */
+
+    specification: {
+      create:
+        safeSpecifications.map(
+          (item: any) => ({
+            key: item.key,
+
+            value:
+              item.value,
+          })
+        ),
+    },
+
+    /**
+     * Amenities
+     */
+
+    propertyAmenity: {
+      create:
+        safeAmenities.map(
+          (
+            amenityId: number
+          ) => ({
+            amenity: {
+              connect: {
+                id: amenityId,
+              },
+            },
+          })
+        ),
+    },
+  },
+});
+
+    return Response.json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+
+    return Response.json(
+      {
+        success: false,
+      },
+      {
+        status: 500,
+      }
+    );
+  }
 }
