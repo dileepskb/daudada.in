@@ -1,5 +1,6 @@
 export default function Contact() {
-  return <div><main className="main-content">
+  return <div>
+   <main className="main-content">
    <div className="contact-page">
       <section className="page-header">
          <div className="container">
@@ -95,7 +96,7 @@ export default function Contact() {
                               </div>
                               <div className="info-details">
                                  <h4>Phone</h4>
-                                 <a href="tel:+919876543210">+91 98765 43210</a>
+                                 <a href="tel:+919999465579">+91 98765 43210</a>
                                  <p>Mon-Sat: 9:00 AM - 7:00 PM</p>
                               </div>
                            </div>
@@ -107,7 +108,7 @@ export default function Contact() {
                               </div>
                               <div className="info-details">
                                  <h4>WhatsApp</h4>
-                                 <a href="https://wa.me/919876543210">+91 98765 43210</a>
+                                 <a href="https://wa.me/919999465579">+91 98765 43210</a>
                                  <p>Quick response guaranteed</p>
                               </div>
                            </div>

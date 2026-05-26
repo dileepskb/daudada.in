@@ -1,58 +1,583 @@
 export default function PrivacyPolicy() {
   return (
-    <div className="py-10">
-      <div className="container">
-        <h3 className="usp-title">Privacy Policy</h3>
-        <h3 className="font-bold text-lg">Effective Date: May 3, 2026</h3>
-        <p>
-          At Dau Dada Properties, we respect your privacy and are committed to
-          protecting your personal data. This Privacy Policy explains how we
-          collect, use, disclose, and safeguard your information when you visit
-          our website https://daudada.in/, including any other media form, media
-          channel, mobile website, or mobile application related or connected
-          thereto.
-        </p>
-        <h3 className="font-bold text-lg">Information We Collect</h3>
-        <p>
-          We may collect personal information that you voluntarily provide to us
-          when you express an interest in obtaining information about us or our
-          products and services, when you participate in activities on the Site,
-          or otherwise when you contact us. The information we collect may
-          include:
-        </p>
-        <ul className="font-bold text-lg">
-          <li>
-            Contact Data: Name, phone number, email address, and residential
-            address.
-          </li>
-          <li>
-            Property Preferences: Locations of interest (Jatipura, Govardhan,
-            Vrindavan, Mathura), property type, and budget.
-          </li>
-        </ul>
-        <h3 className="font-bold text-lg">How We Use Your Information</h3>
-        <p>We use the information we collect to:</p>
-        <ul className="usp-features">
-          <li>Provide, operate, and maintain our website and services.</li>
-          <li>
-            Process your requests for property verification, registry support,
-            or site visits.
-          </li>
-          <li>
-            Send you marketing and promotional communications (with your
-            consent).
-          </li>
-          <li>Improve user experience and site performance.</li>
-        </ul>
-        <h3 className="font-bold text-lg">Disclosure of Your Information</h3>
-        <p>
-          We do not share, sell, or rent your personal information to third
-          parties for their promotional use. We may share information with
-          trusted service providers who assist us in operating our website,
-          conducting our business, or servicing you, so long as those parties
-          agree to keep this information confidential.
-        </p>
-      </div>
-    </div>
+    <main
+  className="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-24"
+  x-file-name="LegalLayout"
+  x-line-number={28}
+  x-column={6}
+  x-component="main"
+  x-id="LegalLayout_28_6"
+  x-dynamic="false"
+>
+  <div
+    className="mb-12 md:mb-16"
+    x-file-name="LegalLayout"
+    x-line-number={29}
+    x-column={8}
+    x-component="div"
+    x-id="LegalLayout_29_8"
+    x-dynamic="false"
+  >
+    <p
+      className="text-[11px] uppercase tracking-[0.22em] font-semibold text-[#be1e2d] mb-4"
+      x-file-name="LegalLayout"
+      x-line-number={30}
+      x-column={10}
+      x-component="p"
+      x-id="LegalLayout_30_10"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="overline"
+      x-source-editable="false"
+    >
+      Legal
+    </p>
+    <h1
+      className="font-heading text-4xl md:text-5xl lg:text-6xl font-medium text-[#002D62] leading-[1.05]"
+      x-file-name="LegalLayout"
+      x-line-number={33}
+      x-column={10}
+      x-component="h1"
+      x-id="LegalLayout_33_10"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="title"
+      x-source-editable="false"
+    >
+      Privacy Policy
+    </h1>
+    <p
+      className="text-xs text-[#4A5568] mt-6 italic"
+      x-file-name="LegalLayout"
+      x-line-number={36}
+      x-column={10}
+      x-component="p"
+      x-id="LegalLayout_36_10"
+      x-dynamic="false"
+    >
+      Last updated: 1 January 2026
+    </p>
+  </div>
+  <article
+    className="prose-content space-y-8 text-[15px] md:text-base text-[#0A0A0A] font-light leading-relaxed"
+    x-file-name="LegalLayout"
+    x-line-number={41}
+    x-column={8}
+    x-component="article"
+    x-id="LegalLayout_41_8"
+    x-dynamic="true"
+    x-source-type="prop"
+    x-source-var="children"
+    x-source-editable="false"
+  >
+    <p
+      x-file-name="Privacy"
+      x-line-number={14}
+      x-column={6}
+      x-component="p"
+      x-id="Privacy_14_6"
+      x-dynamic="false"
+    >
+      Dau Dada Properties (&quot;hum&quot;, &quot;humara&quot;, &quot;us&quot;) aapki privacy ki kadr karta
+      hai. Ye Privacy Policy batati hai ki hum aapki personal jaankari kaise
+      ekattha karte hain, use karte hain aur surakshit rakhte hain jab aap
+      hamari website (daudada.in) ya hamari services ka istemaal karte hain.
+    </p>
+    <h2
+      className="font-heading text-2xl md:text-3xl font-medium text-[#002D62] mt-12 mb-4"
+      x-file-name="Privacy"
+      x-line-number={5}
+      x-column={4}
+      x-component="h2"
+      x-id="Privacy_5_4"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="children"
+      x-source-editable="false"
+    >
+      1. Kaunsi jaankari hum lete hain
+    </h2>
+    <p
+      x-file-name="Privacy"
+      x-line-number={22}
+      x-column={6}
+      x-component="p"
+      x-id="Privacy_22_6"
+      x-dynamic="false"
+    >
+      Jab aap form bharte hain ya hamare saath sampark karte hain, hum ye le
+      sakte hain:
+    </p>
+    <ul
+      className="list-disc pl-6 space-y-2"
+      x-file-name="Privacy"
+      x-line-number={23}
+      x-column={6}
+      x-component="ul"
+      x-id="Privacy_23_6"
+      x-dynamic="false"
+    >
+      <li
+        x-file-name="Privacy"
+        x-line-number={24}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_24_8"
+        x-dynamic="false"
+      >
+        Aapka naam, phone/WhatsApp number, email address
+      </li>
+      <li
+        x-file-name="Privacy"
+        x-line-number={25}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_25_8"
+        x-dynamic="false"
+      >
+        Property se judi aapki zarooratein (location, budget, area, type)
+      </li>
+      <li
+        x-file-name="Privacy"
+        x-line-number={26}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_26_8"
+        x-dynamic="false"
+      >
+        Aapki seller listing details (jab aap &quot;Sell with Dau Dada&quot; form bharte
+        hain)
+      </li>
+      <li
+        x-file-name="Privacy"
+        x-line-number={27}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_27_8"
+        x-dynamic="false"
+      >
+        Hamari website par aapka basic browsing data (IP address, browser, pages
+        visited) — analytics ke liye
+      </li>
+    </ul>
+    <h2
+      className="font-heading text-2xl md:text-3xl font-medium text-[#002D62] mt-12 mb-4"
+      x-file-name="Privacy"
+      x-line-number={5}
+      x-column={4}
+      x-component="h2"
+      x-id="Privacy_5_4"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="children"
+      x-source-editable="false"
+    >
+      2. Is jaankari ka istemaal kaise hota hai
+    </h2>
+    <ul
+      className="list-disc pl-6 space-y-2"
+      x-file-name="Privacy"
+      x-line-number={31}
+      x-column={6}
+      x-component="ul"
+      x-id="Privacy_31_6"
+      x-dynamic="false"
+    >
+      <li
+        x-file-name="Privacy"
+        x-line-number={32}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_32_8"
+        x-dynamic="false"
+      >
+        Aapko site visit, price list, ya site map bhejne ke liye
+      </li>
+      <li
+        x-file-name="Privacy"
+        x-line-number={33}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_33_8"
+        x-dynamic="false"
+      >
+        Aapke property enquiry par jaldi follow up karne ke liye
+      </li>
+      <li
+        x-file-name="Privacy"
+        x-line-number={34}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_34_8"
+        x-dynamic="false"
+      >
+        Seller submissions ke case mein verified buyers se aapko connect karne
+        ke liye
+      </li>
+      <li
+        x-file-name="Privacy"
+        x-line-number={35}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_35_8"
+        x-dynamic="false"
+      >
+        Hamari sewa behtar karne aur frauds rokne ke liye
+      </li>
+    </ul>
+    <p
+      className="bg-[#F0EBE1] p-5 border-l-4 border-[#be1e2d]"
+      x-file-name="Privacy"
+      x-line-number={37}
+      x-column={6}
+      x-component="p"
+      x-id="Privacy_37_6"
+      x-dynamic="false"
+    >
+      <strong
+        className="text-[#002D62]"
+        x-file-name="Privacy"
+        x-line-number={38}
+        x-column={8}
+        x-component="strong"
+        x-id="Privacy_38_8"
+        x-dynamic="false"
+      >
+        Vishwas dilaate hain:
+      </strong>{" "}
+      Aapki jaankari kabhi bhi kisi third-party ko bechi ya share nahin ki
+      jaayegi. Sirf hamari authorized team aur registry/legal partners (zaroorat
+      padne par) ke saath share hoti hai.
+    </p>
+    <h2
+      className="font-heading text-2xl md:text-3xl font-medium text-[#002D62] mt-12 mb-4"
+      x-file-name="Privacy"
+      x-line-number={5}
+      x-column={4}
+      x-component="h2"
+      x-id="Privacy_5_4"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="children"
+      x-source-editable="false"
+    >
+      3. Cookies aur tracking
+    </h2>
+    <p
+      x-file-name="Privacy"
+      x-line-number={45}
+      x-column={6}
+      x-component="p"
+      x-id="Privacy_45_6"
+      x-dynamic="false"
+    >
+      Hamari website essential cookies ka istemaal karti hai (jaise session
+      management). Hum analytics tools (Google Analytics jaisa) bhi use kar
+      sakte hain — ye anonymous usage patterns track karte hain, personal
+      identity nahin.
+    </p>
+    <h2
+      className="font-heading text-2xl md:text-3xl font-medium text-[#002D62] mt-12 mb-4"
+      x-file-name="Privacy"
+      x-line-number={5}
+      x-column={4}
+      x-component="h2"
+      x-id="Privacy_5_4"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="children"
+      x-source-editable="false"
+    >
+      4. Data security
+    </h2>
+    <p
+      x-file-name="Privacy"
+      x-line-number={53}
+      x-column={6}
+      x-component="p"
+      x-id="Privacy_53_6"
+      x-dynamic="false"
+    >
+      Aapki jaankari hamari secure servers par stored hoti hai, HTTPS encryption
+      ke saath. Sirf authorized Dau Dada team members ki access hoti hai. Phir
+      bhi koi bhi internet transmission 100% surakshit nahin hota — hum
+      industry-standard best practices follow karte hain.
+    </p>
+    <h2
+      className="font-heading text-2xl md:text-3xl font-medium text-[#002D62] mt-12 mb-4"
+      x-file-name="Privacy"
+      x-line-number={5}
+      x-column={4}
+      x-component="h2"
+      x-id="Privacy_5_4"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="children"
+      x-source-editable="false"
+    >
+      5. Aapke adhikaar
+    </h2>
+    <ul
+      className="list-disc pl-6 space-y-2"
+      x-file-name="Privacy"
+      x-line-number={61}
+      x-column={6}
+      x-component="ul"
+      x-id="Privacy_61_6"
+      x-dynamic="false"
+    >
+      <li
+        x-file-name="Privacy"
+        x-line-number={62}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_62_8"
+        x-dynamic="false"
+      >
+        Apni jaankari delete karwana / sudhar karwana
+      </li>
+      <li
+        x-file-name="Privacy"
+        x-line-number={63}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_63_8"
+        x-dynamic="false"
+      >
+        Future marketing communication se opt-out karna
+      </li>
+      <li
+        x-file-name="Privacy"
+        x-line-number={64}
+        x-column={8}
+        x-component="li"
+        x-id="Privacy_64_8"
+        x-dynamic="false"
+      >
+        Apne data ki ek copy maangna
+      </li>
+    </ul>
+    <p
+      x-file-name="Privacy"
+      x-line-number={66}
+      x-column={6}
+      x-component="p"
+      x-id="Privacy_66_6"
+      x-dynamic="true"
+      x-source-type="unknown"
+      x-source-editable="false"
+    >
+      In adhikaaron ke liye ek email bhej dijiye:
+      <span
+        data-ve-dynamic="true"
+        x-excluded="true"
+        x-file-name="Privacy"
+        x-line-number={66}
+        x-column={6}
+        x-component="p"
+        x-id="Privacy_66_6_expr1"
+        x-dynamic="true"
+        x-source-type="unknown"
+        x-source-editable="false"
+        style={{ display: "contents" }}
+      >
+        {" "}
+      </span>
+      <a
+        href="mailto:properties@daudada.in"
+        className="text-[#be1e2d] hover:underline font-medium"
+        x-file-name="Privacy"
+        x-line-number={68}
+        x-column={8}
+        x-component="a"
+        x-id="Privacy_68_8"
+        x-dynamic="false"
+      >
+        properties@daudada.in
+      </a>
+    </p>
+    <h2
+      className="font-heading text-2xl md:text-3xl font-medium text-[#002D62] mt-12 mb-4"
+      x-file-name="Privacy"
+      x-line-number={5}
+      x-column={4}
+      x-component="h2"
+      x-id="Privacy_5_4"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="children"
+      x-source-editable="false"
+    >
+      6. Bachchon ki privacy
+    </h2>
+    <p
+      x-file-name="Privacy"
+      x-line-number={77}
+      x-column={6}
+      x-component="p"
+      x-id="Privacy_77_6"
+      x-dynamic="false"
+    >
+      Hamari sewa 18 saal se kam umar ke logon ke liye nahin hai. Hum jaan-bujh
+      kar minors se jaankari nahin lete.
+    </p>
+    <h2
+      className="font-heading text-2xl md:text-3xl font-medium text-[#002D62] mt-12 mb-4"
+      x-file-name="Privacy"
+      x-line-number={5}
+      x-column={4}
+      x-component="h2"
+      x-id="Privacy_5_4"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="children"
+      x-source-editable="false"
+    >
+      7. Is policy mein badlaav
+    </h2>
+    <p
+      x-file-name="Privacy"
+      x-line-number={83}
+      x-column={6}
+      x-component="p"
+      x-id="Privacy_83_6"
+      x-dynamic="false"
+    >
+      Hum is policy ko time-to-time update kar sakte hain. Mahatvapurna badlaav
+      hone par hum is page par &quot;Last updated&quot; date refresh karenge.
+    </p>
+    <h2
+      className="font-heading text-2xl md:text-3xl font-medium text-[#002D62] mt-12 mb-4"
+      x-file-name="Privacy"
+      x-line-number={5}
+      x-column={4}
+      x-component="h2"
+      x-id="Privacy_5_4"
+      x-dynamic="true"
+      x-source-type="prop"
+      x-source-var="children"
+      x-source-editable="false"
+    >
+      Sampark
+    </h2>
+    <p
+      x-file-name="Privacy"
+      x-line-number={89}
+      x-column={6}
+      x-component="p"
+      x-id="Privacy_89_6"
+      x-dynamic="true"
+      x-source-type="unknown"
+      x-source-editable="false"
+    >
+      Privacy se judi kisi bhi baat ke liye:
+      <span
+        data-ve-dynamic="true"
+        x-excluded="true"
+        x-file-name="Privacy"
+        x-line-number={89}
+        x-column={6}
+        x-component="p"
+        x-id="Privacy_89_6_expr1"
+        x-dynamic="true"
+        x-source-type="unknown"
+        x-source-editable="false"
+        style={{ display: "contents" }}
+      >
+        {" "}
+      </span>
+      <a
+        href="mailto:properties@daudada.in"
+        className="text-[#be1e2d] hover:underline font-medium"
+        x-file-name="Privacy"
+        x-line-number={91}
+        x-column={8}
+        x-component="a"
+        x-id="Privacy_91_8"
+        x-dynamic="false"
+      >
+        properties@daudada.in
+      </a>
+      <span
+        data-ve-dynamic="true"
+        x-excluded="true"
+        x-file-name="Privacy"
+        x-line-number={89}
+        x-column={6}
+        x-component="p"
+        x-id="Privacy_89_6_expr4"
+        x-dynamic="true"
+        x-source-type="unknown"
+        x-source-editable="false"
+        style={{ display: "contents" }}
+      >
+        {" "}
+      </span>
+      ya
+      <span
+        data-ve-dynamic="true"
+        x-excluded="true"
+        x-file-name="Privacy"
+        x-line-number={89}
+        x-column={6}
+        x-component="p"
+        x-id="Privacy_89_6_expr6"
+        x-dynamic="true"
+        x-source-type="unknown"
+        x-source-editable="false"
+        style={{ display: "contents" }}
+      >
+        {" "}
+      </span>
+      <a
+        href="tel:+919999465579"
+        className="text-[#be1e2d] hover:underline font-medium"
+        x-file-name="Privacy"
+        x-line-number={98}
+        x-column={8}
+        x-component="a"
+        x-id="Privacy_98_8"
+        x-dynamic="false"
+      >
+        +91 98765 43210
+      </a>
+      .
+    </p>
+  </article>
+  <div
+    className="mt-20 pt-10 border-t border-[#002D62]/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+    x-file-name="LegalLayout"
+    x-line-number={45}
+    x-column={8}
+    x-component="div"
+    x-id="LegalLayout_45_8"
+    x-dynamic="false"
+  >
+    <p
+      className="text-sm text-[#4A5568]"
+      x-file-name="LegalLayout"
+      x-line-number={46}
+      x-column={10}
+      x-component="p"
+      x-id="LegalLayout_46_10"
+      x-dynamic="false"
+    >
+      Koi sawal? Hum aapke saath hain.
+    </p>
+    <a
+      href="mailto:properties@daudada.in"
+      className="text-sm font-semibold text-[#be1e2d] hover:text-[#9c1824]"
+      x-file-name="LegalLayout"
+      x-line-number={49}
+      x-column={10}
+      x-component="a"
+      x-id="LegalLayout_49_10"
+      x-dynamic="false"
+    >
+      properties@daudada.in
+    </a>
+  </div>
+</main>
+
   )
 }

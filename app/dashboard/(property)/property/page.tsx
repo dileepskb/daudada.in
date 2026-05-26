@@ -53,7 +53,7 @@ useEffect(() => {
     if (!confirmDelete) return
 
     try {
-      const res = await fetch(`/api/marksheet/delete/${id}`, {
+      const res = await fetch(`/api/property/delete/${id}`, {
         method: "DELETE",
       })
 
@@ -98,11 +98,11 @@ useEffect(() => {
               <TableCell className="font-medium">{property.title}</TableCell>
               <TableCell>{property.propertyType}</TableCell>
               <TableCell>{property.status}</TableCell>
-              <TableCell className="text-right">
+              <TableCell className="text-right flex gap-1 justify-end">
                 <Tooltip>
                   <TooltipTrigger>
                     {" "}
-                    <Button className="border bg-gray-200 text-black">
+                    <Button onClick={() => router.push(`/dashboard/property/add?id=${property.id}`)} className="border bg-gray-200 text-black">
                       <FaRegEdit />
                     </Button>
                   </TooltipTrigger>

@@ -72,8 +72,76 @@ const data = {
         },
         {
           title: "Images",
-          url: "/dashboard/images",
+          url: "/dashboard/property/images",
         },
+        
+        // {
+        //   title: "Settings",
+        //   url: "#",
+        // },
+      ],
+    },
+    {
+      title: "Leads",
+      url: "#",
+      icon: (
+        <TerminalSquareIcon
+        />
+      ),
+      isActive: true,
+      items: [
+        {
+          title: "All Leads",
+          url: "/dashboard/lead",
+        },
+        // {
+        //   title: "Add Property",
+        //   url: "/dashboard/property/add",
+        // },
+        // {
+        //   title: "Videos",
+        //   url: "/dashboard/videos",
+        // },
+        // {
+        //   title: "Images",
+        //   url: "/dashboard/property/images",
+        // },
+        
+        // {
+        //   title: "Settings",
+        //   url: "#",
+        // },
+      ],
+    },
+    {
+      title: "Seo",
+      url: "#",
+      icon: (
+        <TerminalSquareIcon
+        />
+      ),
+      isActive: true,
+      items: [
+        {
+          title: "All Property Pages Seo",
+          url: "/dashboard/property_seo",
+        },
+        {
+          title: "Other Pages Seo",
+          url: "/dashboard/other_page_seo",
+        },
+        {
+          title: "Home Page Seo",
+          url: "/dashboard/seo/home_seo/add",
+        },
+        // {
+        //   title: "Videos",
+        //   url: "/dashboard/videos",
+        // },
+        // {
+        //   title: "Images",
+        //   url: "/dashboard/property/images",
+        // },
         
         // {
         //   title: "Settings",
