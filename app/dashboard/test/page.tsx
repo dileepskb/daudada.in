@@ -1,14 +1,7 @@
+import TableGenerator from "@/components/plugins/tableGenerator/TableGenerator";
 
-import FormGenerator from "@/components/plugins/formGenerator/form";
-
-export default function AddHomeSeo(){
+export default function Test(){
     return(
-        <FormGenerator
-          formId="testform"
-        //   formIntData={{
-        //     topMenus: false,
-        //     tabs: true,
-        //   }}
-        />
+        <TableGenerator  formId="testform" />
     )
 }

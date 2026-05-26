@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
 import { Field, FieldLabel } from "@/components/ui/field"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { IoIosCloseCircle } from "react-icons/io";
 
 type Props = {
@@ -37,6 +37,9 @@ export function MyKeyValue({
 
   valuePlaceholder = "Value",
 }: Props) {
+
+  const initialized = useRef(false);
+
   const {
     fields,
 
@@ -51,16 +54,15 @@ export function MyKeyValue({
 
 
   useEffect(() => {
-
-  if (fields.length === 0) {
+  if (!initialized.current && fields.length === 0) {
+    initialized.current = true;
 
     append({
       key: "",
       value: "",
-    })
+    });
   }
-
-}, [])
+}, [fields.length, append]);
 
   return (
     <Field className="">
