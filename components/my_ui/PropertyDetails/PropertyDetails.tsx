@@ -11,7 +11,7 @@ const params = useParams()
     params.name as string
   )
 
-console.log(slug)
+
 
   const [property, setProperty] = useState<property | null>(null)
 
