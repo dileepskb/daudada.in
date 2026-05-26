@@ -1,5 +1,5 @@
 // import { Button } from "@mui/material";
-import { FieldError } from "react-hook-form";
+import { FieldError } from "react-hook-form"
 // import Label from "../../components/form/Label";
 // import MyCheckBox from "../../components/formFields/MyCheckBox";
 // import { CityAutocomplete } from "../../components/formFields/Mycity";
@@ -20,40 +20,42 @@ import { FieldError } from "react-hook-form";
 // import { MyCreateSelectSearch } from "../../components/formFields/MyCreateSelectSearch";
 // import { LocationDropdown } from "../../components/formFields/MyLocation";
 
-import MySection from "./MySection";
-import MyLabel from "./MyLabel";
-import MyInput from "../components/MyInput";
-import { MyTextArea } from "../components/MyTextArea";
-import { JSX } from "react";
+import MySection from "./MySection"
+import MyLabel from "./MyLabel"
+import MyInput from "../components/MyInput"
+import { MyTextArea } from "../components/MyTextArea"
+import { JSX } from "react"
+import { MySelect } from "../components/MySelect"
+import { MyFileUpload } from "../components/MyFileUpload"
+import { MyKeyValue } from "../components/MyKeyValue"
+import { MyCheckbox } from "../components/MyCheckBox"
 // import DispatchTable from "../../components/Load/DispatchTable";
 
 // import MyCheckBoxBoolean from "../../components/formFields/MyCheckBoxBoolean";
 // import DynamicCreatableSelect from "../../components/formFields/MyReactCreate";
 
 type SectionDrawerProps = {
-  sectionsMerge: any;
-  formData: any;
-  formId?: any;
+  sectionsMerge: any
+  formData: any
+  formId?: any
   // isEditMode?: any;
   // setModalContent?: any;
   // setModalHeader?: any;
   // setModalOpen?: any;
   // setPopFromId?: any;
   // openModal?: any;
-  
-};
+}
 
 export const SectionDrawer = ({
   sectionsMerge,
   formData,
-  formId
+  formId,
   // isEditMode = false,
   // setModalContent = () => false,
   // setModalHeader = () => false,
   // setModalOpen = () => false,
   // setPopFromId = () => false,
   // openModal = () => false,
-  ,
 }: SectionDrawerProps) => {
   const {
     control,
@@ -61,16 +63,15 @@ export const SectionDrawer = ({
     formState: { errors },
     setValue,
     watch,
-  } = formData;
+  } = formData
 
-  const watched = watch();
-  
+  const watched = watch()
+
   console.log(sectionsMerge)
-
 
   return (
     <>
-       <div className="row">
+      <div className="row">
         {sectionsMerge.map((section: any, index: any) => (
           <div key={index} className={`mb-5 ${section?.colsize}`}>
             <MySection
@@ -78,7 +79,7 @@ export const SectionDrawer = ({
               sectionShow={section?.sectionid ? section.title : ""}
               tab={section?.tab}
             >
-              <div className={`grid grid-cols-3 gap-2`}>
+              <div className={`grid gap-4`}>
                 {section?.columns?.map((formfield: any, findex: any) => {
                   const {
                     title,
@@ -95,9 +96,9 @@ export const SectionDrawer = ({
                     colsize,
                     depend_key,
                     depend_key_name,
-                  } = formfield as any;
+                  } = formfield as any
 
-                  const isMandatory = required === 1;
+                  const isMandatory = required === 1
 
                   const renderLabel = (includeInfo = false) => (
                     <MyLabel className=" ">
@@ -110,14 +111,14 @@ export const SectionDrawer = ({
                           //   setModalHeader(title);
                           //   setModalOpen(true);
                           // }}
-                          className="ml-2 text-xs text-white bg-indigo-500 hover:bg-indigo-800 px-2 py-0.5 rounded"
+                          className="ml-2 rounded bg-indigo-500 px-2 py-0.5 text-xs text-white hover:bg-indigo-800"
                           type="button"
                         >
                           <i className="fa fa-info"></i>
                         </button>
                       )}
                     </MyLabel>
-                  );
+                  )
 
                   const commonProps = {
                     name: field,
@@ -135,7 +136,7 @@ export const SectionDrawer = ({
                     ...(isMandatory && {
                       validationRules: { required: `${title} is required` },
                     }),
-                  };
+                  }
 
                   const fieldComponents: Record<string, JSX.Element> = {
                     input: (
@@ -145,6 +146,49 @@ export const SectionDrawer = ({
                           {...commonProps}
                           placeholder={placeholder}
                           type={type}
+                        />
+                      </>
+                    ),
+                    select: (
+                      <>
+                        {renderLabel()}
+                        {console.log("options", options)}
+                        <MySelect
+                          {...commonProps}
+                          options={options || []}
+                          type={type}
+                          control={control}
+                          depend_key={depend_key}
+                          depend_key_name={depend_key_name}
+                        />
+                      </>
+                    ),
+                    file: (
+                      <>
+                        {renderLabel()}
+                        <MyFileUpload
+                          {...commonProps}
+                          multiple={true}
+                          accept="image/*"
+                        />
+                      </>
+                    ),
+                    MyKeyValue: (
+                      <>
+                        {renderLabel()}
+                        <MyKeyValue
+                          {...commonProps}
+                          type={type}
+                        />
+                      </>
+                    ),
+                      checkbox: (
+                      <>
+                        {renderLabel()}
+                        <MyCheckbox
+                          {...commonProps}
+                          type={type}
+                          options={options || []}
                         />
                       </>
                     ),
@@ -188,7 +232,7 @@ export const SectionDrawer = ({
                     //       watch={watch}
                     //       control={control}
                     //     />
-                        
+
                     //     {![
                     //       "drop_empty_tailer_id",
                     //       "pick_empty_tailer_id",
@@ -243,7 +287,6 @@ export const SectionDrawer = ({
                     // mycreateselect: (
                     //   <>
                     //     {renderLabel()}
-                        
 
                     //     <MyCreateSelect
                     //       {...commonProps}
@@ -386,27 +429,22 @@ export const SectionDrawer = ({
                     // "geo-input": (
                     //   <>
                     //     {renderLabel()}
-                       
+
                     //   </>
                     // ),
-                  };
+                  }
 
                   return (
-                    <div
-                      key={`${field}-${findex}`}
-                      className={`${colsize}`}
-                      
-                    >
+                    <div key={`${field}-${findex}`} className={`${colsize}`}>
                       {fieldComponents[component] ?? <></>}
                     </div>
-                  );
+                  )
                 })}
               </div>
             </MySection>
           </div>
         ))}
-      </div> 
-      
+      </div>
     </>
-  );
-};
+  )
+}

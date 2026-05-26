@@ -27,7 +27,7 @@ export default function PropertyCard({property}:Props){
   >
     <Link
       className="relative aspect-[4/3] overflow-hidden block"
-       href={`${'/properties/'}/${property.propertyType}/${property.city}/${property.address}/${property.title}`}
+       href={`${'/property'}/${property.slug}`}
       data-discover="true"
     >
       <img
@@ -97,7 +97,7 @@ export default function PropertyCard({property}:Props){
     >
       <Link
         className="flex flex-col gap-3"
-        href={`${'/properties/'}/${property.propertyType}/${property.city}/${property.address}/${property.title}`}
+        href={`${'/property'}/${property.slug}`}
         data-discover="true"
       >
         <div
@@ -300,7 +300,7 @@ key={index}
         <Link
           data-testid="card-visit-6a9ac87f-a1ee-400d-9cdd-ec39d91df642"
           className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-brand-ink text-brand-ink text-xs font-semibold py-2.5 hover:bg-brand-ink hover:text-white transition-colors"
-          href={`${'/properties/'}/${property.propertyType}/${property.city}/${property.address}/${property.title}`}
+          href={`${'/property'}/${property.slug}`}
           data-discover="true"
         >
           Get Quote · Visit

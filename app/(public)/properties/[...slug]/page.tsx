@@ -2,10 +2,9 @@
 import CardLoader from "@/components/my_ui/CardLoader/CardLoader";
 import PropertyCard from "@/components/my_ui/PropertyCard/PropertyCard";
 import { useProperties } from "@/context/PropertyContext";
-export default function Properties() {
+export default function PropertiesPage() {
 
-
-  const {
+const {
   properties,
   loading,
   filters,

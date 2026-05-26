@@ -129,6 +129,7 @@ model Property {
   address  String?
   location String
   city     String?
+  slug     String?
 
   propertyType     String
   propertyCategory PropertyCategory[]
@@ -387,4 +388,15 @@ model my_forms_sections {
   my_forms       my_forms? @relation(fields: [my_formsFormid], references: [formid])
 
   @@id([formid, sectionid])
+}
+
+
+model testform{
+     id       Int    @id @default(autoincrement())
+     name String
+     gender String
+     user String
+     photo String[]
+     specification Json
+     amenities String[]
 }

@@ -69,7 +69,8 @@ const formSchema = z.object({
   location: z.string(),
   city: z.string(),
   propertyType: z.string(),
-  propertyCategory: z.array(z.string()),
+  propertyCategory: z.string(),
+  propertySubCategory: z.array(z.string()),
   amenities: z.array(z.number()).default([]),
   specifications: z
     .array(
@@ -80,6 +81,33 @@ const formSchema = z.object({
     )
     .default([]),
 })
+const propertyCategories :
+  Record<string, string[]> = {
+
+  Residential: [
+    "Apartment",
+    "Villa",
+    "House",
+    "Plot",
+    "Land",
+  ],
+
+  Commercial: [
+    "Shop",
+    "Office",
+    "Showroom",
+    "Warehouse",
+    "Commercial Plot"
+  ],
+
+  Agricultural: [
+    "Land",
+    "Farm Land",
+    "Agricultural Land",
+    "Orchard Land"
+  ],
+}
+
 
 export default function AddProperty() {
   const [uploading, setUploading] = useState(false)
@@ -97,13 +125,32 @@ export default function AddProperty() {
       location: "",
       city: "",
       propertyType: "",
-      propertyCategory: [],
+      propertyCategory: "",
+      propertySubCategory:[],
       amenities: [],
       specifications: [{ key: "", value: "" }],
     },
   })
 
+
+
   const { control, register } = form
+    const selectedPropertyType =
+  form.watch("propertyType")
+
+const selectedCategory =
+  form.watch("propertyCategory")
+
+const showSubCategory = [
+
+  "Apartment",
+
+  "Villa",
+
+  "House",
+
+
+].includes(selectedCategory as any)
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -292,7 +339,7 @@ export default function AddProperty() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel className="font-bold">City</FieldLabel>
+                  <FieldLabel className="font-bold">Location</FieldLabel>
 
                   <Select value={field.value} onValueChange={field.onChange}>
                     <SelectTrigger aria-invalid={fieldState.invalid}>
@@ -366,79 +413,211 @@ export default function AddProperty() {
               )}
             />
             <Controller
-              name="propertyCategory"
-              control={form.control}
-              defaultValue={[]}
-              render={({ field, fieldState }) => {
-                const options = [
-                  "Flat",
-                  "1BHK",
-                  "2BHK",
-                  "3BHK",
-                  "4BHK",
-                  "5BHK",
-                  "6BHK",
-                  "Bathrooms 1",
-                  "Bathrooms 2",
-                  "Bathrooms 3",
-                  "Bathrooms 4",
-                  "Bathrooms 5",
-                  "Bathrooms 6",
-                  "House",
-                  "Villa",
-                  "Plot",
-                  "Land",
-                  "Shop",
-                  "Office Space",
-                  "Commercial Space",
-                ]
+  name="propertyCategory"
 
-                const toggleValue = (value: string) => {
-                  const currentValues = (field.value || []) as string[]
+  control={form.control}
 
-                  if (currentValues.includes(value)) {
-                    field.onChange(
-                      currentValues.filter((item) => item !== value)
-                    )
-                  } else {
-                    field.onChange([...currentValues, value])
-                  }
-                }
+  render={({ field, fieldState }) => (
 
-                return (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel className="font-bold">
-                      Property Category
-                    </FieldLabel>
+    <Field
+      data-invalid={fieldState.invalid}
+    >
 
-                    <div className="flex flex-wrap gap-2">
-                      {options.map((item) => {
-                        const active = field.value.includes(item)
+      <FieldLabel className="font-bold">
 
-                        return (
-                          <button
-                            type="button"
-                            key={item}
-                            onClick={() => toggleValue(item)}
-                            className={`rounded-md border px-3 py-2 text-sm transition ${
-                              active
-                                ? "border-black bg-black text-white"
-                                : "border-gray-300 bg-white text-black"
-                            } `}
-                          >
-                            {item}
-                          </button>
-                        )
-                      })}
-                    </div>
+        Property Category
 
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
-                    )}
-                  </Field>
-                )
-              }}
-            />
+      </FieldLabel>
+
+      <Select
+        value={field.value}
+
+        onValueChange={field.onChange}
+      >
+
+        <SelectTrigger
+          aria-invalid={fieldState.invalid}
+        >
+
+          <SelectValue
+            placeholder="Select category"
+          />
+
+        </SelectTrigger>
+
+        <SelectContent>
+
+          {
+            propertyCategories[
+              selectedPropertyType
+            ]?.map((item) => (
+
+              <SelectItem
+                key={item}
+                value={item}
+              >
+
+                {item}
+
+              </SelectItem>
+            )) 
+          }
+
+        </SelectContent>
+
+      </Select>
+
+      {
+        fieldState.invalid && (
+
+          <FieldError
+            errors={[fieldState.error]}
+          />
+        )
+      }
+
+    </Field>
+  )}
+/>
+            {
+  showSubCategory && (
+
+    <Controller
+      name="propertySubCategory"
+
+      control={form.control}
+
+      defaultValue={[]}
+
+      render={({ field, fieldState }) => {
+
+        const options = [
+
+          "1BHK",
+
+          "2BHK",
+
+          "3BHK",
+
+          "4BHK",
+
+          "5BHK",
+
+          "6BHK",
+
+          "Bathrooms 1",
+
+          "Bathrooms 2",
+
+          "Bathrooms 3",
+
+          "Bathrooms 4",
+
+          "Bathrooms 5",
+
+          "Bathrooms 6",
+        ]
+
+        const toggleValue = (
+          value: string
+        ) => {
+
+          const currentValues =
+            (field.value || []) as string[]
+
+          if (
+            currentValues.includes(value)
+          ) {
+
+            field.onChange(
+
+              currentValues.filter(
+                (item) =>
+                  item !== value
+              )
+            )
+
+          } else {
+
+            field.onChange([
+              ...currentValues,
+              value,
+            ])
+          }
+        }
+
+        return (
+
+          <Field
+            data-invalid={
+              fieldState.invalid
+            }
+          >
+
+            <FieldLabel className="font-bold">
+
+              Property Sub Category
+
+            </FieldLabel>
+
+            <div className="flex flex-wrap gap-2">
+
+              {
+                options.map((item) => {
+
+                  const active =
+                    field.value.includes(item)
+
+                  return (
+
+                    <button
+                      type="button"
+
+                      key={item}
+
+                      onClick={() =>
+                        toggleValue(item)
+                      }
+
+                      className={`
+                        rounded-md border px-3 py-2 text-sm transition
+
+                        ${
+                          active
+
+                            ? "border-black bg-black text-white"
+
+                            : "border-gray-300 bg-white text-black"
+                        }
+                      `}
+                    >
+
+                      {item}
+
+                    </button>
+                  )
+                })
+              }
+
+            </div>
+
+            {
+              fieldState.invalid && (
+
+                <FieldError
+                  errors={[
+                    fieldState.error,
+                  ]}
+                />
+              )
+            }
+
+          </Field>
+        )
+      }}
+    />
+  )
+}
             <Controller
               name="amenities"
               control={form.control}

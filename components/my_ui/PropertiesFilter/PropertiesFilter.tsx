@@ -1,225 +1,467 @@
+"use client";
+
+import {
+  useRouter,
+  usePathname,
+} from "next/navigation";
+
+import {
+  useEffect,
+  useState,
+} from "react";
+
+const propertyCategories: Record<
+  string,
+  string[]
+> = {
+  residential: [
+    "Apartment",
+    "Villa",
+    "House",
+    "Plot",
+    "Land",
+  ],
+
+  commercial: [
+    "Shop",
+    "Office",
+    "Showroom",
+    "Warehouse",
+    "Commercial Plot",
+  ],
+
+  agricultural: [
+    "Land",
+    "Farm Land",
+    "Agricultural Land",
+    "Orchard Land",
+  ],
+};
+
+const cities = [
+  "mathura",
+];
+
+const locations = [
+  "jatipura",
+  "govardhan",
+];
+
+export default function PropertiesFilter() {
+  const router = useRouter();
+
+  const pathname =
+    usePathname();
+
+  /**
+   * States
+   */
+
+  const [properties, setProperties] =
+    useState([]);
+
+  const [loading, setLoading] =
+    useState(false);
+
+  /**
+   * Current URL
+   *
+   * Example:
+   * /properties/residential/jatipura/apartment
+   */
+
+  const pathArray =
+    pathname
+      .split("/")
+      .filter(Boolean);
+
+  /**
+   * Remove "properties"
+   */
+
+  const slugs =
+    pathArray.slice(1);
+
+  /**
+   * Dynamic detect
+   */
+
+  let category = "";
+
+  let city = "";
+
+  let location = "";
+
+  let type = "";
+
+  /**
+   * Category
+   */
+
+  if (slugs[0]) {
+    category = slugs[0];
+  }
+
+  /**
+   * Remaining slugs
+   */
+
+  const remaining =
+    slugs.slice(1);
+
+  remaining.forEach((slug) => {
+    /**
+     * City
+     */
+
+    if (
+      cities.includes(slug)
+    ) {
+      city = slug;
+
+      return;
+    }
+
+    /**
+     * Location
+     */
+
+    if (
+      locations.includes(slug)
+    ) {
+      location = slug;
+
+      return;
+    }
+
+    /**
+     * Property type
+     */
+
+    const types =
+      propertyCategories[
+        category
+      ] || [];
+
+    const matchedType =
+      types.find(
+        (item) =>
+          item.toLowerCase() ===
+          slug
+      );
+
+    if (matchedType) {
+      type = slug;
+    }
+  });
+
+  /**
+   * Filters object
+   */
+
+  const filters = {
+    category,
+    city,
+    location,
+    type,
+  };
+
+  /**
+   * Fetch properties
+   */
+
+  const getProperties =
+    async () => {
+      try {
+        setLoading(true);
+
+        const res = await fetch(
+          "/api/properties",
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json",
+            },
+
+            body: JSON.stringify(
+              filters
+            ),
+          }
+        );
+
+        const data =
+          await res.json();
+
+        if (data.success) {
+          setProperties(
+            data.data
+          );
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+  /**
+   * Auto fetch
+   */
+
+  useEffect(() => {
+    getProperties();
+  }, [
+    category,
+    city,
+    location,
+    type,
+  ]);
+
+  /**
+   * Update route
+   */
+
+  const updateRoute = ({
+    newCategory = category,
+
+    newCity = city,
+
+    newLocation =
+      location,
+
+    newType = type,
+  }: any) => {
+    const urlParts = [
+      "/properties",
+
+      newCategory,
+
+      newCity,
+
+      newLocation,
+
+      newType,
+    ].filter(
+      (item) =>
+        item &&
+        item !== "all"
+    );
+
+    router.push(
+      urlParts.join("/")
+    );
+  };
+
+  /**
+   * Category
+   */
+
+  const allProperty = (
+    e: any
+  ) => {
+    updateRoute({
+      newCategory:
+        e.target.value,
+
+      newCity: "",
+
+      newLocation: "",
+
+      newType: "",
+    });
+  };
+
+  /**
+   * City
+   */
+
+  const allCity = (
+    e: any
+  ) => {
+    updateRoute({
+      newCity:
+        e.target.value,
+    });
+  };
+
+  /**
+   * Location
+   */
+
+  const allLocation = (
+    e: any
+  ) => {
+    updateRoute({
+      newLocation:
+        e.target.value,
+    });
+  };
+
+  /**
+   * Property type
+   */
+
+  const allTypes = (
+    e: any
+  ) => {
+    updateRoute({
+      newType:
+        e.target.value.toLowerCase(),
+    });
+  };
+
+  /**
+   * Current category types
+   */
+
+  const currentTypes =
+    propertyCategories[
+      category
+    ] || [];
 
 
-"use client"
-import { useApi } from "@/utils/useApi"
-import { useEffect, useState } from "react"
 
-interface prop {
-  allData: (e: {
-    data:any
-    pending:boolean
-    error:string | null
-  }) => void
-}
-export default function PropertiesFilter({allData}:prop){
- const {
-  pending,
-  data,
-  error,
-  request,
-} = useApi()
-
-useEffect(() => {
-   async function fetchApi(){
-        await request({
-        url: "/api/property/get",
-        method: "POST",
-    })
-   }
-   fetchApi()
-},[])
+   
 
 
-useEffect(() => {
 
-  allData({
-    data,
-    pending,
-    error,
-  })
+  return (
+    <div
+      className="bg-white rounded-2xl border border-brand-cream p-5 mb-8 shadow-soft"
+      data-testid="properties-filters"
+    >
+      <div className="flex items-center gap-2 mb-4 text-sm font-medium text-brand-ink">
+        Refine your search
+      </div>
 
-}, [data, pending, error])
+      <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-3">
+        {/* category */}
 
-
-    return(
-         <div
-          className="bg-white rounded-2xl border border-brand-cream p-5 mb-8 shadow-soft"
-          data-testid="properties-filters"
+        <select
+          className="h-11 rounded-xl border px-3"
+          onChange={
+            allProperty
+          }
+          value={category}
         >
-          <div className="flex items-center gap-2 mb-4 text-sm font-medium text-brand-ink">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-funnel w-4 h-4 text-brand-red"
-              aria-hidden="true"
-            >
-              <path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z" />
-            </svg>{" "}
-            Refine your search
-          </div>
-          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-3">
-            <button
-              type="button"
-              role="combobox"
-              aria-controls="radix-_r_n_"
-              aria-expanded="false"
-              aria-autocomplete="none"
-              dir="ltr"
-              data-state="closed"
-              className="flex w-full items-center justify-between whitespace-nowrap border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 h-11 rounded-xl"
-              data-testid="filter-tx"
-            >
-              <span style={{ pointerEvents: "none" }}>All</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-chevron-down h-4 w-4 opacity-50"
-                aria-hidden="true"
+          <option value="">
+            All
+          </option>
+
+          <option value="residential">
+            Residential
+          </option>
+
+          <option value="commercial">
+            Commercial
+          </option>
+
+          <option value="agricultural">
+            Agricultural
+          </option>
+        </select>
+
+        {/* city */}
+
+        <select
+          className="h-11 rounded-xl border px-3"
+          onChange={allCity}
+          value={city}
+        >
+          <option value="">
+            Select City
+          </option>
+
+          {cities.map(
+            (item) => (
+              <option
+                key={item}
+                value={item}
               >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              role="combobox"
-              aria-controls="radix-_r_o_"
-              aria-expanded="false"
-              aria-autocomplete="none"
-              dir="ltr"
-              data-state="closed"
-              className="flex w-full items-center justify-between whitespace-nowrap border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 h-11 rounded-xl"
-              data-testid="filter-loc"
-            >
-              <span style={{ pointerEvents: "none" }}>All Locations</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-chevron-down h-4 w-4 opacity-50"
-                aria-hidden="true"
+                {item}
+              </option>
+            )
+          )}
+        </select>
+
+        {/* location */}
+
+        <select
+          className="h-11 rounded-xl border px-3"
+          onChange={
+            allLocation
+          }
+          value={location}
+        >
+          <option value="">
+            Select Location
+          </option>
+
+          {locations.map(
+            (item) => (
+              <option
+                key={item}
+                value={item}
               >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              role="combobox"
-              aria-controls="radix-_r_p_"
-              aria-expanded="false"
-              aria-autocomplete="none"
-              dir="ltr"
-              data-state="closed"
-              className="flex w-full items-center justify-between whitespace-nowrap border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 h-11 rounded-xl"
-              data-testid="filter-type"
-            >
-              <span style={{ pointerEvents: "none" }}>All Types</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-chevron-down h-4 w-4 opacity-50"
-                aria-hidden="true"
+                {item}
+              </option>
+            )
+          )}
+        </select>
+
+        {/* type */}
+
+        <select
+          className="h-11 rounded-xl border px-3"
+          onChange={
+            allTypes
+          }
+          value={type}
+        >
+          <option value="">
+            All Types
+          </option>
+
+          {currentTypes.map(
+            (item) => (
+              <option
+                key={item}
+                value={item.toLowerCase()}
               >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              role="combobox"
-              aria-controls="radix-_r_q_"
-              aria-expanded="false"
-              aria-autocomplete="none"
-              dir="ltr"
-              data-state="closed"
-              className="flex w-full items-center justify-between whitespace-nowrap border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 h-11 rounded-xl"
-              data-testid="filter-bhk"
-            >
-              <span style={{ pointerEvents: "none" }}>Any BHK</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-chevron-down h-4 w-4 opacity-50"
-                aria-hidden="true"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              role="combobox"
-              aria-controls="radix-_r_r_"
-              aria-expanded="false"
-              aria-autocomplete="none"
-              dir="ltr"
-              data-state="closed"
-              className="flex w-full items-center justify-between whitespace-nowrap border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 h-11 rounded-xl"
-              data-testid="filter-price"
-            >
-              <span style={{ pointerEvents: "none" }}>Any Price</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-chevron-down h-4 w-4 opacity-50"
-                aria-hidden="true"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
-            <div className="flex gap-2">
-              <input
-                className="flex w-full border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm h-11 rounded-xl"
-                data-testid="filter-q"
-                placeholder="Search…"
-                defaultValue=""
-              />
-              <button
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow py-2 h-11 rounded-xl bg-brand-red text-white hover:bg-brand-red-dark px-4"
-                data-testid="filter-apply-btn"
-              >
-                Go
-              </button>
-            </div>
-          </div>
+                {item}
+              </option>
+            )
+          )}
+        </select>
+
+        {/* button */}
+
+        <div className="flex gap-2">
+          <button
+            className="inline-flex items-center justify-center rounded-xl bg-brand-red px-4 h-11 text-white"
+          >
+            Go
+          </button>
         </div>
-    )
+      </div>
+
+      {/* debug */}
+
+      {/* <pre className="mt-5 text-xs overflow-auto">
+        {JSON.stringify(
+          {
+            filters,
+            loading,
+            total:
+              properties.length,
+            properties,
+          },
+          null,
+          2
+        )}
+      </pre> */}
+    </div>
+  );
 }

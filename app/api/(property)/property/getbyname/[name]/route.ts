@@ -7,9 +7,11 @@ export async function GET(
 
   const { name } = await params
 
+  console.log(name)
+
   const property = await prisma.property.findFirst({
     where: {
-      title: decodeURIComponent(name),
+      slug: decodeURIComponent(name),
     },
 
     include: {

@@ -18,6 +18,16 @@ export async function POST(req: Request) {
       propertyCategory,
     } = body
 
+
+
+    const slug = title
+  .toLowerCase()
+  .trim()
+  .replace(/\s+/g, "-")
+  .replace(/[^a-z0-9-]/g, "")
+  .replace(/-+/g, "-")
+
+
     const property = await prisma.property.create({
       data: {
         title,
@@ -27,7 +37,7 @@ export async function POST(req: Request) {
         location,
         city,
         propertyType,
-
+        slug:slug,
         createdById: 1, // ✅ correct field
         propertyCategory: {
           create: propertyCategory.map((item: string) => ({
