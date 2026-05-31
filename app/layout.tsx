@@ -1,6 +1,7 @@
 // import { Inter } from "next/font/google"
 import { Toaster } from "@/components/ui/sonner"
 import Script from "next/script"
+import type { Metadata } from "next";
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -15,7 +16,10 @@ from "@/providers/ReactQueryProvider"
 //   subsets: ["latin"],
 //   variable: "--font-inter",
 // })
+export const metadata: Metadata = {
 
+  themeColor: "#a31d1d",
+};
 
 export default function RootLayout({
   children,
