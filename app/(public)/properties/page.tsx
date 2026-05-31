@@ -17,7 +17,7 @@ export default function Properties() {
 
         {
   properties?.length > 0 ? (
-    <div className="grid grid-cols-3 gap-3">
+    <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-3">
       {
         properties?.map((items, index) => (
           <PropertyCard

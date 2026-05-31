@@ -20,8 +20,8 @@ export default function Hero(){
          <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-24 w-full">
             <div className="max-w-3xl text-white fade-up">
                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur text-xs uppercase tracking-[0.2em] mb-6"><span className="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>Jai Shri Giriraj Ji</div>
-               <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[0.95] tracking-tight mb-6">Explore the Brij: Find Your <em className="text-brand-gold not-italic font-normal">Sacred Space</em></h1>
-               <p className="text-lg md:text-xl font-light opacity-90 mb-8 max-w-2xl leading-relaxed">Premium real estate consultancy for the sacred Brij region. Every plot we represent comes with a 30-year title search and MVDA compliance — verified by our in-house lawyer.</p>
+               <h1 className="font-display text-3xl md:text-7xl font-semibold leading-[0.95] tracking-tight md:mb-6 mb-2">Explore the Brij: Find Your <em className="text-brand-gold not-italic font-normal">Sacred Space</em></h1>
+               <p className="text-sm md:text-xl font-light opacity-90 mb-8 max-w-2xl leading-relaxed">Premium real estate consultancy for the sacred Brij region. Every plot we represent comes with a 30-year title search and MVDA compliance — verified by our in-house lawyer.</p>
             </div>
             <form data-testid="hero-search-form" className="mt-10 bg-white rounded-2xl shadow-soft border border-brand-cream p-5 md:p-7 max-w-5xl">
                <div  className="mb-5">
