@@ -390,13 +390,61 @@ model my_forms_sections {
   @@id([formid, sectionid])
 }
 
+model testform {
+  id            Int      @id @default(autoincrement())
+  name          String
+  gender        String
+  user          String
+  photo         String[]
+  specification Json
+  amenities     String[]
+}
 
-model testform{
-     id       Int    @id @default(autoincrement())
-     name String
-     gender String
-     user String
-     photo String[]
-     specification Json
-     amenities String[]
+model Page {
+  id Int @id @default(autoincrement())
+
+  title String
+  slug  String @unique
+
+  content String @db.Text
+
+  isPublished Boolean @default(true)
+
+  meta_title       String?
+  meta_description String? @db.Text
+  meta_keyword    String? @db.Text
+
+  fb_og_title       String?
+  fb_og_description String?
+  fb_admin          String?
+  fb_og_image       String?
+
+  twitter_og_title       String?
+  twitter_og_description String?
+  twitter_site           String?
+  twitter_creator        String?
+  twitter_og_image       String?
+
+  og_locale           String?
+  og_locale_alternate String?
+  og_site_name        String?
+  og_update_time      String?
+  geo_region          String?
+  author              String?
+  copyright           String?
+  dc_language         String?
+
+  schema Json?
+
+  facebook_pixel_header              String? @db.Text
+  facebook_pixel_body                String? @db.Text
+  google_tag_manager_tracking_header String? @db.Text
+  google_tag_manager_tracking_body   String? @db.Text
+  other_code                         String? @db.Text
+
+  social_text_1 String?
+  social_text_2 String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

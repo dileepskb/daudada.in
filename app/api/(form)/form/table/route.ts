@@ -107,10 +107,11 @@ columns.forEach((item: any) => {
    * field => actual db column
    */
 
-  if (item?.field && item?.dbfield === 1) {
+  if (item?.field && item?.listview === 1) {
     select[item.field] = true;
   }
 });
+
 
 console.log("SELECT =>", select);
 

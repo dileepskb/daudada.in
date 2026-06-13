@@ -138,7 +138,13 @@ export function MySelect({
       <Select
         value={value || ""}
         onValueChange={(value) => {
-          onChange(value)
+          if (value === "true") {
+            onChange(true)
+          } else if (value === "false") {
+            onChange(false)
+          } else {
+            onChange(value)
+          }
 
           //   getFilterData(value)
         }}

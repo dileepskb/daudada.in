@@ -114,7 +114,7 @@ const data = {
       ],
     },
     {
-      title: "Seo",
+      title: "Pages",
       url: "#",
       icon: (
         <TerminalSquareIcon
@@ -122,6 +122,10 @@ const data = {
       ),
       isActive: true,
       items: [
+        {
+          title: "All Pages",
+          url: "/dashboard/pages",
+        },
         {
           title: "All Property Pages Seo",
           url: "/dashboard/property_seo",

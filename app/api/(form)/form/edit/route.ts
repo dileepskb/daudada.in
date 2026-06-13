@@ -5,8 +5,8 @@ import { prisma } from "@/lib/prisma"
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-    const { formId, data, editId } = body
-    console.log("submit testing--------------", formId, data)
+    const { formId, editId } = body
+   
 
     // validate
     if (!formId) {
@@ -59,25 +59,16 @@ export async function POST(req: Request) {
       )
     }
 
-    let result
-    if(editId){
-       result = await (prisma as any)[form.dbtable].update({
-        where:{
-          id:editId
-        },
-        data,
-      })
-    }
-    else{
-       result = await (prisma as any)[form.dbtable].create({
-          data,
-        })  
-    }
-    
+    // insert dynamic
+
+    const result = await (prisma as any)[form.dbtable].findUnique({
+      where:{
+        id:editId
+      }
+    })
 
     return Response.json({
       success: true,
-
       data: result,
     })
   } catch (error) {

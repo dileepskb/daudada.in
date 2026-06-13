@@ -4,9 +4,12 @@ import { useForm, FieldError } from "react-hook-form"
 import { SectionDrawer } from "./SectionDrawer"
 import { useAxios } from "@/utils/useAxios"
 import { Button } from "@/components/ui/button"
+import { useRouter, useSearchParams, usePathname } from "next/navigation"
+import { decrypt, encrypt } from "@/utils/storage"
 
 interface Props {
   getformData: any
+  formId:string
   // editdata: any;
   // listShow?: any;
   // isFilterForm?: boolean;
@@ -31,7 +34,13 @@ interface Section {
 //   columns?: any;
 // }
 
-export default function FormBuilder({ getformData }: Props) {
+export default function FormBuilder({ getformData, formId }: Props) {
+
+    const searchParams = useSearchParams(); // e.g., "?id=123"
+    const editId = searchParams.get("edit");
+
+  
+
   const formData = useForm({
     mode: "onSubmit",
   })
@@ -52,6 +61,15 @@ export default function FormBuilder({ getformData }: Props) {
     isPending: formIsPending,
   } = useAxios({
     url: "/api/form/submit",
+  })
+
+
+  const {
+    res: editRes,
+    mutate: editMutate,
+    isPending: editIsPending,
+  } = useAxios({
+    url: "/api/form/edit",
   })
 
   const onSubmit = (data: any) => {
@@ -91,12 +109,21 @@ export default function FormBuilder({ getformData }: Props) {
         }
       }
     })
-    console.log("on submit -1",getformData?.formid)
-    console.log("onSubmit -2", data)
-    formMutate({
-      formId: getformData?.form?.formid,
-      data: data,
-    })
+    if(editId){
+      const Id = decrypt(editId)
+       formMutate({
+          formId: getformData?.form?.formid,
+          data: data,
+          editId:Id
+       })
+    }
+    else{
+      formMutate({
+        formId: getformData?.form?.formid,
+        data: data,
+      })
+    }
+    
   }
 
   useEffect(() => {
@@ -108,11 +135,24 @@ export default function FormBuilder({ getformData }: Props) {
     }
   }, [formRes])
 
-  // useEffect(() => {
-  //   if (editdata && Object.keys(editdata).length > 0) {
-  //     reset({ ...editdata });
-  //   }
-  // }, [editdata, reset]);
+
+  useEffect(() => {
+    if(editId){
+        editMutate({
+          formId:formId,
+          editId:decrypt(editId || "")
+        })
+    }
+   
+  },[editId])
+
+  // console.log(editRes)
+  useEffect(() => {
+    const edititem = editRes?.data?.data
+    if (edititem && Object.keys(edititem).length > 0) {
+      reset({ ...edititem });
+    }
+  }, [editRes, reset]);
 
   const form = getformData || {}
   const sections = form?.sections || []

@@ -3,10 +3,7 @@
 import { useEffect } from "react"
 
 import { useAxios } from "@/utils/useAxios"
-import {
-  useRouter,
-  useSearchParams,
-} from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation"
 
 import {
   Table,
@@ -20,18 +17,19 @@ import {
 import { Button } from "@/components/ui/button"
 
 import { Eye, Pencil, Trash2 } from "lucide-react"
-import { decrypt, encrypt } from "@/utils/storage";
+import { decrypt, encrypt } from "@/utils/storage"
+import { MyFormColumn } from "@/types/form"
 
 interface Props {
   formId: string
 
-  formIntData?: any
+  formIntData?: unknown
 
-  onEdit?: (row: any) => void
+  onEdit?: (row: unknown) => void
 
-  onDelete?: (row: any) => void
+  onDelete?: (row: unknown) => void
 
-  onView?: (row: any) => void
+  onView?: (row: unknown) => void
 }
 
 const TableGenerator = ({
@@ -43,10 +41,16 @@ const TableGenerator = ({
 
   onView,
 }: Props) => {
+
+  const pathname = usePathname(); // e.g., "/dashboard/pages"
+
+  
+
+
+
   const { res, mutate, isPending, error } = useAxios({
     url: "/api/form/table",
   })
-
   useEffect(() => {
     if (formId) {
       mutate({
@@ -70,7 +74,7 @@ const TableGenerator = ({
    */
 
   const visibleColumns = columns.filter(
-    (item: any) => item.listview === 1 && item.dbfield === 1
+    (item: MyFormColumn) => item.listview === 1
   )
 
   const deleteRecord = async (row: any) => {
@@ -80,34 +84,23 @@ const TableGenerator = ({
       headers: {
         "Content-Type": "application/json",
       },
-
       body: JSON.stringify({
         formId,
-
         rowId: row.id,
       }),
     })
-
     const data = await res.json()
-
     if (data.success) {
       mutate({ formId })
     }
   }
 
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
+  const editId = decrypt(searchParams.get("edit"))
 
-const router = useRouter();
-const searchParams =
-  useSearchParams();
-
-const editId =
-  decrypt(
-searchParams.get("edit")
-  );
-
-console.log(editId);
-
+  console.log(editId)
 
   if (isPending) {
     return <div className="p-4">Loading...</div>
@@ -126,7 +119,7 @@ console.log(editId);
           <TableRow>
             <TableHead>ID</TableHead>
 
-            {visibleColumns.map((column: any) => (
+            {visibleColumns.map((column: MyFormColumn) => (
               <TableHead key={column.field}>{column.title}</TableHead>
             ))}
 
@@ -141,16 +134,16 @@ console.log(editId);
         <TableBody>
           {rows.length > 0 ? (
             rows.map((row: any) => (
-              <TableRow key={row.id}>
+              <TableRow key={row.id} className="relative">
                 {/* id */}
 
                 <TableCell>{row.id}</TableCell>
 
                 {/* dynamic fields */}
 
-                {visibleColumns.map((column: any) => {
+                {visibleColumns.map((column: MyFormColumn) => {
+                  // console.log(column.component)
                   const value = row[column.field]
-
                   return (
                     <TableCell key={column.field}>
                       {renderValue(value, column)}
@@ -160,7 +153,7 @@ console.log(editId);
 
                 {/* actions */}
 
-                <TableCell>
+                <TableCell className="absolute right-0 py-0.5 h-[35px]">
                   <div className="flex items-center gap-2">
                     {/* view */}
 
@@ -171,6 +164,7 @@ console.log(editId);
                         onView?.(row)
                         console.log(row)
                       }}
+                      className="p-0"
                     >
                       <Eye className="h-4 w-4" />
                     </Button>
@@ -178,18 +172,17 @@ console.log(editId);
                     {/* edit */}
 
                     <Button
-  size="icon"
-  variant="outline"
-  onClick={() => {
-    router.push(
-      `/dashboard/test/add?edit=${encrypt(
-        row.id
-      )}`
-    );
-  }}
->
-  <Pencil className="h-4 w-4" />
-</Button>
+                      size="icon"
+                      variant="outline"
+                      onClick={() => {
+                        router.push(
+                          `${pathname}/add?edit=${encrypt(row.id)}`
+                        )
+                      }}
+                      className="p-0"
+                    >
+                      <Pencil className="h-4 w-4" />
+                    </Button>
 
                     {/* delete */}
 
@@ -197,6 +190,7 @@ console.log(editId);
                       size="icon"
                       variant="destructive"
                       onClick={() => deleteRecord(row)}
+                      className="p-0"
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>
@@ -222,22 +216,10 @@ console.log(editId);
 
 export default TableGenerator
 
-/**
- * Render field value
- */
-
-function renderValue(value: any, column: any) {
-  /**
-   * Empty
-   */
-
+function renderValue(value: string, column: MyFormColumn) {
   if (value === null || value === undefined || value === "") {
     return "-"
   }
-
-  /**
-   * Checkbox
-   */
 
   if (column.component === "checkbox") {
     if (typeof value === "string") {
@@ -257,17 +239,20 @@ function renderValue(value: any, column: any) {
     return String(value)
   }
 
-  /**
-   * File/Image
-   */
-
   if (column.component === "file") {
     return <img src={value} alt="" className="h-12 w-12 rounded object-cover" />
   }
 
-  /**
-   * Key value
-   */
+  if (column.component === "my_editor") {
+    return (
+      <div
+        className="prose prose-sm line-clamp-4 max-w-none"
+        dangerouslySetInnerHTML={{
+          __html: value,
+        }}
+      />
+    )
+  }
 
   if (column.component === "MyKeyValue") {
     try {
@@ -291,9 +276,9 @@ function renderValue(value: any, column: any) {
     }
   }
 
-  /**
-   * Default
-   */
+  if (typeof value === "boolean") {
+    return value ? "Yes" : "No"
+  }
 
   return String(value)
 }

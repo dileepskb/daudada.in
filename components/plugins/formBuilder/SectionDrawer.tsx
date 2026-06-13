@@ -29,6 +29,7 @@ import { MySelect } from "../components/MySelect"
 import { MyFileUpload } from "../components/MyFileUpload"
 import { MyKeyValue } from "../components/MyKeyValue"
 import { MyCheckbox } from "../components/MyCheckBox"
+import MyFormEditor from "../components/MyFormEditor"
 // import DispatchTable from "../../components/Load/DispatchTable";
 
 // import MyCheckBoxBoolean from "../../components/formFields/MyCheckBoxBoolean";
@@ -67,7 +68,7 @@ export const SectionDrawer = ({
 
   const watched = watch()
 
-  console.log(sectionsMerge)
+
 
   return (
     <>
@@ -152,7 +153,7 @@ export const SectionDrawer = ({
                     select: (
                       <>
                         {renderLabel()}
-                        {console.log("options", options)}
+                       
                         <MySelect
                           {...commonProps}
                           options={options || []}
@@ -182,7 +183,7 @@ export const SectionDrawer = ({
                         />
                       </>
                     ),
-                      checkbox: (
+                  checkbox: (
                       <>
                         {renderLabel()}
                         <MyCheckbox
@@ -190,6 +191,12 @@ export const SectionDrawer = ({
                           type={type}
                           options={options || []}
                         />
+                      </>
+                    ),
+                  my_editor: (
+                      <>
+                        {renderLabel()}
+                        <MyFormEditor  {...commonProps} />
                       </>
                     ),
                     // location: (

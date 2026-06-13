@@ -22,6 +22,7 @@ const FormGenerator = ({ formId, formIntData }: props) => {
   return (
      <FormBuilder
                   getformData={res?.data?.data}
+                  formId={formId}
                   // editdata={dataHide ? {} : editRes?.data?.data}
                   // listShow={listShow}
                 />
